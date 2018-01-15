@@ -1,0 +1,13 @@
+build/
+*.o
+*.so
+*.x
+*.seed
+*.histo1D
+*.dat
+*.tgz
+*.gz
+*.zip
+*.bak
+*.log
+compiler.errors
