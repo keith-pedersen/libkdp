@@ -18,7 +18,7 @@ SOURCE = ./source
 EXAMPLES = ./examples
 
 INC_FLAGS = -I $(INCLUDE) -I $(LOCAL_DIR)/include
-LOCAL_LIBS =
+LOCAL_LIBS = -lpqr
 EXTERN_LIB_FLAGS = -lstdc++ -lm -L $(LOCAL_DIR)/lib $(LOCAL_LIBS)
 LIB_FLAGS = $(EXTERN_LIB_FLAGS) -L $(THIS_DIR) -lkdp
 

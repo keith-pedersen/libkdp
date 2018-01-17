@@ -395,6 +395,26 @@ kdp::Vector4<real_t>::Vector4(real_t const w0, Vector3<real_t> const& x_in,
 				throw std::domain_error("Vector4: negative mass");
 			x0 = std::sqrt(std::fma(w0, w0, x().Mag2()));
 		break;
+		
+		case Vec4from2::Boost_preserve_p3:
+			if(w0 < real_t(1))
+				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
+			
+			// gamma = En/Sqrt[En^2 - p^2] => En = Sqrt[ p^2 gamma^2 / (gamma^2 - 1)]
+			x0 = std::sqrt(p().Mag2() / kdp::Diff2(1., 1./w0));
+		break;
+		
+		case Vec4from2::Boost_preserve_E:
+			if(w0 < real_t(1))
+				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
+				
+			x0 = p().Mag();
+			real_t const gamma2 = kdp::Squared(w0);
+			// beta = sqrt(1 - gamma**-2)
+			// 1 - beta = 1 - sqrt(1 - gamma*-2) = 1/(gamma2 (1 + sqrt(1 - gamma2**-2)))
+			// 1 - (1 - beta) is actually the most accurate beta
+			p() *= (real_t(1) - real_t(1)/(gamma2 * (real_t(1) + std::sqrt(kdp::Diff2(1., 1./w0)))));
+		break;
 	}
 }
 
@@ -437,6 +457,12 @@ kdp::Vector4<real_t>& kdp::Vector4<real_t>::operator/=(real_t const scale)
    this->Vector3<real_t>::operator /= (scale);
    this->x0 /= scale;
    return *this;
+}
+
+template<typename real_t> //++
+kdp::Vector4<real_t> kdp::Vector4<real_t>::operator-() const
+{
+   return Vector4(-x0, -x1, -x2, -x3);
 }
 
 template<typename real_t>  //++

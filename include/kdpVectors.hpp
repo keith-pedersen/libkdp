@@ -66,6 +66,7 @@ struct Vector2
    //! @brief Construct from two generic d.o.f., identified via \p argFormat.
    explicit Vector2(real_t const w1_init, real_t const w2_init, 
 		Vec2from const argFormat);
+	virtual ~Vector2() {}
 
    //! @brief Convert the internal real_t floating-point type.
    template<typename convertTo>
@@ -126,6 +127,7 @@ struct Vector3 : protected Vector2<real_t>
    //! @brief Construct from three generic d.o.f., identified via \p argFormat.
    explicit Vector3(real_t const, real_t const, real_t const, 
 		Vec3from const argFormat);
+	virtual ~Vector3() {}
 
    //! @brief Convert the internal real_t floating-point type.
    template<typename convertTo>
@@ -191,7 +193,11 @@ using Vec3_f = Vector3<float>;
 enum class Vec4from4 {EnergyEtaPhiM}; // Add more options as needed
 
 //! @brief When a Vector4 is constructed from a Vector3 and one d.o.f., this enum identifies those d.o.f.
-enum class Vec4from2 {Energy, Time, Mass, Length};
+enum class Vec4from2 {Energy, Time, Mass, Length, 
+	// Take given p3 and calculate energy from it's boost
+	Boost_preserve_p3, 
+	// Take given p3 and use it's length as the energy, downscale p3 by beta.
+	Boost_preserve_E};
 
 /*! @brief Cartesian, Minkowski 4-vector
  * 
@@ -223,6 +229,7 @@ struct Vector4 : private Vector3<real_t>
    //! @brief Construct from a spatial 3-vector and one additional d.o.f., identified via \p argFormat
    explicit Vector4(real_t const w0, Vector3<real_t> const& xORp, Vec4from2 const w0type);
    explicit Vector4(Vector3<real_t> const& x); //! @brief Construct a light-like 4-vector (e.g. zero interval).
+   virtual ~Vector4() {}
 
    //! @brief Convert the internal real_t floating-point type
    template<typename convertTo>
@@ -256,14 +263,14 @@ struct Vector4 : private Vector3<real_t>
    
    operator std::vector<real_t>() const; //!@brief Convert to a std::vector.
 
-   //~ Vector4 operator-() const; // reverse all signs (why would anyone need this?).
+   Vector4 operator-() const; // reverse all signs
      
-   real_t Contract(Vector4 const&) const; //!< @brief \f$ p^\mu q_\mu \f$
-
-	//! @brief Square root of Length2() (return negative length Length2() is negative, instead of imaginary).
+   //! @brief Square root of Length2() (return negative length Length2() is negative, instead of imaginary).
    real_t Length()  const; 
    //! @brief \f$ p^\mu p_\mu \f$. \note see SetLengthRelDiffThreshold
    real_t Length2() const;
+   
+   real_t Contract(Vector4 const&) const; //!< @brief \f$ p^\mu q_\mu \f$
    
    /*! @brief Rapidity
     * 
