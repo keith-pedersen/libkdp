@@ -101,7 +101,7 @@ from cython.operator cimport dereference as deref
 cdef class Vec2:
 	# To allow the equivalent of C++ referencess (e.g. the Vec2 Vec3.T()), 
 	# we must use a shared_ptr
-	cdef shared_ptr[Vec2_c] vec
+#~ 	cdef shared_ptr[Vec2_c] vec
 	
 	def __cinit__(self, double x1 = 0., double x2 = 0.):
 #~ 		self.vec = shared_ptr[Vec2_c](new Vec2_c(x1, x2))
@@ -114,10 +114,14 @@ cdef class Vec2:
 	def Assign(self, Vec2 other):
 		deref(self.vec).assign(deref(other.vec))
 		
-	def Copy(self):
+	@staticmethod
+	cdef Vec2 Factory(const Vec2_c& orig):
 		copy = Vec2()
-		deref(copy.vec).assign(deref(self.vec))
+		deref(copy.vec).assign(orig)
 		return copy
+		
+	def Copy(self):
+		return Vec2.Factory(deref(self.vec))
 		
 	def __repr__(self):
 		return str([self.x1, self.x2])
@@ -207,7 +211,7 @@ cdef class Vec2:
 ########################################################################
 
 cdef class Vec3:
-	cdef shared_ptr[Vec3_c] vec
+#~ 	cdef shared_ptr[Vec3_c] vec
 	
 	def __cinit__(self, double x1 = 0., double x2 = 0., double x3 = 0.):
 #~ 		self.vec = shared_ptr[Vec3_c](new Vec3_c(x1, x2, x3))
@@ -219,10 +223,14 @@ cdef class Vec3:
 	def Assign(self, Vec3 other):
 		deref(self.vec).assign(deref(other.vec))
 		
-	def Copy(self):
+	@staticmethod
+	cdef Vec3 Factory(const Vec3_c& orig):
 		copy = Vec3()
-		deref(copy.vec).assign(deref(self.vec))
+		deref(copy.vec).assign(orig)
 		return copy
+		
+	def Copy(self):
+		return Vec3.Factory(deref(self.vec))
 		
 	def __repr__(self):
 		return str([self.x1, self.x2, self.x3])
@@ -320,7 +328,7 @@ cdef class Vec3:
 ########################################################################
 
 cdef class Vec4:
-	cdef shared_ptr[Vec4_c] vec
+#~ 	cdef shared_ptr[Vec4_c] vec
 	
 	def __cinit__(self, double x0 = 0., double x1 = 0., double x2 = 0., double x3 = 0.):
 #~ 		self.vec = shared_ptr[Vec4_c](new Vec4_c(x0, x1, x2, x3))
@@ -330,19 +338,20 @@ cdef class Vec4:
 	def From_MassP3(double mass, Vec3 p3):
 		ret = Vec4()
 #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
-		ret.vec = make_shared[Vec4_c](mass, deref(p3.vec), Mass)
+		ret.vec = make_shared[Vec4_c](mass, deref(p3.vec), V4f2_Mass)
 		return ret
 		
 	def __dealloc__(self):
 		return
 		
-	def Assign(self, Vec4 other):
-		deref(self.vec).assign(deref(other.vec))
+	@staticmethod
+	cdef Vec4 Factory(const Vec4_c& orig):
+		copy = Vec4()
+		deref(copy.vec).assign(orig)
+		return copy
 		
 	def Copy(self):
-		copy = Vec4()
-		deref(copy.vec).assign(deref(self.vec))
-		return copy
+		return Vec4.Factory(deref(self.vec))
 		
 	def __repr__(self):
 		return str([self.x0, [self.x1, self.x2, self.x3]])

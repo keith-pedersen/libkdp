@@ -28,7 +28,7 @@ setup(
   ext_modules=[
     Extension('kdp',
               sources=['source/kdp.pyx'],
-              include_dirs = ['include/'],
+              include_dirs = ['include/', '/home/keith/local/include/'],
               libraries = ['kdp'],
               library_dirs = ['/home/keith/local/lib/'],
               extra_compile_args=['-std=c++11', '-msse4', '-mavx2', '-mfpmath=sse', '-mieee-fp', '-march=native', '-ftree-vectorize'], # -O2 is default

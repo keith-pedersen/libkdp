@@ -3,14 +3,18 @@ from libcpp cimport bool # access bool as bool
 cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 	
 	#####################################################################
+		
+	# This is the way we must declare an enum class; 
+	# otherwise Cython attempts int conversion (which is forbidden, 
+	# which is the entire point of using an enum class).
+	cdef cppclass Vec2from:
+		pass  
 	
-	# This is exactly the way that enums classes must be decalared
-	# The name of the enum class must be different than the name in C
-	# The name of the variable must then contain the fully qualified name of the enum
-	# The enum value must be referred to only by its individual name, not it's full name
-	# (e.g. use LengthPhi, not Vec2from_c.LengthPhi)
-	cdef enum Vec2from_c:
-		LengthPhi "kdp::Vec2from::LengthPhi"
+	# Each enum value is an instance of the class, 
+	# which Cython will verbatim replace with the string
+	# To use these, refer to them by the name
+	# (e.g. V4f_LengthPhi, not Vec2from.V4f_LengthPhi).
+	cdef Vec2from	V4f_LengthPhi "kdp::Vec2from::LengthPhi"
 		
 	#####################################################################
 	
@@ -22,7 +26,7 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		Vec2_c(bool)
 		Vec2_c(const Vec2_c& orig)
 		Vec2_c(const double, const double)
-		Vec2_c(const double, const double, const Vec2from_c argFormat)
+		Vec2_c(const double, const double, const Vec2from argFormat)
 
 		# SUPER IMPORTANT ... must rename assignment operator =, 
 		# othwewise deref(ptr) = obj will fail with "Cannot assign to or delete this"
@@ -54,10 +58,12 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		double InteriorAngle(const Vec2_c&) const
 	
 	#####################################################################
-
-	cdef enum Vec3from_c:
-		LengthEtaPhi "kdp::Vec3from::LengthEtaPhi"
-		LengthThetaPhi "kdp::Vec3from::LengthThetaPhi"
+		
+	cdef cppclass Vec3from:
+		pass  
+	
+	cdef Vec3from	V3f_LengthEtaPhi "kdp::Vec3from::LengthEtaPhi"
+	cdef Vec3from	V3f_LengthThetaPhi "kdp::Vec3from::LengthThetaPhi"
 		
 	#####################################################################
 		
@@ -69,7 +75,7 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		Vec3_c()
 		Vec3_c(bool)
 		Vec3_c(const double, const double, const double)
-		Vec3_c(const double, const double, const double, const Vec3from_c argFormat)
+		Vec3_c(const double, const double, const double, const Vec3from argFormat)
 
 		Vec3_c& assign "operator=" (const Vec3_c&)
 		
@@ -103,18 +109,19 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		
 	#####################################################################
 		
-	cdef enum Vec4from4_c:
-		EnergyEtaPhiM "kdp::Vec4from4::EnergyEtaPhiM"
+	cdef cppclass Vec4from4:
+		pass  
+	
+	cdef Vec4from2	V4f4_EnergyEtaPhiM "kdp::Vec4from4::EnergyEtaPhiM"
 	
 	#####################################################################
-	
-	cdef enum Vec4from2_c:
-		Energy "kdp::Vec4from2::Energy"
-		Time "kdp::Vec4from2::Time"
-		Mass "kdp::Vec4from2::Mass"
-		Length "kdp::Vec4from2::Length"
-		Boost_preserve_E "kdp::Vec4from2::Boost_preserve_E"
-		Boost_preserve_p3 "kdp::Vec4from2::Boost_preserve_p3"
+		
+	cdef cppclass Vec4from2:
+		pass  
+		
+	cdef Vec4from2	V4f2_Mass "kdp::Vec4from2::Mass"
+	cdef Vec4from2	V4f2_Boost_preserve_E "kdp::Vec4from2::Boost_preserve_E"
+	cdef Vec4from2	V4f2_Boost_preserve_p3 "kdp::Vec4from2::Boost_preserve_p3"
 		
 	#####################################################################
 
@@ -127,8 +134,8 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		Vec4_c()
 		Vec4_c(bool)
 		Vec4_c(const double, const double, const double, const double)
-		Vec4_c(const double, const double, const double, const double, const Vec4from4_c argFormat)
-		Vec4_c(const double, const Vec3_c&, Vec4from2_c)
+		Vec4_c(const double, const double, const double, const double, const Vec4from4)
+		Vec4_c(const double, const Vec3_c&, const Vec4from2)
 		
 		Vec4_c& assign "operator=" (const Vec4_c&)
 		
