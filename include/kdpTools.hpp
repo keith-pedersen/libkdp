@@ -4,7 +4,7 @@
 /*! @file kdpTools.hpp
  *  @brief Some short utlity functions.
  * 
- *  \note As a reminder, a constexpr function \em can be evaluated at compile time
+ *  \note As a reminder, a constexpr function \em could be evaluated at compile time
  *  (although sometimes it cannot).
  * 
  *  @author Copyright (C) 2018 Keith Pedersen (Keith.David.Pedersen@gmail.com)
@@ -20,9 +20,14 @@
 #include <sstream>
 #include <cmath>
 #include <limits>
+#include <mutex>
 
 namespace kdp
 {
+
+// Reminder: If there is a non-templated function or class we wish to include here, 
+// we can simply declare it inline.	This will alter function lookup semantics.
+// declared inline per https://stackoverflow.com/questions/3973218/header-only-libraries-and-multiple-definition-errors
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -350,6 +355,84 @@ T BinaryAccumulate(std::vector<T> vec)
 {
 	return BinaryAccumulate_Destructive(vec);
 }
+
+////////////////////////////////////////////////////////////////////////
+
+/*! @brief A simple class which manages a count (e.g. the index i in a loop)
+ *  that can be shared between threads.
+ * 
+ *  \note Note that the only way to discover the count is to increment/decrement.
+ *  This is intentional, as accessing the value any other way could lead 
+ *  to sloppy assumptions (i.e. you read the count multiple times during an iteration, 
+ *  even though some other thread has incremented in-between reads).
+ *  The only count which is guaranteed safe is the one returned by the increment/decrement.
+ *  Hence, in order to use a count's value within a given iteration, 
+ *  you have to store the return of the increment/decrement.
+ *  
+ *  \code
+		MutexCount<size_t> iShared(0); // Pretend that other threads use this too
+		size_t i; // the local i used by this thread
+
+		while((i = iShared++) < max_iterations)
+		{
+			// Do something where you need to know i
+		}
+		 
+		// alternatively, if you don't need i within the iteration, no storage needed
+		while(iShared++ < max_iterations)
+		{
+			// Do something which doesn't depend on i
+		}
+   \endcode
+ */
+template<typename T>
+class MutexCount
+{
+	private:
+		T count;
+		std::mutex mutex;
+		
+	public:
+		MutexCount(T const count_init):
+			count(count_init) {}
+			
+		// We use unique_lock because it is the safer option.
+		// For one, it automatically unlocks upon destruction, 
+		// so we don't forget to unlock (and deadlock the program).
+		// Additionally, in this specific use-case, we would have to 
+		// store the return before unlocking, then return the stored value, 
+		// so there is less code. Finally, we don't know what T is;
+		// incrementing may throw an exception. If so, 
+		// the unique_lock destructor will be called, unlocking the mutex.
+			
+		T const operator++() // prefix (++x)
+		{
+			std::unique_lock<std::mutex> lock(mutex);
+			
+			return ++count;
+		}
+		
+		T const operator++(int) // dummy int to denote postfix (x++)
+		{
+			std::unique_lock<std::mutex> lock(mutex);
+			
+			return count++;
+		}
+		
+		T const operator--() // prefix (--x)
+		{
+			std::unique_lock<std::mutex> lock(mutex);
+			
+			return --count;
+		}
+		
+		T const operator--(int) // dummy int to denote postfix (x--)
+		{
+			std::unique_lock<std::mutex> lock(mutex);
+			
+			return count--;
+		}
+};
 
 // What is this left over from?
 //~ template<typename real_t, size_t incrementSize>

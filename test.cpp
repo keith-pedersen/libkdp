@@ -34,8 +34,15 @@ int main()
 	std::vector<kdp::Vec4> sample;
 	//~ sample.reserve(sampleSize);
 	
-	for(size_t i = 0; i < sampleSize; ++i)
+	kdp::MutexCount<size_t> i(0);
+	
+	printf("%lu\n", i++);
+	printf("%lu\n", ++i);
+	printf("%lu\n", i++);
+	
+	while(i++ < sampleSize)
 		sample.push_back(IsotropicMasslessVec4(gen));
+	printf("%lu\n", i++);
 		
 	printf("vecs drawn\n");
 	
