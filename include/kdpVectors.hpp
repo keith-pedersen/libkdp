@@ -125,8 +125,7 @@ struct Vector3 : protected Vector2<real_t>
    explicit Vector3(bool); //!< @brief Don't initialize the vector (regardless of bool's value).
    explicit Vector3(real_t const x1_init, real_t const x2_init, real_t const x3_init);
    //! @brief Construct from three generic d.o.f., identified via \p argFormat.
-   explicit Vector3(real_t const, real_t const, real_t const, 
-		Vec3from const argFormat);
+   explicit Vector3(real_t const, real_t const, real_t const, Vec3from const argFormat);
 	virtual ~Vector3() {}
 
    //! @brief Convert the internal real_t floating-point type.
@@ -196,8 +195,10 @@ enum class Vec4from4 {EnergyEtaPhiM}; // Add more options as needed
 enum class Vec4from2 {Energy, Time, Mass, Length, 
 	// Take given p3 and calculate energy from it's boost
 	Boost_preserve_p3, 
+	BoostMinusOne_preserve_p3,
 	// Take given p3 and use it's length as the energy, downscale p3 by beta.
-	Boost_preserve_E};
+	Boost_preserve_E,
+	BoostMinusOne_preserve_E};
 
 /*! @brief Cartesian, Minkowski 4-vector
  * 
@@ -277,6 +278,10 @@ struct Vector4 : private Vector3<real_t>
     *  \f$ y = \text{arctanh}\left(\frac{\tt vec.x3}{\tt vec.x0}\right) \f$
    */
    real_t Rapidity() const;
+   
+   static real_t BetaFrom_Gamma(real_t const gamma);
+   static real_t BetaFrom_GammaMinusOne(real_t const gm1);
+   static real_t BetaFrom_Mass_pSquared(real_t const mass, real_t const pSquared);
 
    /*! @brief The Length() of a light-like 4-vector should be zero.
     * 

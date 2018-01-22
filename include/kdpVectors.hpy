@@ -122,6 +122,8 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 	cdef Vec4from2	V4f2_Mass "kdp::Vec4from2::Mass"
 	cdef Vec4from2	V4f2_Boost_preserve_E "kdp::Vec4from2::Boost_preserve_E"
 	cdef Vec4from2	V4f2_Boost_preserve_p3 "kdp::Vec4from2::Boost_preserve_p3"
+	cdef Vec4from2	V4f2_BoostMinusOne_preserve_E "kdp::Vec4from2::BoostMinusOne_preserve_E"	
+	cdef Vec4from2	V4f2_BoostMinusOne_preserve_p3 "kdp::Vec4from2::BoostMinusOne_preserve_p3"
 		
 	#####################################################################
 

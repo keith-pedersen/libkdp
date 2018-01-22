@@ -393,6 +393,7 @@ kdp::Vector4<real_t>::Vector4(real_t const w0, Vector3<real_t> const& x_in,
 		case Vec4from2::Mass:
 			if(w0 < real_t(0))
 				throw std::domain_error("Vector4: negative mass");
+				
 			x0 = std::sqrt(std::fma(w0, w0, x().Mag2()));
 		break;
 		
@@ -400,8 +401,14 @@ kdp::Vector4<real_t>::Vector4(real_t const w0, Vector3<real_t> const& x_in,
 			if(w0 < real_t(1))
 				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
 			
-			// gamma = En/Sqrt[En^2 - p^2] => En = Sqrt[ p^2 gamma^2 / (gamma^2 - 1)]
-			x0 = std::sqrt(p().Mag2() / kdp::Diff2(1., 1./w0));
+			x0 = p().Mag() / BetaFrom_Gamma(w0);
+		break;
+		
+		case Vec4from2::BoostMinusOne_preserve_p3:
+			if(w0 < real_t(1))
+				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
+			
+			x0 = p().Mag() / BetaFrom_GammaMinusOne(w0);
 		break;
 		
 		case Vec4from2::Boost_preserve_E:
@@ -409,17 +416,25 @@ kdp::Vector4<real_t>::Vector4(real_t const w0, Vector3<real_t> const& x_in,
 				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
 				
 			x0 = p().Mag();
-			real_t const gamma2 = kdp::Squared(w0);
-			// beta = sqrt(1 - gamma**-2)
-			// 1 - beta = 1 - sqrt(1 - gamma*-2) = 1/(gamma2 (1 + sqrt(1 - gamma2**-2)))
-			// 1 - (1 - beta) is actually the most accurate beta
-			p() *= (real_t(1) - real_t(1)/(gamma2 * (real_t(1) + std::sqrt(kdp::Diff2(1., 1./w0)))));
+			p() *= BetaFrom_Gamma(w0);
+		break;
+		
+		case Vec4from2::BoostMinusOne_preserve_E:
+			if(w0 < real_t(1))
+				throw std::domain_error("Vector4: boost factor cannot be less than 1.");
+				
+			x0 = p().Mag();
+			p() *= BetaFrom_GammaMinusOne(w0);
+		break;
+		
+		default:
+			throw std::runtime_error("Vector4::Vecto4. Unrecognized Vec4from2 enum");
 		break;
 	}
 }
 
 template<typename real_t>  //++
-real_t kdp::Vector4<real_t>::relDiffThreshold = std::sqrt(real_t(16.)*std::numeric_limits<real_t>::epsilon());
+real_t kdp::Vector4<real_t>::relDiffThreshold = std::sqrt(real_t(16)*std::numeric_limits<real_t>::epsilon());
 
 template<typename real_t>  //++
 void kdp::Vector4<real_t>::SetLengthRelDiffThreshold(real_t const newThreshold)
@@ -532,6 +547,53 @@ template<typename convertTo>  //++
 kdp::Vector4<real_t>::operator kdp::Vector4<convertTo>() const
 {
    return kdp::Vector4<convertTo>(convertTo(x0), convertTo(x1), convertTo(x2), convertTo(x3));
+}
+
+template<typename real_t>
+real_t kdp::Vector4<real_t>::BetaFrom_Gamma(real_t const gamma)
+{
+	// This is the cutoff where beta > 0.5
+	static constexpr real_t gamma_cutoff = std::sqrt(4./3.);
+	
+	// beta = sqrt(1 - gamma**-2)	
+	if(gamma < gamma_cutoff)
+	{
+		// To get the most accurate answer from gamma, we must use Diff2
+		// However, the most accurate answer will come from |p| / E
+		return std::sqrt(kdp::Diff2(real_t(1), real_t(1)/gamma));
+	}
+	else // beta is close to one, we can get a more accurate answer 
+	{
+		// 1 - (1 - beta) is actually the most accurate beta
+		// 1 - beta = 1 - sqrt(1 - gamma*-2) = 1/(gamma (gamma + sqrt(gamma**2 - 1)))
+		return real_t(1) - real_t(1)/(gamma * 
+			(gamma + std::sqrt(kdp::Diff2(gamma, real_t(1)))));
+	}	
+}
+
+template<typename real_t>
+real_t kdp::Vector4<real_t>::BetaFrom_GammaMinusOne(real_t const gm1)
+{
+	// This is the cutoff where beta > 0.5. gamma_cutoff = sqrt(4/3)
+	// gm1_cutoff = sqrt(4/3) - 1 = (4/3 - 1)/(sqrt(4/3)+1) = 1/(3*sqrt(4/3) + 3)
+	static constexpr real_t gm1_cutoff = real_t(1)/(std::sqrt(real_t(12)) + real_t(3));
+	
+	// beta = sqrt(1 - gamma**-2)
+	if(gm1 < gm1_cutoff)
+		return std::sqrt(gm1*(gm1 + real_t(2)))/(gm1 + real_t(1));
+	else // beta is close to one, we can get a more accurate answer by subtracting
+	{
+		// 1 - beta = 1 - sqrt(1 - gamma*-2) = 1/(gamma2 (1 + sqrt(1 - gamma2**-2)))
+		// 1 - (1 - beta) is actually the most accurate beta
+		return real_t(1) - real_t(1)/((gm1 + real_t(1))*
+			(real_t(1) + (gm1 + std::sqrt(gm1*(gm1 + real_t(2))))));
+	}
+}
+
+template<typename real_t>
+real_t kdp::Vector4<real_t>::BetaFrom_Mass_pSquared(real_t const mass, real_t const pSquared)
+{
+	return std::sqrt(pSquared/(pSquared + kdp::Squared(mass)));
 }
 
 //~ template <typename real_t>
