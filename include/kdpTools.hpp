@@ -67,7 +67,7 @@ real_t RelError(real_t const calculated, real_t const correct)
       if(calculated == correct)
          relError = 0;
       else
-         relError = -real_t(2)*real(calculated < correct);
+         relError = -real_t(2)*real_t(calculated < correct);
    }
    
    return relError;
@@ -79,7 +79,7 @@ real_t RelError(real_t const calculated, real_t const correct)
 template<typename real_t>
 inline real_t AbsRelError(real_t const calculated, real_t const correct)
 {
-   return std::fabs(RelError(calculated, calculated));
+   return std::fabs(RelError(calculated, correct));
 }
 
 ////////////////////////////////////////////////////////////////////////

@@ -617,6 +617,65 @@ template kdp::Vector4<double>::operator kdp::Vector4<float>() const;
 //~ template kdp::Vector4<double> kdp::MasslessVec4_EnergyEtaPhi(double const E, double const eta, double const phi);
 //~ template kdp::Vector4<float> kdp::MasslessVec4_EnergyEtaPhi(float const E, float const eta, float const phi);
 
+
+//! @brief Construct the object that takes u> to v> 
+		
+template<typename real_t>		
+kdp::Rotate3<real_t>::Rotate3(vec3_t const& u, vec3_t const& v):
+	axis_NN(u.Cross(v)), 
+	axis_mag2(axis_NN.Mag2()),
+	uv_mag2(u.Mag2() * v.Mag2()),
+	cos_phi(u.Dot(v) / std::sqrt(uv_mag2))
+{
+	if(uv_mag2 == real_t(0))
+		throw std::invalid_argument("Rotate2: no rotation can be defined ... at least one null vector");
+}
+
+template<typename real_t>
+typename kdp::Rotate3<real_t>::vec3_t& kdp::Rotate3<real_t>::operator()(vec3_t& b) const
+{
+	// Only possible when (u == +/- v), so either identity or parity
+	if((axis_mag2 == real_t(0)) and (cos_phi < real_t(0)))
+		b = -b;
+	else
+	{
+		vec3_t const parallel = axis_NN * (axis_NN.Dot(b)/axis_mag2);
+		double const orig_mag2 = b.Mag2();
+		// This form is better because than
+		// 	parallel + (b - parallel)*cos_phi + ...
+		// because there is one less vector addition.
+		// Note: when cross is small, it's from cancellation, when dot is small, it's from cancellation
+		// I don't think there is any way to get a more accurate rotation from two vectors.
+		// When the b is in the orthogonal plane, the dot with the axis
+		// has a decent amount of relative error, but that's because the dot is small.					
+		b = parallel*(real_t(1) - cos_phi) + (b*cos_phi + axis_NN.Cross(b)/std::sqrt(uv_mag2));
+		b *= std::sqrt(orig_mag2 / b.Mag2());
+	}
+	
+	return b;
+}
+		
+template<typename real_t>
+typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::operator()(vec3_t const& b) const
+{
+	vec3_t copy = b;
+	return (*this)(copy);
+}
+		
+template<typename real_t>
+typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::Axis() const
+{
+	return axis_NN/std::sqrt(axis_mag2);
+}
+
+template class kdp::Rotate3<float>;
+template class kdp::Rotate3<double>;
+
+typedef kdp::Rotate3<double> Rot3;
+typedef kdp::Rotate3<float> Rot3_f;
+
+////////////////////////////////////////////////////////////////////////
+
 template<typename real_t>
 kdp::LorentzBoost<real_t>::LorentzBoost(Vector4<real_t> const& target, 
 	bool const CMtoTarget):

@@ -301,6 +301,41 @@ struct Vector4 : private Vector3<real_t>
       static real_t relDiffThreshold;
 };
 
+/*! @brief Rotates a vector about some axis x^ by some angle phi
+ * 
+ *  After rotation we do a magnitude correction step which makes the 
+ *  rotation take about 15% longer. This is mostly fixing rotations 
+ *  where the angle is > 140 degrees, and where the new mangitude has 
+ *  a relative error of about 1e-15.
+ * 
+ *  A possibly faster solution for these large rotations is to compse the 
+ *  rotation from two parity flips (reverse sign of two of the axis), 
+ *  with a small rotation to finish the job. This only works if we do 
+ *  an EVEN number of parity flips, so it comes back to a rotation.
+*/ 
+template<typename real_t>
+class Rotate3
+{
+	public: 
+		using vec3_t = kdp::Vector3<real_t>;
+	
+	private:
+		vec3_t axis_NN; // actually u> x v>, NN = not normalized
+		real_t axis_mag2; // | u> x v> |
+		real_t uv_mag2;
+		real_t cos_phi;
+			
+	public: 
+		//! @brief Construct the object that takes u> to v> 
+		Rotate3(vec3_t const& u, vec3_t const& v);
+			
+		vec3_t& operator()(vec3_t& b) const;		
+		vec3_t operator()(vec3_t const& b) const;
+		
+		// Probably won't need this often, no need to explicitly store.
+		vec3_t Axis() const;
+};
+
 //~ template <typename real_t>
 //~ Vector4<real_t> MasslessVec4_EnergyEtaPhi(real_t const E, real_t const eta, real_t const phi);
 
