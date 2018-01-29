@@ -671,9 +671,6 @@ typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::Axis() const
 template class kdp::Rotate3<float>;
 template class kdp::Rotate3<double>;
 
-typedef kdp::Rotate3<double> Rot3;
-typedef kdp::Rotate3<float> Rot3_f;
-
 ////////////////////////////////////////////////////////////////////////
 
 template<typename real_t>

@@ -301,6 +301,10 @@ struct Vector4 : private Vector3<real_t>
       static real_t relDiffThreshold;
 };
 
+// Create nicknames for common real_t types
+using Vec4 = Vector4<double>;
+using Vec4_f = Vector4<float>;
+
 /*! @brief Rotates a vector about some axis x^ by some angle phi
  * 
  *  After rotation we do a magnitude correction step which makes the 
@@ -336,12 +340,11 @@ class Rotate3
 		vec3_t Axis() const;
 };
 
+typedef kdp::Rotate3<double> Rot3;
+typedef kdp::Rotate3<float> Rot3_f;
+
 //~ template <typename real_t>
 //~ Vector4<real_t> MasslessVec4_EnergyEtaPhi(real_t const E, real_t const eta, real_t const phi);
-
-// Create nicknames for common real_t types
-using Vec4 = Vector4<double>;
-using Vec4_f = Vector4<float>;
 
 /*! @brief A boost matrix (lambda) in an arbitrary direction.
  * 

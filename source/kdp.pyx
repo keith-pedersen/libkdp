@@ -169,18 +169,18 @@ cdef class Vec2:
 		return self
 		
 	def __add__(Vec2 this, Vec2 that):
-		return this.Copy().iadd(that)
+		return this.Copy().__iadd__(that)
 		
 	def __sub__(Vec2 this, Vec2 that):
-		return this.Copy().isub(that)
+		return this.Copy().__isub__(that)
 	
 	# Currently, __rmul__ is not supported
 	def __mul__(Vec2 this, double scale):
-		return this.Copy().imul(scale)
+		return this.Copy().__imul__(scale)
 	
 	# Note this is truediv, not div, which is what Python 3 will call for  a / b
 	def __truediv__(Vec2 this, double scale):
-		return this.Copy().itruediv(scale)
+		return this.Copy().__itruediv__(scale)
 
 	def __neg__(self):
 		ret = Vec2()
@@ -278,18 +278,18 @@ cdef class Vec3:
 		return self
 		
 	def __add__(Vec3 this, Vec3 that):
-		return this.Copy().iadd(that)
+		return this.Copy().__iadd__(that)
 		
 	def __sub__(Vec3 this, Vec3 that):
-		return this.Copy().isub(that)
+		return this.Copy().__isub__(that)
 	
 	# Currently, __rmul__ is not supported
 	def __mul__(Vec3 this, double scale):
-		return this.Copy().imul(scale)
+		return this.Copy().__imul__(scale)
 	
 	# Note this is truediv, not div
 	def __truediv__(Vec3 this, double scale):
-		return this.Copy().itruediv(scale)
+		return this.Copy().__itruediv__(scale)
 
 	def __neg__(self):
 		ret = Vec3()
@@ -410,18 +410,18 @@ cdef class Vec4:
 		return self
 		
 	def __add__(Vec4 this, Vec4 that):
-		return this.Copy().iadd(that)
+		return this.Copy().__iadd__(that)
 		
 	def __sub__(Vec4 this, Vec4 that):
-		return this.Copy().isub(that)
+		return this.Copy().__isub__(that)
 	
 	# Currently, __rmul__ is not supported
 	def __mul__(Vec4 this, double scale):
-		return this.Copy().imul(scale)
+		return this.Copy().__imul__(scale)
 	
 	# Note this is truediv, not div
 	def __truediv__(Vec4 this, double scale):
-		return this.Copy().itruediv(scale)
+		return this.Copy().__itruediv__(scale)
 
 	def __neg__(self):
 		ret = Vec4()
