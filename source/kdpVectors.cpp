@@ -609,7 +609,7 @@ template class kdp::Vector4<double>;
 template class kdp::Vector4<float>;
 //template class kdp::Vector2<long double>;
 
-// Insantiate conversion functions between common types
+// Instantiate conversion functions between common types 
 // (nested template, not instantiated by struct instantiation 
 template kdp::Vector4<float>::operator kdp::Vector4<double>() const;
 template kdp::Vector4<double>::operator kdp::Vector4<float>() const;
@@ -618,42 +618,142 @@ template kdp::Vector4<double>::operator kdp::Vector4<float>() const;
 //~ template kdp::Vector4<float> kdp::MasslessVec4_EnergyEtaPhi(float const E, float const eta, float const phi);
 
 
-//! @brief Construct the object that takes u> to v> 
-		
 template<typename real_t>		
-kdp::Rotate3<real_t>::Rotate3(vec3_t const& u, vec3_t const& v):
-	axis_NN(u.Cross(v)), 
-	axis_mag2(axis_NN.Mag2()),
-	uv_mag2(u.Mag2() * v.Mag2()),
-	cos_phi(u.Dot(v) / std::sqrt(uv_mag2))
+kdp::Rotate3<real_t>::Rotate3(vec3_t const& axis_in, real_t const psi):
+	axis(axis_in),
+	cos_psi(std::cos(psi)),
+	oneMcos_psi(real_t(2)*kdp::Squared(std::sin(real_t(0.5)*psi))), // Better precision for 1 - cos(x)
+	sin_psi(std::sin(psi))
 {
-	if(uv_mag2 == real_t(0))
-		throw std::invalid_argument("Rotate2: no rotation can be defined ... at least one null vector");
+	axis.Normalize();
+}
+
+
+template<typename real_t>		
+kdp::Rotate3<real_t>::Rotate3(vec3_t const& u, vec3_t const& v, real_t const omega):
+	axis(false) // skip initialize
+{
+	real_t const u_Mag2 = u.Mag2();
+	real_t const v_Mag2 = v.Mag2();
+	
+	if((u_Mag2 * v_Mag2) == real_t(0))
+		throw std::invalid_argument("Rotate3: no rotation can be defined ... at least one null vector");
+	
+	vec3_t const u_hat = u / std::sqrt(u_Mag2);
+	vec3_t const v_hat = v / std::sqrt(v_Mag2);
+	
+	if(u_hat.Dot(v_hat) + 1. < real_t(3) * std::numeric_limits<real_t>::epsilon())
+		throw std::invalid_argument(std::string("Rotate3: u and v are antiparallel, the rotation is ambiguous.")
+			 + "This ambiguity can only be broken by defining the orthogonal axis of rotation, "
+			 + "in which case one should define the rotation via axis/angle=pi.");
+	
+	// Do interior angle manually because we need Mag2 for other things
+	real_t const halfTheta = real_t(0.5)*std::atan2(std::sqrt(u.Cross(v).Mag2() / (u_Mag2 * v_Mag2)), 
+		u.Dot(v) / std::sqrt(u_Mag2 * v_Mag2));
+	real_t const halfOmega = real_t(0.5)*omega;
+	
+	vec3_t const x1 = u.Cross(v).Normalize();
+	vec3_t const x2 = (u_hat + v_hat).Normalize();
+	
+	real_t const sin_halfOmega = std::sin(halfOmega);
+	real_t const sin_halfTheta = std::sin(halfTheta);
+	real_t const c_Theta = std::sqrt(
+		real_t(2)*kdp::Squared(sin_halfTheta)
+		+ real_t(2)*kdp::Squared(sin_halfOmega)
+		+ kdp::Squared(std::sin(real_t(2)*(halfTheta + halfOmega)))
+		+ kdp::Squared(std::sin(real_t(2)*(halfTheta - halfOmega))));
+	//~ real_t const c_Theta = std::sqrt(real_t(3) -
+		//~ std::cos(omega) - std::cos(real_t(2)*halfTheta)*(real_t(1) + std::cos(omega)));
+		
+	if(c_Theta < std::numeric_limits<real_t>::epsilon()) // u || v and omega = 0 -> identify matrix
+	{
+		axis = x2; // 
+		cos_psi = real_t(1);
+		sin_psi = oneMcos_psi = real_t(0);
+	}
+	else
+	{	
+		real_t const a = real_t(2) * std::cos(halfOmega) * sin_halfTheta / c_Theta;
+		real_t const b = real_t(2) * sin_halfOmega / c_Theta;
+			
+		axis = (x1 * a + x2 * b).Normalize();
+		
+		vec3_t const u_perp = u_hat - axis * (u_hat.Dot(axis));	
+		vec3_t const v_perp = v_hat - axis * (v_hat.Dot(axis));
+		
+		real_t const psi = std::copysign(u_perp.InteriorAngle(v_perp), a);
+		
+		cos_psi = std::cos(psi);
+		oneMcos_psi = real_t(2)*kdp::Squared(std::sin(real_t(0.5)*psi));
+		sin_psi = std::sin(psi);
+	}
 }
 
 template<typename real_t>
-typename kdp::Rotate3<real_t>::vec3_t& kdp::Rotate3<real_t>::operator()(vec3_t& b) const
+typename kdp::Rotate3<real_t>::vec3_t& kdp::Rotate3<real_t>::operator()(vec3_t& vict) const
 {
-	// Only possible when (u == +/- v), so either identity or parity
-	if((axis_mag2 == real_t(0)) and (cos_phi < real_t(0)))
-		b = -b;
-	else
-	{
-		vec3_t const parallel = axis_NN * (axis_NN.Dot(b)/axis_mag2);
-		double const orig_mag2 = b.Mag2();
-		// This form is better because than
-		// 	parallel + (b - parallel)*cos_phi + ...
-		// because there is one less vector addition.
-		// Note: when cross is small, it's from cancellation, when dot is small, it's from cancellation
-		// I don't think there is any way to get a more accurate rotation from two vectors.
-		// When the b is in the orthogonal plane, the dot with the axis
-		// has a decent amount of relative error, but that's because the dot is small.					
-		b = parallel*(real_t(1) - cos_phi) + (b*cos_phi + axis_NN.Cross(b)/std::sqrt(uv_mag2));
-		b *= std::sqrt(orig_mag2 / b.Mag2());
-	}
+	/* Length correction implemented for correct length-mangling for 
+	 * near-pi rotations. The length correction step only takes ~15% longer,
+	 * so it doesn't hurt enough to justify removing 
+	 * (especially when rotating unit vectors).
+	 * 
+	 * A possibly faster solution for large rotations is to compose the 
+	 * rotation from two parity flips (reverse sign of two of the axis), 
+	 * with a small rotation to finish the job. This only works if we do 
+	 * an EVEN number of parity flips, so it comes back to a rotation.
+	 * 
+	 * Note: when cross is small, it's from cancellation, when dot is small, it's from cancellation
+	 * I don't think there is any way to get a more accurate rotation from two vectors.
+	 * When the b is in the orthogonal plane, the dot with the axis
+	 * has a decent amount of relative error, but that's because the dot is small.
+	*/
+
+	double const orig_mag2 = vict.Mag2();
+	// This form used here is better than
+	// 	parallel + (b - parallel)*cos_phi + ...
+	// because there is one less vector addition.
+	vec3_t const parallel = axis * axis.Dot(vict);
+	vict = parallel * oneMcos_psi + (vict * cos_psi + axis.Cross(vict) * sin_psi);
+	//~ vict = parallel  + ((vict - parallel) * cos_psi + axis.Cross(vict) * sin_psi);
+	vict *= std::sqrt(orig_mag2 / vict.Mag2());
 	
-	return b;
+	return vict;
 }
+		
+//~ template<typename real_t>		
+//~ kdp::Rotate3<real_t>::Rotate3(vec3_t const& u, vec3_t const& v):
+	//~ axis_NN(u.Cross(v)), 
+	//~ axis_mag2(axis_NN.Mag2()),
+	//~ uv_mag2(u.Mag2() * v.Mag2()),
+	//~ cos_phi(u.Dot(v) / std::sqrt(uv_mag2))
+//~ {
+	//~ if(uv_mag2 == real_t(0))
+		//~ throw std::invalid_argument("Rotate2: no rotation can be defined ... at least one null vector");
+//~ }
+
+//~ template<typename real_t>
+//~ typename kdp::Rotate3<real_t>::vec3_t& kdp::Rotate3<real_t>::operator()(vec3_t& b) const
+//~ {
+	//~ // Only possible when (u == +/- v), so either identity or parity
+	//~ if((axis_mag2 == real_t(0)) and (cos_phi < real_t(0)))
+		//~ b = -b;
+	//~ else
+	//~ {
+		//~ vec3_t const parallel = axis_NN * (axis_NN.Dot(b)/axis_mag2);
+		//~ double const orig_mag2 = b.Mag2();
+		//~ // This form is better because than
+		//~ // 	parallel + (b - parallel)*cos_phi + ...
+		//~ // because there is one less vector addition.
+		//~ // Note: when cross is small, it's from cancellation, when dot is small, it's from cancellation
+		//~ // I don't think there is any way to get a more accurate rotation from two vectors.
+		//~ // When the b is in the orthogonal plane, the dot with the axis
+		//~ // has a decent amount of relative error, but that's because the dot is small.					
+		//~ b = parallel*(real_t(1) - cos_phi) + (b*cos_phi + axis_NN.Cross(b)/std::sqrt(uv_mag2));
+		//~ b *= std::sqrt(orig_mag2 / b.Mag2());
+	//~ }
+	
+	//~ return b;
+//~ }
 		
 template<typename real_t>
 typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::operator()(vec3_t const& b) const
@@ -665,7 +765,15 @@ typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::operator()(vec3_t co
 template<typename real_t>
 typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::Axis() const
 {
-	return axis_NN/std::sqrt(axis_mag2);
+	return axis;
+	//~ return axis_NN/std::sqrt(axis_mag2);
+}
+
+template<typename real_t>
+real_t kdp::Rotate3<real_t>::Angle() const
+{
+	return std::atan2(sin_psi, cos_psi);
+	//~ return axis_NN/std::sqrt(axis_mag2);
 }
 
 template class kdp::Rotate3<float>;

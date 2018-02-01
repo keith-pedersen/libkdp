@@ -305,17 +305,10 @@ struct Vector4 : private Vector3<real_t>
 using Vec4 = Vector4<double>;
 using Vec4_f = Vector4<float>;
 
-/*! @brief Rotates a vector about some axis x^ by some angle phi
+/*! @brief An active, Right-handedly (RH) rotation about some axis by some angle psi
  * 
- *  After rotation we do a magnitude correction step which makes the 
- *  rotation take about 15% longer. This is mostly fixing rotations 
- *  where the angle is > 140 degrees, and where the new mangitude has 
- *  a relative error of about 1e-15.
- * 
- *  A possibly faster solution for these large rotations is to compse the 
- *  rotation from two parity flips (reverse sign of two of the axis), 
- *  with a small rotation to finish the job. This only works if we do 
- *  an EVEN number of parity flips, so it comes back to a rotation.
+ *  This class has been validated, and 99% of errors are smaller than O(1e-14).
+ *  There is probably room for improvement, but we table this for now.
 */ 
 template<typename real_t>
 class Rotate3
@@ -324,20 +317,44 @@ class Rotate3
 		using vec3_t = kdp::Vector3<real_t>;
 	
 	private:
-		vec3_t axis_NN; // actually u> x v>, NN = not normalized
-		real_t axis_mag2; // | u> x v> |
-		real_t uv_mag2;
-		real_t cos_phi;
+		//~ vec3_t axis_NN; // actually u> x v>, NN = not normalized
+		//~ real_t axis_mag2; // | u> x v> |
+		//~ real_t uv_mag2;
+		//~ real_t cos_phi;
+		vec3_t axis;
+		real_t cos_psi; 
+		real_t oneMcos_psi; //! @brief 1-cos(psi)
+		real_t sin_psi;
 			
 	public: 
-		//! @brief Construct the object that takes u> to v> 
-		Rotate3(vec3_t const& u, vec3_t const& v);
-			
-		vec3_t& operator()(vec3_t& b) const;		
-		vec3_t operator()(vec3_t const& b) const;
+		/*! @brief Construct the rotation that actively takes \p u to \p v,
+		 *  with a right-handed post-rotation of \p omega degrees about \p v.
+		 *  
+		 *  The post-rotation is necessary to fully specify the rotation;
+		 *  "the rotation which takes u> to v>" is ambiguous because it 
+		 *  only defines 2 of 3 Euler angles. There are actually an
+		 *  infinite number of rotations which take u> to v>, 
+		 *  but only one for a given \p omega.
+		 *  See "ArbitraryRotation.pdf" for more details.
+		 * 
+		 *  \note The identity operation only occurs when \p u || \p v and sin(omega) == 0
+		 *  \note If v and u are antiparallel, then 
+		 *  the rotation is ambiguous without supplying the axis; 
+		 *  use the other constructor to define a Pi rotation with a known axis.
+		 * 
+		 *  \throws Throws invalid_argument when v and u are antiparallel.
+		 */ 
+		Rotate3(vec3_t const& u, vec3_t const& v, real_t const omega);
 		
-		// Probably won't need this often, no need to explicitly store.
-		vec3_t Axis() const;
+		//! @brief Construct a RH rotation which actively rotates vectors 
+		//! about \p axis by angle \p psi
+		Rotate3(vec3_t const& axis_in, real_t const psi);
+			
+		vec3_t& operator()(vec3_t& victim) const; //! @brief Rotate victim
+		vec3_t operator()(vec3_t const& b) const; //! @brief Rotate victim
+		
+		vec3_t Axis() const; //! @brief The (normalized) axis of rotation
+		real_t Angle() const; //! @brief The angle of RH rotation.
 };
 
 typedef kdp::Rotate3<double> Rot3;

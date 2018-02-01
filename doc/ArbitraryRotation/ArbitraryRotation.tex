@@ -1,0 +1,285 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[margin=3.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathdots} % for \iddots
+\pagenumbering{gobble}
+\usepackage{revsymb} % openone
+\usepackage{cancel}
+
+%~ \newcommand{\vecN}[1]{\hat{#1}}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\vecN}[1]{\vec{\hat{#1}}}
+
+\newcommand{\ds}{^{}}
+\newcommand{\bigO}[1]{\mathcal{O}(#1)}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\vvv}[3]{(#1,\,#2,\,#3)}
+\newcommand{\ang}{\psi}
+\newcommand{\vict}{\vec{w}}
+\newcommand{\ax}{\vecN{x}}
+\newcommand{\super}[2]{#1\textsuperscript{#2}}
+%~ \newcommand{\openone}{\scalebox{0.91}{1}\!\!1}
+
+\begin{document}
+\title{An arbitrary rotation without matrices}
+\author{Keith Pedersen}
+
+\maketitle
+
+{\it NOTE: This paper uses the nomenclature that $\vec{w}$ is a vector and 
+$\vecN{w}$ is a unit vector.}
+\medskip
+
+A right-handed (RH) rotation, by some angle $\ang$ about some axis $\ax$, 
+can be defined without matrices. The victim vector $\vec{w}$ is projected into three pieces:
+($\vec{w}_\parallel\ds$) the piece parallel to the axis, 
+($\vec{w}_{\bot}\ds$) the piece perpendicular to the axis, 
+and ($\vec{w}^\prime_{\bot}$), the perpendicular $\vec{w}_{\bot}\ds$ rotated by $90^\circ$.
+The parallel piece is unaltered by the rotation, 
+and the two $\vec{w}_{\bot}\ds$ form a basis for the rotation;
+\begin{equation}\label{eq:rot}
+	\vict^\prime=R(\vict) = \underset{\vec{w}_\parallel\ds}{\underbrace{(\vict\cdot\ax)\ax}} 
+		+ \cos\ang\underset{\vec{w}_{\bot}\ds}{\underbrace{(\vict - \vec{w}_\parallel\ds)}}
+		+ \sin\ang\underset{\vec{w}^\prime_{\bot}}{\underbrace{(\ax\times\vict)}}
+		\,.
+\end{equation}
+We can validate this scheme by showing it preserves %$\abs{\vict}^2$ and $\vict\cdot\ax$, 
+the defining properties of rotations. 
+First, the angle to the axis is unaltered;
+\begin{align}
+	\vict^\prime \cdot\ax
+	& = (\vict\cdot\ax)\cancelto{1}{\ax\cdot\ax}
+	  + \cos\ang(\vict\cdot\ax - (\vict\cdot\ax)\cancelto{1}{\ax\cdot\ax})	
+	  + \sin\ang\cancelto{0}{((\ax\times\vict)\cdot\ax)}		\nonumber\\
+	& = \vict\cdot\ax
+\end{align}
+(which uses $\vec{a}\cdot(\vec{b}\times\vec{c}) 
+	= \vec{b}\cdot(\vec{c}\times\vec{a}) 
+	= \vec{c}\cdot(\vec{a}\times\vec{b})$).
+Second, the vector's length is unaltered;
+\begin{align}
+	\abs{\vict^\prime}^2 
+	& = (\vict\cdot\ax)^2\cancelto{1}{\ax\cdot\ax}
+	 + \cos^2\ang\,(\abs{\vict}^2 - 2(\vict\cdot\ax)^2 + (\vict\cdot\ax)^2)
+	  + \sin^2\ang\,\abs{\vict}^2(\abs{\vict}^2 - (\vict\cdot\vecN{x})^2)	\nonumber\\
+	  & = (\vict\cdot\ax) + (\sin^2\ang + \cos^2\ang)(\abs{\vict}^2 - (\vict\cdot\ax)^2)	\nonumber\\
+	  & = \abs{\vict}^2
+\end{align}
+Here, we have used the identity 
+$\abs{\vec{u}\times\vec{v}}^2=\abs{\vec{u}}^2\abs{\vec{v}}^2 - (\vec{u}\cdot\vec{v})^2$
+(from $\epsilon_{ijk}\ds\epsilon_{ilm}\ds=\delta_{jl}\ds\delta_{km}\ds-\delta_{jm}\ds\delta_{kl}\ds$), 
+and implicitly used the orthogonality of the each component vector
+\begin{align}
+	\vec{w}_\parallel\ds \cdot \vec{w}_\bot\ds
+		& =(\vict\cdot\ax)^2 - (\vict\cdot\ax)^2 = 0
+	\,,\\
+	\vec{w}_\bot\ds \cdot \vec{w}^\prime_\bot
+		& = \cancelto{0}{\vec{w}\cdot(\ax\times\vec{w})} 
+			- (\vict\cdot\ax)\,\cancelto{0}{\ax\cdot(\ax\times\vec{w})} = 0
+	\,.
+\end{align}
+
+Instead of an axis $\ax$ and angle $\ang$ as our input degrees of freedom,
+we may want the rotation that takes vector $\vec{u}\to\vec{v}$.
+We can reuse Eq.~\ref{eq:rot}, and define:
+\begin{align}
+	%~ \cos\ang & = \frac{\vec{u}\cdot\vec{v}}{\abs{\vec{u}}\abs{\vec{v}}}\\
+	%~ \sin\ang & = \frac{\abs{\vec{u}\times\vec{v}}}{\abs{\vec{u}}\abs{\vec{v}}}\\
+	%~ \ax_1\ds & = \frac{\vec{u}\times\vec{v}}{\abs{\vec{u}\times\vec{v}}}\label{eq:x1}
+	\cos\ang & = \vecN{u}\cdot\vecN{v}\\
+	\sin\ang & = \abs{\vec{u}\times\vec{v}}\\
+	\ax_1\ds & = \frac{\vecN{u}\times\vecN{v}}{\abs{\vecN{u}\times\vecN{v}}}
+		= \frac{\vecN{u}\times\vecN{v}}{\sin\ang}\label{eq:x1}
+\end{align}
+However, $\ax_1\ds$ is only one \emph{possible} rotation axis which takes 
+$\vec{u}\to \vec{v}$. Consider a rotation of $\ang = \pi$ 
+about the axis bisecting the two normalized vectors
+\begin{equation}\label{eq:x2}
+	\ax_2\ds = \frac{\vecN{u} + \vecN{v}}{\abs{\vecN{u} + \vecN{v}}} 
+		= \frac{\vecN{u} + \vecN{v}}{\sqrt{2(1+\vecN{u}\cdot\vecN{v})}}
+	\,.
+\end{equation}
+This rotation also clearly takes $\vec{u}\to\vec{v}$.
+In fact, any axis which satisfies 
+\begin{equation}
+	\vecN{u}\cdot\ax = \vecN{v}\cdot\ax
+\end{equation}
+defines a valid rotation (since $\vec{u}$ and $\vec{v}$ will have 
+the same latitude relative to $\ax$, 
+and thus trace out the same circle during the rotation).
+Thus, ``the rotation which takes $\vec{u}\to\vec{v}\,$'' is ambiguous.
+
+This ambiguity stems from a hidden degree of freedom.
+We are free to choose $\vvv{x}{y}{z}$ vectors 
+\begin{align}
+	\vec{u} & = \vvv{0}{0}{1}\\
+	\vec{v} & = \vvv{\cos \phi \sin \theta}{\sin \phi \sin \theta}{\cos\theta}
+\end{align}
+We can get from $\vec{u}$ to $\vec{v}$ in two steps:
+(i) A RH rotation about $\vecN{z}$ by angle $\phi$.
+(ii) A RH rotation about $\vecN{y}^\prime$ (the new $y$-axis, after the first rotation) by angle $\theta$.
+This procedure uses only two of the three Euler angles required to 
+cover SO(3), the group of 3-dimensional rotations.
+To complete the coverage, we need a final RH rotation about $\vecN{z}^{\prime\prime}$ 
+(the final $z$-axis, which in our case is the newly minted $\vec{v}$).
+
+By construction, this post-rotation about $\vec{v}$ by angle $\omega$ 
+cannot alter $\vec{v}$, so it does not spoil
+the original purpose of this rotation (take $\vec{u}\to\vec{v}$).
+Instead, $\omega$ determines what happens to \emph{every other} vector, 
+and does so by selecting \emph{one} axis $\ax$ from the set which map $\vec{u}\to\vec{v}$.
+If we can find this~$\ax$, we can describe the complete operation as a single rotation 
+(instead of two sequential rotations).
+We have already found two valid $\ax$ (Eqs.~\ref{eq:x1} and \ref{eq:x2}), 
+and they are fortuitously orthogonal, so we can use them to construct
+a basis that parameterizes all possible axes of rotation
+\begin{equation}
+	\ax = a\,\ax_1\ds + b\,\ax_2\ds
+	%~ \qquad\qquad(\text{where }a^2+b^2=1)\,.
+\end{equation}
+Our task is now clear; given $\vec{u}$, $\vec{v}$ and $\omega$, 
+determine $a$ and $b$ to find $\ax$.
+
+$R_1\ds$ is the rotation about $\ax_1\ds$
+by $\theta=\arccos(\vecN{u}\cdot\vecN{v})$ and $R_2\ds$ is the rotation about $\ax_2\ds$ by $\omega$.
+Applying them consecutively produces a composite rotation
+which cannot alter the axis of rotation;
+\begin{equation}
+	\ax = R_2\ds(R_1\ds(\ax))\,.
+\end{equation}
+Since this defining property applies to both of $\ax$'s component individually (and linearly), 
+we can solve for $a$ and $b$ by using unitarity as one equation (i.e.\ ${a^2+b^2=1}$), 
+then obtain the other equation by calculating
+\begin{align}\label{eq:a}
+	a & = R_2\ds(R_1\ds(a\,\ax_1\ds + b\,\ax_2\ds))\cdot\ax_1\ds\nonumber\\
+		& = a\,R_2\ds(R_1\ds(\ax_1\ds))\cdot\ax_1\ds + b\,R_2\ds(R_1\ds(\ax_2\ds))\cdot\ax_1\ds\,.
+	%~ b\,\ax_2\ds & = R_2\ds(R_1\ds(b\,\ax_2\ds)) = b\,R_2\ds(R_1\ds(\ax_2\ds))\,,
+\end{align}
+%~ In doing so, we only need to keep terms parallel to $\ax_1\ds$.
+
+Beginning with $\ax_1\ds$, we are lucky that 
+$R_1\ds$ does not alter it's own axis, 
+while $R_2\ds$ creates only one term parallel to $\ax_1\ds$;
+\begin{align}\label{eq:part-x1}
+	R_1\ds(\ax_1\ds) & = \ax_1\ds\,\,;\\
+	R_2\ds(R_1\ds(\ax_1\ds))\cdot\ax_1\ds
+	%~ = R_2\ds(\ax_1\ds)\cdot\ax_1\ds
+	& = (\cancelto{0}{(\ax_1\cdot\vecN{v})}\,\vecN{v}
+		+ \cos\omega(\ax_1\ds - 0) 
+		+ \sin\omega\underset{\bot\text{ to }\ax_1\ds}{\underbrace
+			{(\vecN{v}\times\ax_1\ds)}})\cdot\ax_1\ds = \cos\omega
+\end{align}
+The effect on $\ax_2\ds$ is slightly more complicated;
+\begin{align}\label{eq:R1-x2}
+	R_1\ds(\ax_2\ds) 
+		& = (\cancelto{0}{(\ax_2\ds\cdot\ax_1)}\,\ax_1
+		+ \cos\theta(\ax_2\ds - 0) + \sin\theta(\ax_1\ds\times\ax_2\ds)\nonumber\\
+		& = \frac{1}{\sqrt{2(1+\cos(\theta))}}
+		\left(\cos\theta\,(\vecN{u}+\vecN{v}) 
+			+ \sin\theta\,\frac{(\vecN{u}\times\vecN{v})}{\sin\theta}\times(\vecN{u}+\vecN{v})\right)\nonumber\\
+		& = \frac{1}{\sqrt{2(1+\cos(\theta))}}
+		\left(\cos\theta\,(\vecN{u}+\vecN{v}) + 
+		\vecN{v} - \vecN{u}\cos\theta + \vecN{v}\cos\theta - \vecN{u}\right)\nonumber\\
+		& = \frac{1}{\sqrt{2(1+\cos(\theta))}}
+		\left((2\cos\theta + 1)\vecN{v} - \vecN{u}\right)
+\end{align}
+(using ${(\vec{a}\times\vec{b}\,)\times\vec{c} 
+	= \vec{b}\,(\vec{a}\cdot\vec{c}\,) - \vec{a}\,(\vec{b}\cdot\vec{c}\,)}$).
+Before we put all of Eq.~\ref{eq:R1-x2} through $R_2\ds$, 
+we should recall that the final equation only uses terms parallel to $\ax_1\ds$. 
+$R_2\ds$ only returns terms which are 
+(i)~parallel to the incoming vector 
+(which in this case is in the $uv$-plane, and thus orthogonal to~$\ax_1\ds$), 
+(ii)~parallel to $\vecN{v}$ (also in the $uv$ plane) and 
+(iii)~perpendicular to $\vecN{v}$ (via $\vecN{v}\times\vict$).
+Hence, only the \super{3}{rd} piece is meaningful, 
+and since $\vecN{v}\times\vecN{v}=0$, 
+we only need to give it Eq.~\ref{eq:R1-x2}'s $\vecN{u}$ term;
+\begin{align}\label{eq:part-x2}
+	R_2\ds(R_1\ds(\ax_2\ds))\cdot\ax_1\ds
+		& = \frac{1}{\sqrt{2(1+\cos(\theta))}} \,R_2\ds(-\vecN{u})\cdot\ax_1\ds
+		= \frac{1}{\sqrt{2(1+\cos(\theta))}} (\vecN{v}\times(-\vecN{u}))\cdot\ax_1\ds\nonumber\\
+		& = \sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
+\end{align}
+(using $\vecN{u}\times\vecN{v} = \sin\theta\,\ax_1\ds$).
+Combining Eq.~\ref{eq:a},~\ref{eq:part-x1} and~\ref{eq:part-x2} we get
+\begin{equation}
+	a = a \cos\omega + b\sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
+\end{equation}
+
+Having done the hard work, we can plug our system of equations into Mathematica to obtain
+\begin{align}
+	a & = 2\cos(\omega/2)\frac{\sin(\theta/2)}{c(\theta)}\\
+	b & = 2\sin(\omega/2)\frac{1}{c(\theta)}\\
+	c(\theta) & = \sqrt{3 - \cos(\omega) - \cos(\theta)(1+\cos(\omega))}
+\end{align}
+I then used Mathematica to validate this solution by checking that 
+$\ax$ matches the eigenvector of the composite rotation $R_2\ds(R_1\ds(\vict))$.
+However, $c(\theta)$ is numerically unstable if used na\"ively, 
+due to the cosine cancellations. These terms should be rewritten 
+in a form which \emph{doubles} the precision of the floating point result
+\begin{equation}\label{eq:1-cos}
+	1-\cos(t) \mapsto 2\sin^2(t/2)\,.
+\end{equation}
+This gives us
+\begin{equation}
+	c(\theta)\mapsto
+	\sqrt{2\sin^2(\theta/2) + 2\sin^2(\omega/2) + (1 - \cos(\theta)\cos(\omega))}\,.
+\end{equation}
+The final cancellation can be corrected using
+\begin{align}
+	\cos(\theta)\cos(\omega) 
+		& = \frac{1}{2}(\cos(\theta+\omega) + \cos(\theta-\omega))\,;\\
+	(1 - \cos(\theta)\cos(\omega)) 
+		&\mapsto \frac{1}{2}(1-\cos(\theta+\omega))
+		 + \frac{1}{2}(1-\cos(\theta-\omega))\,.
+\end{align}
+Again using Eq.~\ref{eq:1-cos}, we obtain the final expression
+\begin{equation}
+	c(\theta)\mapsto
+	\sqrt{2\sin^2(\theta/2) + 2\sin^2(\omega/2)	
+	+ \sin^2(\theta+\omega) 
+	+ \sin^2(\theta-\omega)}\,.
+\end{equation}
+
+Given $\vec{u}$, $\vec{v}$ and $\omega$, we now have the tools to find the axis $\ax$
+about which the composite rotations occur.\footnote
+{\nobreak
+	There is one class of system where $\ax$ remains ambiguous;
+	when $\vec{u}$ and $\vec{v}$ are antiparallel, 
+	$\ax_1\ds$ and $\ax_2\ds$ are both null.
+	If $\vec{x}$ is supplied externally, 
+	$\omega$ rotates it around the shared $uv$ axis,
+	but $\vec{x}$ cannot be determined from $\omega$ alone.
+}
+But what is the angle $\ang$ of rotation?
+We can determine $\psi$ empirically by projecting 
+$\vecN{u}$ and $\vecN{v}$ into the plane of rotation (e.g. 
+$\vecN{u}_\bot\ds = \vecN{u} - (\vecN{u}\cdot\vecN{x}) \vecN{x}$).
+The rotation angle is then defined via
+\begin{equation}
+	\psi = \text{atan2}(\sin\psi, \cos\psi)
+		= \text{atan2}\left(\text{sign}(a)\abs{\vecN{u}_\bot\ds \times \vecN{v}_\bot\ds},\; 
+		\vecN{u}_\bot\ds \cdot \vecN{v}_\bot\ds\right)\,.
+\end{equation}
+It is best to use $\text{atan2}$ because it is more precise
+for angles near $0$, $\pi/2$ and $\pi$. Note that we have to 
+inject the \emph{sign} of $a$ into $\sin(\psi)$, 
+because when $a<0$, the RH rotation becomes larger than 
+$\pi$, so we must instead uses a \emph{negative} RH rotation.
+
+%~ An effective implementation should keep in mind that 
+%~ many of these calculations are redundant (or terms cancel).
+%~ These operations are numerically stable, provided that $\vec{u}$ is 
+%~ not exactly parallel/anti-parallel, a condition that can be checked 
+%~ before constructing $\vec{x}$.
+
+I have tested an implementation of this algorithm and it works quite well
+(it is both length and angle preserving). 
+I have additionally validated that rotating once about $\ax$ gives 
+the same result as the two-step composite rotation.
+%~ The main problem is a slight change in magnitude when $\vec{u}$ and $\vec{v}$
+%~ are mostly anti-parallel. This can be fixed with a
+%~ magnitude preserving step that adds a 15\% overhead.
+\end{document}
