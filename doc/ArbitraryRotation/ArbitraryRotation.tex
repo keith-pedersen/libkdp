@@ -1,11 +1,16 @@
-\documentclass{article}
+\documentclass[12pt, nofootinbib, notitlepage]{revtex4-1}
+%~ \documentclass{article}
 \usepackage{amsmath}
-\usepackage[margin=3.4cm]{geometry}
+%~ \usepackage[margin=3.4cm]{geometry}
 \usepackage{graphicx}
 \usepackage{mathdots} % for \iddots
 \pagenumbering{gobble}
 \usepackage{revsymb} % openone
 \usepackage{cancel}
+\usepackage{units}
+
+\interfootnotelinepenalty=100
+%~ \count\footins = 2000
 
 %~ \newcommand{\vecN}[1]{\hat{#1}}
 \renewcommand{\vec}[1]{\boldsymbol{#1}}
@@ -19,6 +24,7 @@
 \newcommand{\vict}{\vec{w}}
 \newcommand{\ax}{\vecN{x}}
 \newcommand{\super}[2]{#1\textsuperscript{#2}}
+\newcommand{\diff}[1]{\text{d}#1}
 %~ \newcommand{\openone}{\scalebox{0.91}{1}\!\!1}
 
 \begin{document}
@@ -32,7 +38,8 @@ $\vecN{w}$ is a unit vector.}
 \medskip
 
 A right-handed (RH) rotation, by some angle $\ang$ about some axis $\ax$, 
-can be defined without matrices. The victim vector $\vec{w}$ is projected into three pieces:
+can be defined without matrices using Rodrigues' rotation formula.
+The victim vector $\vec{w}$ is projected into three pieces:
 ($\vec{w}_\parallel\ds$) the piece parallel to the axis, 
 ($\vec{w}_{\bot}\ds$) the piece perpendicular to the axis, 
 and ($\vec{w}^\prime_{\bot}$), the perpendicular $\vec{w}_{\bot}\ds$ rotated by $90^\circ$.
@@ -120,7 +127,7 @@ We can get from $\vec{u}$ to $\vec{v}$ in two steps:
 (i) A RH rotation about $\vecN{z}$ by angle $\phi$.
 (ii) A RH rotation about $\vecN{y}^\prime$ (the new $y$-axis, after the first rotation) by angle $\theta$.
 This procedure uses only two of the three Euler angles required to 
-cover SO(3), the group of 3-dimensional rotations.
+cover SO(3) (the group of 3-dimensional rotations).
 To complete the coverage, we need a final RH rotation about $\vecN{z}^{\prime\prime}$ 
 (the final $z$-axis, which in our case is the newly minted $\vec{v}$).
 
@@ -203,12 +210,15 @@ we only need to give it Eq.~\ref{eq:R1-x2}'s $\vecN{u}$ term;
 		& = \sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
 \end{align}
 (using $\vecN{u}\times\vecN{v} = \sin\theta\,\ax_1\ds$).
-Combining Eq.~\ref{eq:a},~\ref{eq:part-x1} and~\ref{eq:part-x2} we get
-\begin{equation}
-	a = a \cos\omega + b\sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
-\end{equation}
+Combining Eq.~\ref{eq:a},~\ref{eq:part-x1} and~\ref{eq:part-x2} 
+we get our system of equations
+\begin{align}
+	a & = a \cos\omega + b\sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}\\
+	1 &= a^2 + b^2
+\end{align}
 
-Having done the hard work, we can plug our system of equations into Mathematica to obtain
+Having done the hard work (see Appendix),
+we can plug our system of equations into Mathematica to obtain
 \begin{align}
 	a & = 2\cos(\omega/2)\frac{\sin(\theta/2)}{c(\theta)}\\
 	b & = 2\sin(\omega/2)\frac{1}{c(\theta)}\\
@@ -216,6 +226,8 @@ Having done the hard work, we can plug our system of equations into Mathematica 
 \end{align}
 I then used Mathematica to validate this solution by checking that 
 $\ax$ matches the eigenvector of the composite rotation $R_2\ds(R_1\ds(\vict))$.
+(up to the parity operation $\ax \to -\ax$, which is irreducibly ambiguous).
+
 However, $c(\theta)$ is numerically unstable if used na\"ively, 
 due to the cosine cancellations. These terms should be rewritten 
 in a form which \emph{doubles} the precision of the floating point result
@@ -282,4 +294,61 @@ the same result as the two-step composite rotation.
 %~ The main problem is a slight change in magnitude when $\vec{u}$ and $\vec{v}$
 %~ are mostly anti-parallel. This can be fixed with a
 %~ magnitude preserving step that adds a 15\% overhead.
+
+\appendix*
+\section{The apology}
+
+{\nobreak
+	I see three steps in answering any question scientifically:
+
+	\begin{enumerate}
+		\item Write down a model which describes the system with sufficient accuracy.\label{model}
+		
+		\item Try and fail ad naseum until the Eureka moment
+		allows you to \emph{describe} the solution.\label{sol-des}
+		
+		\item Find the solution.\label{sol}
+	\end{enumerate}
+	%
+	The difference between step~\ref{sol-des}~and~\ref{sol} is subtle, but important.
+	A \emph{description} of the solution is a complete statement of 
+	\emph{where} the solution can be found, its GPS coordinates ---
+	it is a differential equation, 
+	an unevaluated integral, the polynomial whose roots we will find.
+	Step \ref{sol} is the vehicle that takes us there ---
+	an algorithm, a clever change of variable, an analytic continuation. 
+	It is math, and frequently the heavy kind.
+	
+	In my opinion, competence and creativity in step~\ref{model}~and~\ref{sol-des}
+	are the mark of a good scientist. 
+	This requires a vast array of knowledge and experience
+	(e.g.\ you have to know what an eigenvalue is,
+	and have previously used them to solve simple problems, 
+	before you can use them to describe the solution for some novel problem).
+	But once we reach step~\ref{sol} (calculate the eigenvalue),
+	we should beg, borrow and steal. Of course, someone has to 
+	blaze the original trail when a new technique is found, 
+	and for that they earn their reverence in the pages of a textbook.
+	But since they bled to build that trail, 
+	we should have the common decency to use it.
+	Conversely, each of us should forge our own trail for the
+	step~\ref{sol} in which \emph{we} are the experts, and then tell the world.
+	
+	But we cannot be experts in the huge library of step~\ref{sol}'s.
+	Furthermore, since step~\ref{sol}'s are often quite general, 
+	they lend themselves to automation.
+	Computers are still not very good at answering \emph{declarative} statements like
+	``what is the volume of a sphere'' (and here I don't mean using a 
+	search engine or a neural net to find a solution published by a human).
+	However, Mathematica will swiftly provide the 
+	symbolic solution to a very \emph{imperative} statement
+	\begin{equation*}
+		V_\text{sphere} = \int_0^R\diff{r}\int_0^\pi\diff{\theta}\int_0^{2\pi}\diff{\phi}
+		 \,r^2\sin(\theta) = \frac{4}{3}\pi\,R^3\,.
+	\end{equation*}
+	So when I find myself with a system of equations which I can 
+	ask the computer to solve (nearly instantaneously),
+	I use the computer --- that's what computers are for.
+}
+
 \end{document}
