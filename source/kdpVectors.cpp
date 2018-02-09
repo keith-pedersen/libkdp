@@ -782,53 +782,154 @@ template class kdp::Rotate3<double>;
 ////////////////////////////////////////////////////////////////////////
 
 template<typename real_t>
-kdp::LorentzBoost<real_t>::LorentzBoost(Vector4<real_t> const& target, 
-	bool const CMtoTarget):
-// Don't init the 4-vectors
-lambda_0(false), lambda_1(false), lambda_2(false), lambda_3(false)
+kdp::LorentzBoost<real_t>::LorentzBoost(Vector3<real_t> const& beta):
+	axis(beta)
 {
-	// See ArbitraryBoost.pdf for an explanation of the math
-	real_t const p2 = target.p().Mag2();
-	real_t const mass2 = target.Length2();
+	axis.Normalize();
 	
-	if(mass2 <= 0.)
-		throw std::runtime_error("LorentzBoost: boost matrix does not exist for massless of space-like Vector4");
+	if(axis.Mag2() == real_t(0))
+		gamma_m_1 = betaGamma = real_t(0);
+	else
+	{	
+		// (09.02.2018 @ 11:22) Double-checked math
+		real_t const beta2 = beta.Mag2();
+		
+		if(beta2 >= real_t(1))
+			throw std::invalid_argument("kdp::LorentzBoost: cannot boost to beta = 1");
+		
+		real_t const oneOverGamma = std::sqrt(real_t(1) - beta2);
+		gamma_m_1 = beta2 / (oneOverGamma*(real_t(1) + oneOverGamma));
+		betaGamma = std::sqrt(beta2 / (real_t(1) - beta2));
+	}
+}
+
+// (09.02.2018 @ 11:22) Double-checked math
+template<typename real_t>
+kdp::LorentzBoost<real_t>::LorentzBoost(Vector3<real_t> const& axis_in, 
+	real_t const gamma):
+	axis(axis_in),
+	gamma_m_1(gamma - real_t(1)),
+	betaGamma(std::sqrt(kdp::Diff2(gamma, real_t(1))))
+{
+	axis.Normalize();
 	
-	real_t const denom = (mass2 + std::sqrt(mass2 * target.x0 * target.x0));
+	if(gamma_m_1 < real_t(0))
+		throw std::invalid_argument("kdp::LorentzBoost: cannot boost to gamma < 1");
+	if(std::isinf(gamma_m_1))
+		throw std::invalid_argument("kdp::LorentzBoost: cannot boost to beta = 1");
+	if(axis.Mag2() == real_t(0))
+		throw std::invalid_argument("kdp::LorentzBoost: null axis supplied ... which way should we boost?");
 	
-	lambda_0.x0 = p2 / denom;
+	if(gamma_m_1 == real_t(0))
+		axis = Vector3<real_t>(); // If the boost is null, destroy the meaningless axis
+}
+
+//~ template<typename real_t>
+//~ kdp::LorentzBoost<real_t>::LorentzBoost(Vector4<real_t> const& target, 
+	//~ bool const CMtoTarget):
+//~ // Don't init the 4-vectors
+//~ lambda_0(false), lambda_1(false), lambda_2(false), lambda_3(false)
+//~ {
+	//~ // See ArbitraryBoost.pdf for an explanation of the math
+	//~ real_t const p2 = target.p().Mag2();
+	//~ real_t const mass2 = target.Length2();
+	
+	//~ if(mass2 <= 0.)
+		//~ throw std::runtime_error("LorentzBoost: boost matrix does not exist for massless of space-like Vector4");
+	
+	//~ real_t const denom = (mass2 + std::sqrt(mass2 * target.x0 * target.x0));
+	
+	//~ lambda_0.x0 = p2 / denom;
 			
-	lambda_0.p() = (CMtoTarget ? target.p() : -target.p());
-	lambda_0.p() /= std::sqrt(mass2);
+	//~ lambda_0.p() = (CMtoTarget ? target.p() : -target.p());
+	//~ lambda_0.p() /= std::sqrt(mass2);
 	
-	lambda_1.x0 = lambda_0.x1;
-	lambda_2.x0 = lambda_0.x2;
-	lambda_3.x0 = lambda_0.x3;
+	//~ lambda_1.x0 = lambda_0.x1;
+	//~ lambda_2.x0 = lambda_0.x2;
+	//~ lambda_3.x0 = lambda_0.x3;
 	
-	lambda_1.x1 = (target.p().x1 * target.p().x1) / denom;
-	lambda_2.x1 = lambda_1.x2 = (target.p().x1 * target.p().x2) / denom;
-	lambda_3.x1 = lambda_1.x3 = (target.p().x1 * target.p().x3) / denom;
+	//~ lambda_1.x1 = (target.p().x1 * target.p().x1) / denom;
+	//~ lambda_2.x1 = lambda_1.x2 = (target.p().x1 * target.p().x2) / denom;
+	//~ lambda_3.x1 = lambda_1.x3 = (target.p().x1 * target.p().x3) / denom;
 	
-	lambda_2.x2 = (target.p().x2 * target.p().x2) / denom;
-	lambda_3.x2 = lambda_2.x3 = (target.p().x2 * target.p().x3) / denom;
+	//~ lambda_2.x2 = (target.p().x2 * target.p().x2) / denom;
+	//~ lambda_3.x2 = lambda_2.x3 = (target.p().x2 * target.p().x3) / denom;
 	
-	lambda_3.x3 = (target.p().x3 * target.p().x3) / denom;
+	//~ lambda_3.x3 = (target.p().x3 * target.p().x3) / denom;
+//~ }
+
+template<typename real_t>
+kdp::Vector4<real_t>& kdp::LorentzBoost<real_t>::Boost_sign(Vector4<real_t>& victim, 
+	real_t const sign) const
+{
+	// sign = -1 indicates a backward boost
+	// The p_L is needs to have the opposite sign and
+	// the axis needs to be flipped (-1 to its scale factor)
+	
+	// (09.02.2018 @ 11:23) Double-checked math
+	real_t const p_L = std::copysign(victim.p().Dot(axis), sign);
+	// CAREFUL: must alter momentum first, because x0 is used for new-p calculation 
+	// (whereas pL is previously calculated for new-x0 calculation).
+	victim.p() += axis * std::copysign(betaGamma * victim.x0 + gamma_m_1 * p_L, sign);
+	victim.x0 += gamma_m_1 * victim.x0 + betaGamma * p_L;	
+	return victim;
 }
 
 template<typename real_t>
-kdp::Vector4<real_t> kdp::LorentzBoost<real_t>::operator()(Vector4<real_t> const& victim) const
+kdp::Vector4<real_t>& kdp::LorentzBoost<real_t>::Forward(Vector4<real_t>& victim) const
 {
-	// First construct the 4-vector shift
-	kdp::Vector4<real_t> boosted = lambda_0 * victim.x0;
-	boosted += lambda_1 * victim.x1;
-	boosted += lambda_2 * victim.x2;
-	boosted += lambda_3 * victim.x3;
-	
-	// Then we add the shift to the original vector
-	boosted += victim;
-	
-	return boosted;
+	return this->Boost_sign(victim, real_t(1));
 }
+
+template<typename real_t>
+kdp::Vector4<real_t>& kdp::LorentzBoost<real_t>::Backward(Vector4<real_t>& victim) const
+{
+	return this->Boost_sign(victim, real_t(-1));
+}
+
+template<typename real_t>
+kdp::Vector4<real_t> kdp::LorentzBoost<real_t>::Forward(Vector4<real_t> const& orig) const
+{
+	auto victim = orig;
+	this->Forward(victim);
+	return victim;
+}
+
+template<typename real_t>
+kdp::Vector4<real_t> kdp::LorentzBoost<real_t>::Backward(Vector4<real_t> const& orig) const
+{
+	auto victim = orig;
+	this->Backward(victim);
+	return victim;
+}
+
+//~ {
+	//~ // First construct the 4-vector shift
+	//~ kdp::Vector4<real_t> boosted = lambda_0 * victim.x0;
+	//~ boosted += lambda_1 * victim.x1;
+	//~ boosted += lambda_2 * victim.x2;
+	//~ boosted += lambda_3 * victim.x3;
+	
+	//~ // Then we add the shift to the original vector
+	//~ boosted += victim;
+	
+	//~ return boosted;
+//~ }
+
+//~ template<typename real_t>
+//~ kdp::Vector4<real_t> kdp::LorentzBoost<real_t>::operator()(Vector4<real_t> const& victim) const
+//~ {
+	//~ // First construct the 4-vector shift
+	//~ kdp::Vector4<real_t> boosted = lambda_0 * victim.x0;
+	//~ boosted += lambda_1 * victim.x1;
+	//~ boosted += lambda_2 * victim.x2;
+	//~ boosted += lambda_3 * victim.x3;
+	
+	//~ // Then we add the shift to the original vector
+	//~ boosted += victim;
+	
+	//~ return boosted;
+//~ }
 
 template class kdp::LorentzBoost<float>;
 template class kdp::LorentzBoost<double>;

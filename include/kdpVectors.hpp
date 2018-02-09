@@ -363,29 +363,51 @@ typedef kdp::Rotate3<float> Rot3_f;
 //~ template <typename real_t>
 //~ Vector4<real_t> MasslessVec4_EnergyEtaPhi(real_t const E, real_t const eta, real_t const phi);
 
-/*! @brief A boost matrix (lambda) in an arbitrary direction.
+/*! @brief An object that boosts along Axis() by boost factor Gamma()
  * 
- *  Store lambda - 1 to create the shift, which is added to the original vector.
+ *  This is done using the boost equivalent of the Rodrigues formula
+ *  (which is <em> at least <\em> as numerically stable as a boost matrix).
 */
 template <typename real_t>
 class LorentzBoost
 {
 	private:
+		// Vestigial, delete after better validation of the new scheme
 		// The columns/rows of the boost matrix (it's symmetric, so it doesn't matter which).
 		// The symmetry also creates a nearly 2-time redundancy in these coefficients,
 		// but its faster/easier to store the redundant coefficients.
-		Vector4<real_t> lambda_0, lambda_1, lambda_2, lambda_3;
+		// Vector4<real_t> lambda_0, lambda_1, lambda_2, lambda_3;
+		
+		Vector3<real_t> axis;
+		real_t gamma_m_1;
+		real_t betaGamma;
+		
+		//! @brief One internal boost function; sign = 1 goes forward, sign = -1 goes backkward.
+		Vector4<real_t>& Boost_sign(Vector4<real_t>& victim, real_t const sign) const;
 		
 	public:
-		/*! @brief Constuct the boost matrix.
-		 * 
-		 *  If \p CMtoTarget is true, return a matrix which takes the CM frame to the target.
-		 *  When false, take the target to the CM frame.
-		 */
-		LorentzBoost(Vector4<real_t> const& target, bool const CMtoTarget = true);
+		//! @brief Construct the boost from speed vector \p beta
+		//! (boost speed beta = |beta>| in the direction of beta^)
+		LorentzBoost(Vector3<real_t> const& beta);
 		
-		//! @brief Boost the \p victim.
-		Vector4<real_t> operator()(Vector4<real_t> const& victim) const;
+		//! @brief Construct the boost along \p axis with boost factor \p gamma
+		LorentzBoost(Vector3<real_t> const& axis, real_t const gamma);
+		
+		Vector3<real_t> const& Axis() const {return axis;} //!< @brief normalized boost axis
+		real_t Gamma() const {return gamma_m_1 + real_t(1);}
+		real_t Beta() const {return betaGamma / Gamma();}
+		real_t Rapidity() const {return std::asinh(betaGamma);}
+		Vector3<real_t> BetaVec() const {return axis*Beta();}
+				
+		//! @brief Boost the \p victim by Beta()
+		Vector4<real_t>& Forward(Vector4<real_t>& victim) const;
+		//! @brief Boost the \p victim by Beta()
+		Vector4<real_t> Forward(Vector4<real_t> const& orig) const;
+		
+		//! @brief Boost the \p victim by -Beta()
+		Vector4<real_t>& Backward(Vector4<real_t>& victim) const;
+		//! @brief Boost the \p victim by -Beta()
+		Vector4<real_t> Backward(Vector4<real_t> const& orig) const;
 };
 
 } // End namespace
