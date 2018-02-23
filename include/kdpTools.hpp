@@ -128,6 +128,24 @@ inline real_t AbsRelDiff(real_t const me, real_t const you)
 
 ////////////////////////////////////////////////////////////////////////
 
+//! @brief Convert degrees to radians
+template <typename real_t>
+inline real_t ToRadians(real_t const degrees)
+{
+	return real_t(M_PI/180.)*degrees;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+//! @brief Convert radians to degrees
+template <typename real_t>
+inline real_t ToDegrees(real_t const radians)
+{
+	return real_t(180./M_PI)*radians;
+}
+
+////////////////////////////////////////////////////////////////////////
+
 /*! @brief Parse a string (e.g. from an INI file) to read the angle,
  *  allowing input in both radians and degrees.
  *  
@@ -149,8 +167,7 @@ real_t ReadAngle(std::string const& toParse)
 	// so the compiler can potentially optimize the variable away.
 	static constexpr char const* degreeKey = "deg"; // a std::string cannot be a constexpr
 	static constexpr char const* radianKey = "rad";
-	static constexpr real_t degreesToRadians = M_PI / 180.;
-	
+		
 	real_t angle;
 	std::stringstream parser(toParse);
 	parser >> angle;
@@ -168,7 +185,7 @@ real_t ReadAngle(std::string const& toParse)
 		if(units.find(degreeKey, 0) not_eq std::string::npos)
 		{
 			printf("Converted degrees to radians.\n");
-			angle *= degreesToRadians;
+			angle = kdp::ToRadians(angle);
 		}
 		// Else if we find radians, nothing to do (no conversion needed)
 		else if(units.find(radianKey, 0) not_eq std::string::npos) {}
