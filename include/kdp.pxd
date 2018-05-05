@@ -1,4 +1,7 @@
 include "kdp/kdpVectors.hpy"
+# This file allows the classes to be used in other Cython files
+# Any cdef class method must be declared here to be used externally, 
+# as must any cdef class member
 
 from libcpp.memory cimport shared_ptr # First import shared_ptr
 
@@ -21,3 +24,6 @@ cdef class Vec4:
 	
 	@staticmethod
 	cdef Vec4 Factory(const Vec4_c& orig)
+	
+cdef class Rot3:
+	cdef Rot3_c* rot

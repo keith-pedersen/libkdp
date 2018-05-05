@@ -593,7 +593,10 @@ real_t kdp::Vector4<real_t>::BetaFrom_GammaMinusOne(real_t const gm1)
 template<typename real_t>
 real_t kdp::Vector4<real_t>::BetaFrom_Mass_pSquared(real_t const mass, real_t const pSquared)
 {
-	return std::sqrt(pSquared/(pSquared + kdp::Squared(mass)));
+	if((mass == real_t(0)) and (pSquared == real_t(0)))
+		return real_t(1);
+	else 
+		return std::sqrt(pSquared/(pSquared + kdp::Squared(mass)));
 }
 
 //~ template <typename real_t>
@@ -763,7 +766,7 @@ typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::operator()(vec3_t co
 }
 		
 template<typename real_t>
-typename kdp::Rotate3<real_t>::vec3_t kdp::Rotate3<real_t>::Axis() const
+typename kdp::Rotate3<real_t>::vec3_t const& kdp::Rotate3<real_t>::Axis() const
 {
 	return axis;
 	//~ return axis_NN/std::sqrt(axis_mag2);

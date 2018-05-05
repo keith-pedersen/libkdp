@@ -353,7 +353,7 @@ class Rotate3
 		vec3_t& operator()(vec3_t& victim) const; //! @brief Rotate victim
 		vec3_t operator()(vec3_t const& b) const; //! @brief Rotate victim
 		
-		vec3_t Axis() const; //! @brief The (normalized) axis of rotation
+		vec3_t const& Axis() const; //! @brief The (normalized) axis of rotation
 		real_t Angle() const; //! @brief The angle of RH rotation.
 };
 

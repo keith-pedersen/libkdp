@@ -162,3 +162,12 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		double Rapidity() const
 		
 		double Contract(const Vec4_c&) const
+
+	cdef cppclass Rot3_c "kdp::Rot3":
+		Rot3_c(const Vec3_c&, const Vec3_c&, const double)
+		Rot3_c(const Vec3_c&, const double)
+		
+		Vec3_c& Rotate "operator()" (Vec3_c& victim) const
+				
+		const Vec3_c& Axis() const
+		double Angle() const

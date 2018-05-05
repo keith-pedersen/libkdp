@@ -113,6 +113,7 @@ cdef class Vec2:
 		
 	def Assign(self, Vec2 other):
 		deref(self.vec).assign(deref(other.vec))
+		return self
 		
 	@staticmethod
 	cdef Vec2 Factory(const Vec2_c& orig):
@@ -122,6 +123,9 @@ cdef class Vec2:
 		
 	def Copy(self):
 		return Vec2.Factory(deref(self.vec))
+		
+	def __deepcopy__(self, memo):
+		return self.Copy()
 		
 	def __repr__(self):
 		return str([self.x1, self.x2])
@@ -189,6 +193,7 @@ cdef class Vec2:
 		
 	def Normalize(self):
 		deref(self.vec).Normalize()
+		return self
 		
 	def Mag(self):
 		return deref(self.vec).Mag()
@@ -229,9 +234,16 @@ cdef class Vec3:
 		deref(copy.vec).assign(orig)
 		return copy
 		
+	@staticmethod
+	def Make_LengthThetaPhi(double length, double theta, double phi):
+		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
+		
 	def Copy(self):
 		return Vec3.Factory(deref(self.vec))
 		
+	def __deepcopy__(self, memo):
+		return self.Copy()
+				
 	def __repr__(self):
 		return str([self.x1, self.x2, self.x3])
 	
@@ -298,6 +310,7 @@ cdef class Vec3:
 		
 	def Normalize(self):
 		deref(self.vec).Normalize()
+		return self
 		
 	def Mag(self):
 		return deref(self.vec).Mag()
@@ -352,6 +365,9 @@ cdef class Vec4:
 		
 	def Copy(self):
 		return Vec4.Factory(deref(self.vec))
+		
+	def __deepcopy__(self, memo):
+		return self.Copy()
 		
 	def __repr__(self):
 		return str([self.x0, [self.x1, self.x2, self.x3]])
@@ -438,4 +454,37 @@ cdef class Vec4:
 		return deref(self.vec).Rapidity()
 		
 	def Contract(self, Vec4 other):
-		return deref(self.vec).Contract(deref(other.vec))		
+		return deref(self.vec).Contract(deref(other.vec))
+		
+cdef class Rot3:
+	
+	def __cinit__(self, Vec3 axis, double angle):
+#~ 		self.vec = shared_ptr[Vec4_c](new Vec4_c(x0, x1, x2, x3))
+		self.rot = new Rot3_c(deref(axis.vec), angle)
+		
+	def __dealloc__(self):
+		del self.rot
+		
+	# Have to make this to get the axis for vec to vec rotation
+	@staticmethod
+	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):
+		# use a pointer so we don't have to declare default ctor for Cython
+		cdef Rot3_c* tmp = new Rot3_c(deref(u.vec), deref(v.vec), omega)
+		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())
+		
+		del tmp # must clean
+		return rot
+	
+	def __call__(self, Vec3 victim):
+		self.rot.Rotate(deref(victim.vec))
+		return victim
+		
+	def Axis(self):
+		return Vec3.Factory(self.rot.Axis())
+		
+	def Angle(self):
+		return self.rot.Angle()
+	
+	
+	
+	

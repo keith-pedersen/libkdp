@@ -21,6 +21,11 @@
 #include <cmath>
 #include <limits>
 #include <mutex>
+#include <exception>
+
+// Limit memory
+#include <sys/time.h>
+#include <sys/resource.h>
 
 namespace kdp
 {
@@ -334,30 +339,39 @@ T BinaryAccumulate(std::array<T, arraySize> vec)
 template<typename T>
 T BinaryAccumulate_Destructive(std::vector<T>& vec)
 {
-	// 1. Find the smallest power-of-two less than vec.size()
-	size_t size = LargestBit(vec.size());
-	
+	if(vec.size())
 	{
-		// 2. Determine how many values are past the power of two
-		size_t const overflow = vec.size() - size;
-		assert(overflow < size); // unsigned arithmetic, so also asserts overflow >= 0
-	
-		// 3. Add the overflow to the front of the list (assert guarantees enough room)
-		for(size_t i = 0; i < overflow; ++i)
-			vec[i] += vec[size + i];
+		size_t size = vec.size();
+		
+		if(size > 1) // If size == 1, skip the reduction
+		{
+			// 1. Find the smallest power-of-two less than vec.size()
+			size = LargestBit(vec.size());
+			
+			{
+				// 2. Determine how many values are past the power of two
+				size_t const overflow = vec.size() - size;
+				assert(overflow < size); // unsigned arithmetic, so also asserts overflow >= 0
+			
+				// 3. Add the overflow to the front of the list (assert guarantees enough room)
+				for(size_t i = 0; i < overflow; ++i)
+					vec[i] += vec[size + i];
+			}
+			
+			// Now we can do a fast, power-of-two accumulate (no oddness check)
+			vec.resize(size); // <== Is this helpfull?
+			
+			while(size > 1)
+			{
+				size /= 2; // Equivalent to >>=, but more readible
+				for(size_t i = 0; i < size; ++i)
+					vec[i] += vec[size + i];
+			}
+		}
+		
+		return vec.front();
 	}
-	
-	// Now we can do a fast, power-of-two accumulate (no oddness check)
-	vec.resize(size); // <== Is this helpfull?
-	
-	while(size > 1)
-	{
-		size /= 2; // Equivalent to >>=, but more readible
-		for(size_t i = 0; i < size; ++i)
-			vec[i] += vec[size + i];
-	}
-	
-	return vec.front();
+	return T(); // Is this correct when nothing is summed? Should we instead throw an exception?
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -451,11 +465,122 @@ class MutexCount
 		}
 };
 
+/*! @brief Use a linux system call to set a soft limit on this processes' memory use.
+ * 
+ *  \throws throws \c std::bad::alloc when the limit is reached
+ *  
+ *  \note Only the total memory use can be constrained, including the instruction stack, 
+ *  so expect at least 1 MB to be unavailable for use as data.
+ * 
+ *  This function was developed after numerous cases where a buggy program
+ *  (or a perfectly fine one which was given an insane task)
+ *  chewed through the physical memory and started using swap.
+ *  This totally hangs my system, even if the program has nice +20, 
+ *  because the CPU is spending all it's time swapping, 
+ *  and swapd is nice'd at -20. 
+*/ 
+inline void LimitMemory(double const num_GB = 4.)
+{
+	// Declare inline so it can be defined in a header only without leading to multiple copies
+	
+	static_assert(sizeof(long) >= 8, "Must have 64-bit addressing");
+	
+	struct rlimit current;
+	int const resource = RLIMIT_AS; // Virtual address space. 
+	// I tried RLIMIT_DATA, but it offered no protection for std::vector
+	
+	int ret = getrlimit(resource, &current);
+	if(ret)
+		throw std::runtime_error("LimitMemory: Cannot get current limits.");
+		
+	current.rlim_cur = long(num_GB * double(long(1) << 30));
+	if(current.rlim_cur >= current.rlim_max)
+		throw std::runtime_error("LimitMemory: Supplied limit too large!");
+		
+	ret = setrlimit(resource, &current);
+	if(ret)
+		throw std::runtime_error("LimitMemory: Cannot set new soft limit.");
+}
+
 // What is this left over from?
 //~ template<typename real_t, size_t incrementSize>
 //~ using incrementArray_t = std::array<real_t, incrementSize>;
 }// end namespace
 
+// Declare these outside of kdp namespace
+
+template<typename T>
+std::vector<T>& operator+=(std::vector<T>& lhs, std::vector<T> const& rhs)
+{
+	if(rhs.size() not_eq lhs.size())
+		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
+	
+	for(size_t i = 0; i < lhs.size(); ++i)
+		lhs[i] += rhs[i];
+	
+	return lhs;
+}
+
+template<typename T>
+std::vector<T> operator+(std::vector<T> const& lhs, std::vector<T> const& rhs)
+{
+	std::vector<T> copy(lhs);
+	return copy += rhs;
+}
+
+template<typename T>
+std::vector<T>& operator-=(std::vector<T>& lhs, std::vector<T> const& rhs)
+{
+	if(rhs.size() not_eq lhs.size())
+		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
+	
+	for(size_t i = 0; i < lhs.size(); ++i)
+		lhs[i] -= rhs[i];
+	
+	return lhs;
+}
+
+template<typename T>
+std::vector<T> operator-(std::vector<T> const& lhs, std::vector<T> const& rhs)
+{
+	std::vector<T> copy(lhs);
+	return copy -= rhs;
+}
+
+template<typename T>
+std::vector<T>& operator*=(std::vector<T>& lhs, T const& rhs)
+{
+	for(size_t i = 0; i < lhs.size(); ++i)
+		lhs[i] *= rhs;
+	
+	return lhs;
+}
+
+template<typename T>
+std::vector<T> operator*(std::vector<T> const& lhs, T const& rhs)
+{
+	std::vector<T> copy(lhs);
+	return copy *= rhs;
+}
+
+template<typename T>
+std::vector<T>& operator*=(std::vector<T>& lhs, std::vector<T> const& rhs)
+{
+	if(rhs.size() not_eq lhs.size())
+		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
+	
+	for(size_t i = 0; i < lhs.size(); ++i)
+		lhs[i] *= rhs[i];
+	
+	return lhs;
+}
+
+template<typename T>
+std::vector<T> operator*(std::vector<T> const& lhs, std::vector<T> const& rhs)
+{
+	std::vector<T> copy(lhs);
+	return copy *= rhs;
+}
 
 ////////////////////////////////////////////////////////////////////////
 
