@@ -1,34 +1,125 @@
+// Copyright (C) 2014-2018 by Keith Pedersen (Keith.David.Pedersen@gmail.com)
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #ifndef KDP_TOOLS
 #define KDP_TOOLS
 
 /*! @file kdpTools.hpp
- *  @brief Some short utlity functions.
+ *  @brief Some short utility functions and classes.
  * 
  *  \note As a reminder, a constexpr function \em could be evaluated at compile time
  *  (although sometimes it cannot).
  * 
- *  @author Copyright (C) 2018 Keith Pedersen (Keith.David.Pedersen@gmail.com)
- *  @date Jan 2018
+ *  @author Copyright (C) 2014-2018 Keith Pedersen (Keith.David.Pedersen@gmail.com)
 */
 
-//~ #include <sys/stat.h> // POSIX stat()
 #include <assert.h>
 #include <string>
 #include <vector>
 #include <array>
-//~ #include <QtCore/QSettings>
 #include <sstream>
 #include <cmath>
 #include <limits>
 #include <mutex>
 #include <exception>
+#include <fstream>
 
 // Limit memory
 #include <sys/time.h>
 #include <sys/resource.h>
 
+// Testing
+//~ #include <iostream>
+
+////////////////////////////////////////////////////////////////////////
+
+// If we're using GCC, we can tell Tell GCC to not issue warnings for
+// expressions that have been reviewed and approved by the author.
+#ifdef __GNUC__
+
+/* Use case: 
+ * We pass -Wfloat-equal so that GCC warns for exact floating point comparison, 
+ * which is generally unsafe given floating point rounding error.
+ * 
+ * For example, the following is not a safe test that a vector is normalized:
+ * 	
+ * 	bool IsNormalized_unsafe(vec3_t const& vec)
+ * 	{
+ * 		return (vec.Mag2() == 1.);
+ * 	}
+ * 
+ * because rounding error might case the square magnitude to equal 1 +/- MachineEpsilon. 
+ * A safe normalization test looks like:
+ * 
+ * 	bool IsNormalized_safe(vec3_t const& vec)
+ * 	{
+ * 		return (std::fabs(vec.Mag2() - 1.) < 1e-15); // assuming vec3_t internally uses double
+ * 	}
+ * 
+ * But, if we're writing a function that normalizes a vector,
+ * we need to explicitly check for a null vector (which will not be caused by rounding error).
+ * Hence, to suppress warnings, we can GCC_IGNORE_PUSH the warning we wish to ignore. 
+ * To reactivate the warning, we simply call GCC_IGNORE_POP.
+ * 
+ * 	vec3_t Normalize(vec3_t const& vec)
+ * 	{
+ * 		real_t const length = vec.Mag();
+ * 
+ * 								GCC_IGNORE_PUSH(-Wfloat-equal)
+ * 		if(length == 0.)
+ * 			return vec;
+ * 		else 
+ * 			return vec / length;
+ * 								GCC_IGNORE_POP
+ *		}
+ * 
+ * See RelDiff() for another example.
+*/ 
+
+// This requires some pre-processor magic that is beyond my short attention span
+// https://stackoverflow.com/questions/8724644/how-do-i-implement-a-macro-that-creates-a-quoted-string-for-pragma
+#define HELPER0(x) #x
+#define HELPER1(x) HELPER0(GCC diagnostic ignored x)
+#define HELPER2(y) HELPER1(#y)
+
+// Push back existing state, ignore warning
+#define GCC_IGNORE_PUSH(x) _Pragma("GCC diagnostic push") _Pragma(HELPER2(x))
+// Restore state when GCC_IGNORE_PUSH was called
+#define GCC_IGNORE_POP _Pragma("GCC diagnostic pop")
+
+#else
+
+// If we're not using GCC, ignore these macros
+#define GCC_IGNORE_PUSH(x) 
+#define GCC_IGNORE_POP
+
+#endif
+
 namespace kdp
 {
+	
+// Declare the @mainpage inside the namespace, so we can use unqualified names
+	
+	
+/*! @mainpage 
+ * 
+ *  @brief libkdp;
+ *  a collection of tools which I frequently use for many projects.
+ *  
+ *  @author Copyright (C) 2014-2018 Keith Pedersen (Keith.David.Pedersen@gmail.com)
+ * 
+ *  One of the focuses of this library is numerical stability, 
+ *  as primarily exemplified by my classes for 3-vectors (with stable rotations)
+ *  and 4-vectors (with stable boosts) found in kdpVectors.hpp. 
+ *  Additionally, BinaryAccumulate is useful for mitigating rounding error
+ *  when accumulating a large array.
+ * 
+ *  As of July 2018, the Python library includes all the classes in 
+ *  kdpVectors.hpp, but none of the other classes or functions.
+*/ 
 
 // Reminder: If there is a non-templated function or class we wish to include here, 
 // we can simply declare it inline.	This will alter function lookup semantics.
@@ -36,15 +127,15 @@ namespace kdp
 
 ////////////////////////////////////////////////////////////////////////
 
-//! @brief Return \p val squared (better/faster than std::pow).
+//! @brief Return \p val squared (better/faster than std::pow for power = 2).
 template<typename real_t>
-real_t Squared(real_t const val) {return val*val;}
+constexpr real_t Squared(real_t const val) {return val*val;}
 
 ////////////////////////////////////////////////////////////////////////
 
 //! @brief Return a^2 - b^2 precisely (better than Squared(a) - Squared(b) when b is close to a).
 template<typename real_t>
-real_t Diff2(real_t const a, real_t const b)
+constexpr real_t Diff2(real_t const a, real_t const b)
 {
 	return (a - b)*(a + b);
 }
@@ -54,28 +145,34 @@ real_t Diff2(real_t const a, real_t const b)
 /*! @brief Biased relative error: (calculated - correct)/correct
  *  
  *  This function is safe if either input is infinity;
- *  it will only return nan when either/both input is nan
+ *  it will only return NAN when either/both input is NAN, or both are zero.
 */ 
 template<typename real_t>
 real_t RelError(real_t const calculated, real_t const correct)
 {
-   //return (calculated - correct) / correct;
+											GCC_IGNORE_PUSH(-Wfloat-equal)
+	if(calculated == correct)
+	{
+		// Formally, lim 0/x as x->0 = 0. So even though the relative error 
+		// makes no sense when correct = 0, the usable answer is zero.
+		return real_t(0);
+	}
+											GCC_IGNORE_POP
+	
+	real_t relError = (calculated - correct) / correct;
+	
+	// We'll get nan if either argument is infinity
+	if(std::isnan(relError))
+	{
+		// This expression will work if one argument is +/- infinity, 
+		relError = calculated/correct - real_t(1);
+		
+		// This expression will work if both arguments are +/- infinity.
+		if(std::isnan(relError))
+			relError = -real_t(2)*real_t(calculated < correct);
+	}
 
-   // This version is safe if either input is infinity;
-   // it will only return nan when either/both input is nan
-   real_t relError = calculated/correct - real_t(1);
-
-   // But if both inputs are infinity, we'll get nan
-   if(std::isnan(relError))
-   {
-      // We can salvage every situation but where one/both are nan
-      if(calculated == correct)
-         relError = 0;
-      else
-         relError = -real_t(2)*real_t(calculated < correct);
-   }
-   
-   return relError;
+	return relError;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -84,7 +181,7 @@ real_t RelError(real_t const calculated, real_t const correct)
 template<typename real_t>
 inline real_t AbsRelError(real_t const calculated, real_t const correct)
 {
-   return std::fabs(RelError(calculated, correct));
+	return std::fabs(RelError(calculated, correct));
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -97,29 +194,33 @@ inline real_t AbsRelError(real_t const calculated, real_t const correct)
 template<typename real_t>
 real_t RelDiff(real_t const me, real_t const you)
 {
-   //return (me - you) / (me + you);
-   
-   // This version is safe if either input is infinity;
-   // it will only return nan when either/both input is nan
-   const real_t alpha = me/you;
-   const real_t beta = you/me;
+											GCC_IGNORE_PUSH(-Wfloat-equal)
+	if(me == you)
+	{
+		// Formally, lim 0/(2x) as x->0 = 0. So even though the relative difference 
+		// makes no sense when both are zero, the usable answer is zero.
+		return real_t(0);
+	}
+											GCC_IGNORE_POP
+	
+	// This version is safe if either input is infinity;
+	// it will only return nan when either/both input is nan
+	const real_t alpha = me/you;
+	
+	// If both inputs are infinity, we'll get nan
+	if(std::isnan(alpha))
+	{
+		// We can salvage every situation but where one/both are nan
+		return real_t(1)-real_t(2)*(me < you);
+	}
+	else
+	{
+		const real_t beta = you/me;
 
-   // When a ~= b, errors arise primarily in the numerator
-   // On average, though, this form is numerically better than the original for small differences
-   real_t relDiff = (alpha - beta)/(real_t(2) + alpha + beta);
-
-   // But if both inputs are infinity, we'll get nan
-   //if(std::isnan(relDiff))
-   if(relDiff not_eq relDiff) // Much faster than std::isnan, but equivalent (a nan must return false for any boolean operation)
-   {
-      // We can salvage every situation but where one/both are nan
-      if(me == you)
-         relDiff = 0;
-      else
-         relDiff = real_t(1)-real_t(2)*(me < you);
-   }
-   
-   return relDiff;
+		// When a ~= b, errors arise primarily in the numerator
+		// On average, though, this form is numerically better than the original for small differences
+		return (alpha - beta)/(real_t(2) + alpha + beta);
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -128,7 +229,7 @@ real_t RelDiff(real_t const me, real_t const you)
 template<typename real_t>
 inline real_t AbsRelDiff(real_t const me, real_t const you)
 {
-   return std::fabs(RelDiff(me, you));
+	return std::fabs(RelDiff(me, you));
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -178,7 +279,7 @@ real_t ReadAngle(std::string const& toParse)
 	parser >> angle;
 		
 	if(not parser)
-		throw std::runtime_error(("ReadAngle: cannot parse <" + toParse + ">.").c_str());
+		throw std::runtime_error(("ReadAngle: cannot parse <" + toParse + ">. Is there a space between the number and its units?").c_str());
 	
 	// Angles with no units are assumed radians; attempt to parse the units
 	std::string units;
@@ -187,13 +288,13 @@ real_t ReadAngle(std::string const& toParse)
 	if(units.length() > 0) // A suffix existed
 	{
 		// Look for degreeKey in the suffix (starting at position 0). 
-		if(units.find(degreeKey, 0) not_eq std::string::npos)
+		if(units.find(degreeKey, 0) not_eq units.npos)
 		{
-			printf("Converted degrees to radians.\n");
+			//~ printf("Converted degrees to radians.\n");
 			angle = kdp::ToRadians(angle);
 		}
 		// Else if we find radians, nothing to do (no conversion needed)
-		else if(units.find(radianKey, 0) not_eq std::string::npos) {}
+		else if(units.find(radianKey, 0) not_eq units.npos) {}
 		// A non-empty string which doesn't contain 'rad' or 'deg' has an unsupported unit
 		else
 		{
@@ -296,12 +397,13 @@ constexpr bool IsPowerOfTwo(uint_t const x)
  *  @warning The array (passed by ref) is accumulated in place (i.e. destructively altered).
 */
 template<typename T, size_t arraySize>
-T BinaryAccumulate_Destructive(std::array<T, arraySize>& vec)
+T BinaryAccumulate_Destructive(std::array<T, arraySize>& vec, size_t size = arraySize)
 {
 	// We can use a static assert because std::array has static size
 	static_assert(IsPowerOfTwo(arraySize), "BinaryAccumulate(std::array): array size must be an exact power of 2");
 		
-	size_t size = arraySize;
+	if(not kdp::IsPowerOfTwo(size))
+		throw std::runtime_error("BinaryAccumulate: starting size must be a power of two!");
 	
 	while(size > 1)
 	{
@@ -321,9 +423,9 @@ T BinaryAccumulate_Destructive(std::array<T, arraySize>& vec)
  *  then passed to BinaryAccumulate_Destructive()).
 */
 template<typename T, size_t arraySize>
-T BinaryAccumulate(std::array<T, arraySize> vec)
+T BinaryAccumulate(std::array<T, arraySize> vec, size_t const size = arraySize)
 {
-	return BinaryAccumulate_Destructive(vec);
+	return BinaryAccumulate_Destructive(vec, size);
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -389,82 +491,6 @@ T BinaryAccumulate(std::vector<T> vec)
 
 ////////////////////////////////////////////////////////////////////////
 
-/*! @brief A simple class which manages a count (e.g. the index i in a loop)
- *  that can be shared between threads.
- * 
- *  \note Note that the only way to discover the count is to increment/decrement.
- *  This is intentional, as accessing the value any other way could lead 
- *  to sloppy assumptions (i.e. you read the count multiple times during an iteration, 
- *  even though some other thread has incremented in-between reads).
- *  The only count which is guaranteed safe is the one returned by the increment/decrement.
- *  Hence, in order to use a count's value within a given iteration, 
- *  you have to store the return of the increment/decrement.
- *  
- *  \code
-		MutexCount<size_t> iShared(0); // Pretend that other threads use this too
-		size_t i; // the local i used by this thread
-
-		while((i = iShared++) < max_iterations)
-		{
-			// Do something where you need to know i
-		}
-		 
-		// alternatively, if you don't need i within the iteration, no storage needed
-		while(iShared++ < max_iterations)
-		{
-			// Do something which doesn't depend on i
-		}
-   \endcode
- */
-template<typename T>
-class MutexCount
-{
-	private:
-		T count;
-		std::mutex mutex;
-		
-	public:
-		MutexCount(T const count_init):
-			count(count_init) {}
-			
-		// We use unique_lock because it is the safer option.
-		// For one, it automatically unlocks upon destruction, 
-		// so we don't forget to unlock (and deadlock the program).
-		// Additionally, in this specific use-case, we would have to 
-		// store the return before unlocking, then return the stored value, 
-		// so there is less code. Finally, we don't know what T is;
-		// incrementing may throw an exception. If so, 
-		// the unique_lock destructor will be called, unlocking the mutex.
-			
-		T const operator++() // prefix (++x)
-		{
-			std::unique_lock<std::mutex> lock(mutex);
-			
-			return ++count;
-		}
-		
-		T const operator++(int) // dummy int to denote postfix (x++)
-		{
-			std::unique_lock<std::mutex> lock(mutex);
-			
-			return count++;
-		}
-		
-		T const operator--() // prefix (--x)
-		{
-			std::unique_lock<std::mutex> lock(mutex);
-			
-			return --count;
-		}
-		
-		T const operator--(int) // dummy int to denote postfix (x--)
-		{
-			std::unique_lock<std::mutex> lock(mutex);
-			
-			return count--;
-		}
-};
-
 /*! @brief Use a linux system call to set a soft limit on this processes' memory use.
  * 
  *  \throws throws \c std::bad::alloc when the limit is reached
@@ -502,98 +528,91 @@ inline void LimitMemory(double const num_GB = 4.)
 		throw std::runtime_error("LimitMemory: Cannot set new soft limit.");
 }
 
-// What is this left over from?
-//~ template<typename real_t, size_t incrementSize>
-//~ using incrementArray_t = std::array<real_t, incrementSize>;
-}// end namespace
-
-// Declare these outside of kdp namespace
-
-template<typename T>
-std::vector<T>& operator+=(std::vector<T>& lhs, std::vector<T> const& rhs)
-{
-	if(rhs.size() not_eq lhs.size())
-		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
-	
-	for(size_t i = 0; i < lhs.size(); ++i)
-		lhs[i] += rhs[i];
-	
-	return lhs;
-}
-
-template<typename T>
-std::vector<T> operator+(std::vector<T> const& lhs, std::vector<T> const& rhs)
-{
-	std::vector<T> copy(lhs);
-	return copy += rhs;
-}
-
-template<typename T>
-std::vector<T>& operator-=(std::vector<T>& lhs, std::vector<T> const& rhs)
-{
-	if(rhs.size() not_eq lhs.size())
-		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
-	
-	for(size_t i = 0; i < lhs.size(); ++i)
-		lhs[i] -= rhs[i];
-	
-	return lhs;
-}
-
-template<typename T>
-std::vector<T> operator-(std::vector<T> const& lhs, std::vector<T> const& rhs)
-{
-	std::vector<T> copy(lhs);
-	return copy -= rhs;
-}
-
-template<typename T>
-std::vector<T>& operator*=(std::vector<T>& lhs, T const& rhs)
-{
-	for(size_t i = 0; i < lhs.size(); ++i)
-		lhs[i] *= rhs;
-	
-	return lhs;
-}
-
-template<typename T>
-std::vector<T> operator*(std::vector<T> const& lhs, T const& rhs)
-{
-	std::vector<T> copy(lhs);
-	return copy *= rhs;
-}
-
-template<typename T>
-std::vector<T>& operator*=(std::vector<T>& lhs, std::vector<T> const& rhs)
-{
-	if(rhs.size() not_eq lhs.size())
-		throw std::range_error("kdp::operator+= (std::vector<T>): vectors have different lengths");
-	
-	for(size_t i = 0; i < lhs.size(); ++i)
-		lhs[i] *= rhs[i];
-	
-	return lhs;
-}
-
-template<typename T>
-std::vector<T> operator*(std::vector<T> const& lhs, std::vector<T> const& rhs)
-{
-	std::vector<T> copy(lhs);
-	return copy *= rhs;
-}
-
 ////////////////////////////////////////////////////////////////////////
 
-// Note: Commented out because it is not a template, 
-// so if this file is included in multiple files which build object files, 
-// it will receive multiple definitions, and cause a linking error 
-// when the shared library is built
+/*! @brief Use Welford's algorithm to calculate a running mean and variance
+ * 
+ *  This provides a numerically stable estimate of the variance, 
+ *  but without having to store the entire vector.
+ * 
+ *  \note There is no function for the standard deviation because some T may not
+ *  fit into std::sqrt (e.g. a std::vector<double>).
+*/ 
+template <typename T>
+class WelfordEstimate
+{
+	private:
+		T mean; 
+		T sumOfSquareDeviations;
+		
+		size_t n;
+		
+	public:
+		WelfordEstimate():
+			mean(), sumOfSquareDeviations(), n(0) {}
+		WelfordEstimate(WelfordEstimate const&) = default;
+		WelfordEstimate& operator=(WelfordEstimate const&) = default;
+		
+		// Enable move semantics, in case T is a vector
+		WelfordEstimate(WelfordEstimate&&) = default;
+		WelfordEstimate& operator=(WelfordEstimate&&) = default;
+		
+		WelfordEstimate& operator+=(T const& val)
+		{
+			T deltaOld = (val - mean);
+			
+			// Use double for denominator (even if T = float) because n could be very large
+			mean += deltaOld/double(++n);
+			sumOfSquareDeviations += deltaOld*(val - mean);
+					
+			if(n == 0lu)
+				throw std::runtime_error("WelfordEstimate: sample size exceeded capacity of size_t; I'm impressed.");
+				
+			return *this;
+		}
+		
+		T const& Mean() const {return mean;}
+		T Variance() const {return sumOfSquareDeviations/double(n);}
+		T Variance_Unbiased() const {return sumOfSquareDeviations/double(n - size_t(1));}
+		
+		size_t Size() {return n;}
+};
+
+template <typename T>
+T PythagoreanSum(std::vector<T> vec)
+{
+	T sum(0); // zero-initializing constructor
+	
+	for(auto const& val : vec)
+		sum += kdp::Squared(val);
+		
+	return std::sqrt(sum);	
+}
+
+template <typename T>
+T PythagoreanSum(std::initializer_list<T> vec)
+{
+	return PythagoreanSum(std::vector<T>(vec));
+}
+
+/*! @brief Test that a file can be opened and read.
+ * 
+ *  Using ifstream is most portable across OS, but not the fastest.
+ *  However, as long as this is not used often, its speed is irrelevant.
+*/ 
+// Declare inline to allow compiler to consolidate multiple copies of function in 
+// various object files gathered into a single program/library.
+inline bool FileIsReadable(std::string const& filePath)
+{
+	return std::ifstream(filePath).is_open();
+}
+
 /*! @brief Quickly check if a file is visible.
  * 
  *  Mainly useful for control logic before sending file to another function for internal use.
 */
 // Based on: http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
-//~ bool FileIsVisible(const std::string& name) 
+//~ inline bool FileIsVisible(const std::string& name) 
 //~ {
 	//~ // per: http://stackoverflow.com/questions/23329382/function-and-struct-having-the-same-name-in-c,
 	//~ // A struct and a function/variable/etc can have the same name. 
@@ -604,4 +623,7 @@ std::vector<T> operator*(std::vector<T> const& lhs, std::vector<T> const& rhs)
 	//~ // Otherwise, -1 shall be returned and errno set to indicate the error.
 	//~ return (stat(name.c_str(), &buffer) == 0); // Any error means we can't read the file.
 //~ }
+
+}// end namespace
+
 #endif

@@ -1,8 +1,20 @@
 #include "kdpVectors.hpp"
-#include "pqRand/pqRand.hpp"
 #include <QtCore/QSettings>
 
-kdp::Vec3 IsoVec3(pqRand::engine& gen)
+std::mt19937_64 gen;
+std::uniform_real_distribution<double> uniform;
+
+double U_0_1()
+{
+	return uniform(gen);
+}
+
+double U_Neg1_1()
+{
+	return 1. - 2.*U_0_1();
+}
+
+kdp::Vec3 IsoVec3()
 {
 	// The easiest way to draw an isotropic 3-vector is rejection sampling.
 	// It provides slightly better precision than a theta-phi implementation,
@@ -15,9 +27,9 @@ kdp::Vec3 IsoVec3(pqRand::engine& gen)
 	{
 		// U_S has enough precision for this application
 		// because we scale by r2
-		iso.x1 = gen.U_even();
-		iso.x2 = gen.U_even();
-		iso.x3 = gen.U_even();
+		iso.x1 = U_Neg1_1();
+		iso.x2 = U_Neg1_1();
+		iso.x3 = U_Neg1_1();
 		
 		r2 = iso.Mag2();
 	}
@@ -37,20 +49,14 @@ kdp::Vec3 IsoVec3(pqRand::engine& gen)
 	
 	// In this application, we simply want unit vectors, 
 	// so we throw away the random entropy of r2.
-	//~ iso /= std::sqrt(r2);
-		
-	// Use random signs to move to the other 7 octants
-	gen.ApplyRandomSign(iso.x1);
-	gen.ApplyRandomSign(iso.x2);
-	gen.ApplyRandomSign(iso.x3);
+	//~ iso /= std::sqrt(r2);	
+	
 	
 	return iso;
 }
 
 int main()
 {
-	pqRand::engine gen;
-	
 	QSettings settings("test_Rotate.conf", QSettings::NativeFormat);
 	
 	size_t const sample_rotations = size_t(settings.value("n_rotations", 1e4).toDouble());
@@ -59,18 +65,18 @@ int main()
 	
 	for(size_t i = 0; i < sample_rotations; ++i)
 	{
-		auto const u = IsoVec3(gen);
-		auto const v = IsoVec3(gen);
-		auto const omega = gen.ApplyRandomSign(M_PI*gen.U_uneven());
+		auto const u = IsoVec3();
+		auto const v = IsoVec3();
+		auto const omega = M_PI*U_Neg1_1();
 		
 		// The unambigous rotation from u to v (with a post-rotation about v)
 		kdp::Rotate3<double> rotator(u, v, omega);
-		kdp::Rotate3<double> identity(u, u*gen.U_uneven(), 0.);
+		kdp::Rotate3<double> identity(u, u*U_0_1(), 0.);
 		
 		bool errorCaught = false;
 		try
 		{
-			kdp::Rotate3<double> flip(u, -(u*gen.U_uneven()), 0.);
+			kdp::Rotate3<double> flip(u, -(u*U_0_1()), 0.);
 		}
 		catch(std::invalid_argument e)
 		{
@@ -105,7 +111,7 @@ int main()
 		
 		for(size_t j = 0; j < sample_vecs; ++j)
 		{
-			kdp::Vec3 const orig = IsoVec3(gen);
+			kdp::Vec3 const orig = IsoVec3();
 			origVec.push_back(orig);
 			
 			rotVec.push_back(rotator(orig));
@@ -135,7 +141,7 @@ int main()
 				printf("%lu %lu -- error between methods (in radians): %.3e %.3e\n", i, j, error, angle_2);
 				
 			if(angleError > thresh)
-				printf("%lu %lu -- rotation angle does not match target: %.3e, %.3e, %.3e\n", i, j, angleError, orig.Dot(rotator_2.Axis()), rotator_2.Angle());
+				printf("%lu %lu -- rotation angle does not match target: %.3e, %.3e, %.3e\n", i, j, angleError, orig.Dot(rotator_2.Axis()), rotator_2.Angle()/M_PI);
 		}
 		
 		for(size_t k = 0; k < sample_vecs; ++k)

@@ -2,7 +2,21 @@
 #include "pqRand/pqRand.hpp"
 #include <QtCore/QSettings>
 
-kdp::Vec3 IsoVec3(pqRand::engine& gen)
+std::mt19937_64 gen;
+std::uniform_real_distribution<double> uniform;
+
+double U_0_1()
+{
+	return uniform(gen);
+}
+
+double U_Neg1_1()
+{
+	return 1. - 2.*U_0_1();
+}
+
+
+kdp::Vec3 IsoVec3()
 {
 	// The easiest way to draw an isotropic 3-vector is rejection sampling.
 	// It provides slightly better precision than a theta-phi implementation,
@@ -15,9 +29,9 @@ kdp::Vec3 IsoVec3(pqRand::engine& gen)
 	{
 		// U_S has enough precision for this application
 		// because we scale by r2
-		iso.x1 = gen.U_even();
-		iso.x2 = gen.U_even();
-		iso.x3 = gen.U_even();
+		iso.x1 = U_Neg1_1();
+		iso.x2 = U_Neg1_1();
+		iso.x3 = U_Neg1_1();
 		
 		r2 = iso.Mag2();
 	}
@@ -35,134 +49,78 @@ kdp::Vec3 IsoVec3(pqRand::engine& gen)
 	// so that you that you use u to draw the scale that the takes 
 	// iso to its new length.
 	
-	// In this application, we simply want unit vectors, 
-	// so we throw away the random entropy of r2.
-	//~ iso /= std::sqrt(r2);
-		
-	// Use random signs to move to the other 7 octants
-	gen.ApplyRandomSign(iso.x1);
-	gen.ApplyRandomSign(iso.x2);
-	gen.ApplyRandomSign(iso.x3);
-	
 	return iso;
 }
 
 int main()
 {
-	pqRand::engine gen;
+	QSettings settings("test_Boost.conf", QSettings::NativeFormat);
 	
-	QSettings settings("test_Rotate.conf", QSettings::NativeFormat);
-	
-	size_t const sample_rotations = size_t(settings.value("n_rotations", 1e4).toDouble());
-	size_t const sample_vecs = size_t(settings.value("n_vecs", 1e4).toDouble());
+	size_t const sample_boosts = size_t(settings.value("n_boosts", 1e4).toDouble());
 	double const thresh = std::fabs(settings.value("error_thresh", 8e-16).toDouble());
 	
-	kdp::Vec4 CM(1., 0., 0., 0.);
-	kdp::Vec4 photon(5., 0., 3., 4.);
-	kdp::LorentzBoost<double> boost(kdp::Vec3(0., 0., 1.), 2.);
-	boost.Forward(CM);
-	boost.Forward(photon);
-	printf("[%.3e, (%.3e, %.3e, %.3e)]\n", CM.x0, CM.x1, CM.x2, CM.x3);
-	printf("[%.3e, (%.3e, %.3e, %.3e)]\n", photon.x0, photon.x1, photon.x2, photon.x3);
-	printf("%.3e\n", photon.Length());
-	boost.Backward(CM);
-	boost.Backward(photon);
-	printf("back-boost error: [%.3e, (%.3e, %.3e, %.3e)]\n", kdp::RelError(CM.x0, 1.), CM.x1, CM.x2, CM.x3);
-	printf("[%.3e, (%.3e, %.3e, %.3e)]\n", photon.x0, photon.x1, photon.x2, photon.x3);
-	printf("%.3e\n", photon.Length());
-	
-	return 0;
-	
-	for(size_t i = 0; i < sample_rotations; ++i)
+	kdp::Vec4 const CM(1., 0., 0., 0.);
+		
+	for(size_t i = 0; i < sample_boosts; ++i)
 	{
-		auto const u = IsoVec3(gen);
-		auto const v = IsoVec3(gen);
-		auto const omega = gen.ApplyRandomSign(M_PI*gen.U_uneven());
+		kdp::LorentzBoost<double> boost(IsoVec3());
+		kdp::LorentzBoost<double> boost_long(kdp::Vec3(0., 0., U_0_1()));
 		
-		// The unambigous rotation from u to v (with a post-rotation about v)
-		kdp::Rotate3<double> rotator(u, v, omega);
-		kdp::Rotate3<double> identity(u, u*gen.U_uneven(), 0.);
+		kdp::Vec4 const photon(IsoVec3());
+		kdp::Vec4 const photonTwo(IsoVec3());		
+		kdp::Vec4 const massive(U_0_1(), IsoVec3(), kdp::Vec4from2::Mass);
 		
-		bool errorCaught = false;
-		try
-		{
-			kdp::Rotate3<double> flip(u, -(u*gen.U_uneven()), 0.);
-		}
-		catch(std::invalid_argument e)
-		{
-			errorCaught = true;
-		}
+		kdp::Vec4 const photon_boosted = boost.Forward(photon);
+		kdp::Vec4 const photon_boosted_long = boost_long.Forward(photon);
+		kdp::Vec4 const photon_restored = boost.Backward(photon_boosted);
 		
-		if(not errorCaught)
-			printf("Rotate3 did not throw exception on anti-parallel vectors!\n");
+		kdp::Vec4 const CM_boosted = boost.Forward(CM);
+		kdp::Vec4 const CM_restored = boost.Backward(CM_boosted);
 		
-		auto const axis = rotator.Axis();
+		double const deltaR_photons_before = photon.DeltaR_pseudo(photonTwo);
+		double const deltaR_photons_after = photon_boosted_long.DeltaR_pseudo(boost_long.Forward(photonTwo));
 		
-		// To test the unambigous rotation, we use two sequential rotations
-		// defined by axis/angle
-		kdp::Rotate3<double> rotator_1(u.Cross(v).Normalize(), u.InteriorAngle(v));
-		kdp::Rotate3<double> rotator_2(v, omega);
-	
-		double const axisLengthError = kdp::AbsRelError(axis.Mag(), double(1));
-		double const uv_same = std::fabs(u.Dot(axis)/u.Mag() - v.Dot(axis)/v.Mag());
-	
-		if((axisLengthError > thresh) or (uv_same > thresh))
-		{
-			printf("\n~~~~~~~~~~~~~~~~~~~\n");
-			printf("%lu \n", i);
-			printf("axis is normalized ... rel error : %.3e\n", axisLengthError);
-			printf("axis is same dist  ... abs dot: %.3e %.3e\n", uv_same, u.Dot(axis)/u.Mag());
-			printf("~~~~~~~~~~~~~~~~~~~\n");
-		}
+		kdp::Vec4 const CM_boosted_long = boost_long.Forward(CM);
+		kdp::Vec4 const CM_restored_long = boost_long.Backward(CM_boosted_long);
 		
-		std::vector<kdp::Vec3> origVec;
-		std::vector<kdp::Vec3> rotVec;
-		std::vector<kdp::Vec3> rotVec_v2;
+		kdp::Vec4 const massive_boosted_long = boost_long.Forward(massive);
+		kdp::Vec4 const massive_restored_long = boost_long.Backward(massive_boosted_long);
 		
-		for(size_t j = 0; j < sample_vecs; ++j)
-		{
-			kdp::Vec3 const orig = IsoVec3(gen);
-			origVec.push_back(orig);
+		double const deltaR_massive_before = massive_boosted_long.DeltaR_rap(CM_boosted_long);
+		double const deltaR_massive_after = massive_restored_long.DeltaR_rap(CM_restored_long);
+		
+		double const betaError_boosted = kdp::RelError(CM_boosted.Beta(), boost.Beta());
+		double const massError_boosted = kdp::RelError(CM_boosted.Mass(), 1.);
+		double const betaError_restored = CM_restored.Beta();
+		double const massError_restored = kdp::RelError(CM_restored.Mass(), 1.);
+		
+		double const betaError_photon = 1. - photon_boosted.Beta();
+		double const massError_photon = photon_boosted.Mass();
+		
+		double const deltaR_photon_error = kdp::RelDiff(deltaR_photons_before, deltaR_photons_after);
+		double const deltaR_massive_error = kdp::RelDiff(deltaR_massive_before, deltaR_massive_after);
+		
+		if(betaError_boosted > thresh)
+			printf("Beta of boosted CM misses target (rel error): %.3e\n", betaError_boosted);
+		if(massError_boosted > thresh)
+			printf("Mass of boosted CM misses target (rel error): %.3e\n", massError_boosted);
+		
+		if(betaError_restored > thresh)
+			printf("Beta of restored CM misses target: %.3e\n", betaError_restored);
+		if(massError_restored > thresh)
+			printf("Mass of restored CM misses target: %.3e\n", massError_restored);
 			
-			rotVec.push_back(rotator(orig));
-			rotVec_v2.push_back(rotator_2(rotator_1(orig)));
+		if(deltaR_photon_error > thresh)
+			printf("deltaR_pseudo not boost invariant for photons (rel error): %.3e\n", deltaR_photon_error);
+		if(deltaR_massive_error > thresh)
+			printf("deltaR_rap not boost invariant for massive (rel error): %.3e\n", deltaR_massive_error);
 			
-			double const identifyError = kdp::AbsRelError(identity(orig).Mag(), orig.Mag());
-			if(identifyError > 0.)
-				printf("identity is not the identity: %.3e\n", identifyError);
-			
-			double const angle = std::fabs(rotVec.back().Dot(axis) - orig.Dot(axis))/(orig.Mag());
-			double const angle_2 = std::fabs(rotVec_v2.back().Dot(axis) - orig.Dot(axis))/(orig.Mag());
-			double const mag  = kdp::AbsRelError(rotVec.back().Mag(), orig.Mag());
-			
-			auto const orig_perp = orig - rotator_2.Axis() * orig.Dot(rotator_2.Axis());
-			auto const rotPart = rotator_2(orig);
-			auto const final_perp = rotPart - rotator_2.Axis() * rotPart.Dot(rotator_2.Axis());
-			double const angleError = std::fabs(orig_perp.InteriorAngle(final_perp) - std::fabs(rotator_2.Angle()));
-			
-			double const error = kdp::AbsRelError(rotVec.back().Dot(rotVec_v2.back()), rotVec.back().Mag2());
-			//~ double const error = rotVec.back().InteriorAngle(rotVec_v2.back());
-			
-			if((angle > thresh) or (mag > thresh))
-				printf("%lu -- angle, length preserved ... rel error: %.3e, %.3e   ..... %.3e, %.3e\n", 
-					i, angle, mag, u.Dot(v)/std::sqrt(u.Mag2()*v.Mag2()), orig.Dot(axis));
-					
-			if(error > thresh)
-				printf("%lu %lu -- error between methods (in radians): %.3e %.3e\n", i, j, error, angle_2);
-				
-			if(angleError > thresh)
-				printf("%lu %lu -- rotation angle does not match target: %.3e, %.3e, %.3e\n", i, j, angleError, orig.Dot(rotator_2.Axis()), rotator_2.Angle());
-		}
+		if(betaError_photon > thresh)
+			printf("(1 - Beta) of boosted photon misses target: %.3e\n", betaError_photon);
+		if(massError_photon > thresh)
+			printf("Mass of boosted photon misses target: %.3e\n", massError_photon);
 		
-		for(size_t k = 0; k < sample_vecs; ++k)
-		{
-			for(size_t l = k + 1; l < sample_vecs; ++l)
-			{
-				double const dotError = std::fabs(rotVec[k].Dot(rotVec[l]) - origVec[k].Dot(origVec[l]));
-				
-				if(dotError > thresh)
-					printf("%lu %lu %lu interior-dot fail: %.3e\n", i, k, l, dotError);
-			}
-		}
 	}
+		
+	return 0;
 }

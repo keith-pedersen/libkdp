@@ -1,0 +1,106 @@
+% A bunch of useful commands I keep creating in all of LaTeX files
+% Copyright(C) 2018 by Keith.David.Pedersen@gmail.com (hepguy.com)
+
+% The dummy super-script, because $x_a^{}$ looks better than $x_a$
+% due to a lower-riding subscript. 
+\newcommand{\ds}{^{}}
+% This example demonstrates how \ds makes subscripts match up better when the symbol is squared
+\newcommand{\dsExample}{$\overset{\text{this one is {\tt \$x\_a{\textbackslash}ds\$}}}{
+x_a		\;
+x_a^2		\;\overset{\downarrow}{
+x_a\ds	}}$\hrule}
+
+% If not already defined (by \usepackage{amsmath}), macro for text in math mode
+\ifcsname text\endcsname%
+\else
+\newcommand{\text}[1]{\mathrm{#1}}
+\fi
+
+\newcommand{\I}{i} % sqrt{-1}
+\newcommand{\abs}[1]{\left|#1\right|} % absolute value
+\newcommand{\bigO}[1]{\mathcal{O}(#1)} % big O notation
+\newcommand{\diff}[1]{\text{d}#1} % d/dx => \diff{} / \diff{x}, because d shouldn't be italicized
+\newcommand{\atanh}{\text{arctanh}}
+\newcommand{\ExAngle}[1]{\langle#1\rangle} % expectation values
+\newcommand{\Ex}[1]{\text{Ex}\left(#1\right)} % expectation values
+\newcommand{\Exx}[1]{\text{Ex}(#1)} % expectation values, without \left \right
+
+% The manually defined ident will go bold, \openone will not
+\newcommand{\ident}{\text{{\small $1$}}\hspace{-0.37em}1}
+%~ \ifcsname openone\endcsname
+	%~ \newcommand{\ident}{\openone}
+%~ \else
+	%~ \newcommand{\ident}{\text{{\small $1$}}\hspace{-0.37em}1}
+%~ \fi
+
+% Bra-ket notation
+\newcommand{\bra}[1]{\left\langle #1\right|}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\braket}[2]{\left\langle#1|#2\right\rangle}
+
+% If not already defined (by \usepackage{units}), define unit (e.g. $3\,\unit{m}$) 
+\ifcsname unit\endcsname%
+\else
+\newcommand{\unit}[2][]{#1\,\text{#2}}
+\newcommand{\unitfrac}[3][]{#1\,\nicefrac{\text{#2}}{\text{#3}}}
+\fi
+
+% If not already defined (by \usepackage{cancel}), define cancel (lower-left to upper-right strikethrough)
+\ifcsname cancel\endcsname%
+\else
+\newcommand{\cancel}[1]{\not\mathrel{#1}}
+\fi
+
+\newcommand{\angstrom}{\aa ngstr\"om}
+
+% Print 10 paragraphs of dummy text, to make formatting decisions.
+\newcommand{\lipsum}{Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac arcu at erat fermentum ultrices. Fusce id justo quis massa vestibulum venenatis posuere id enim. Etiam diam augue, dapibus eget facilisis vitae, accumsan non ante. Fusce lorem ipsum, dignissim facilisis pretium lobortis, consectetur at nibh. In id est vel dolor porta varius. Curabitur ultrices tristique tempor. Phasellus semper cursus tincidunt. Morbi consequat mauris nec velit convallis, ac volutpat enim venenatis. Fusce a erat sed sapien rhoncus luctus in nec arcu. Cras metus erat, cursus sed justo nec, lacinia bibendum nunc.
+\par Aenean non mollis leo. Morbi faucibus viverra quam ut sollicitudin. Duis fringilla tempor ante eget dapibus. Donec at ex consectetur, hendrerit eros quis, efficitur diam. Sed hendrerit volutpat neque euismod faucibus. Curabitur est orci, molestie id faucibus vestibulum, aliquet ut arcu. Nam tristique, leo nec porttitor condimentum, sapien lorem aliquam magna, in tincidunt metus eros at sem. Nam ut malesuada sapien. Donec vitae bibendum sapien. In efficitur porttitor ex nec consequat. Vivamus molestie eu augue non gravida. Curabitur egestas, ligula id imperdiet sagittis, metus felis placerat est, vitae vehicula quam lectus sit amet sem. Ut vel tristique ante. Aliquam erat volutpat.
+\par Ut viverra lorem ex, eu consectetur enim aliquam a. Pellentesque tellus lacus, ultricies eget vehicula quis, laoreet sit amet turpis. Nam at massa vitae enim pretium cursus hendrerit pellentesque lorem. In mauris tortor, ornare vitae tellus ac, faucibus sollicitudin nibh. Nulla viverra libero vitae quam porttitor suscipit. Vivamus et condimentum nunc. Vestibulum in nisi nibh. Fusce nisl felis, bibendum id lectus sit amet, ornare gravida sapien. Fusce tempor enim at enim sodales vulputate. Fusce eu lacus faucibus, pharetra ipsum sit amet, maximus enim.
+\par Etiam tempus leo lacus, in mattis ante pretium accumsan. Cras dapibus nisi enim, at volutpat sapien feugiat ac. Integer non bibendum felis. Fusce finibus volutpat egestas. Praesent tincidunt pulvinar molestie. Etiam ut egestas dui. Integer sit amet augue eget quam hendrerit tincidunt ut sed dolor. Quisque ornare tellus ac pretium aliquam. Donec orci neque, vulputate at lorem at, laoreet auctor tellus.
+\par Vestibulum turpis enim, condimentum ac pulvinar quis, dapibus eu velit. Curabitur sagittis malesuada molestie. Sed sit amet lorem in mauris eleifend lacinia. Mauris scelerisque rutrum orci quis aliquam. Cras lectus orci, cursus sit amet magna ac, bibendum efficitur massa. Nulla nec felis interdum, venenatis massa a, cursus dolor. Morbi molestie risus vitae mauris aliquam, a fermentum justo rhoncus. In sollicitudin rutrum eros feugiat euismod. Cras at aliquet libero.
+\par Sed tristique ligula ut quam suscipit, sodales tincidunt quam blandit. Quisque condimentum et quam gravida auctor. Vestibulum facilisis libero eu erat tempus sollicitudin. Phasellus scelerisque mi ac nisi pulvinar, eget mattis lorem luctus. Donec eu egestas felis. Integer pharetra diam metus, et molestie nisi varius a. Suspendisse metus odio, volutpat id porttitor quis, posuere eget ligula. Duis feugiat accumsan eros sed iaculis. Sed ac libero sed metus varius imperdiet nec sed leo. Donec feugiat id lorem in euismod.
+\par Donec viverra nibh eu lectus lobortis, ut laoreet metus dignissim. Praesent consequat, ante ac egestas tristique, lectus arcu varius elit, eget luctus odio lectus convallis purus. Quisque egestas est risus, molestie rutrum dui pulvinar vitae. In tortor metus, cursus quis faucibus quis, vulputate non nibh. Duis blandit ligula vitae elit ultrices ultricies. Phasellus lobortis mauris ex, mollis feugiat nisl dictum sit amet. Curabitur aliquam elit elit, at imperdiet metus laoreet eget. Fusce at nibh sed nisl mollis auctor non et elit. Suspendisse a congue massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent fringilla, eros venenatis vehicula cursus, sapien dolor blandit eros, ac venenatis nulla purus id magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eros erat, volutpat in eros sed, tempus malesuada nisl.
+\par Nunc tellus leo, tincidunt sollicitudin tincidunt ut, venenatis et ligula. Praesent ac tellus eget est aliquam posuere. Aenean sagittis dictum nisl at malesuada. Duis sollicitudin quam justo, nec semper lorem fermentum eu. Curabitur convallis consectetur massa, non semper odio pellentesque ut. Vestibulum libero diam, feugiat in est id, sodales dapibus ex. Nulla mattis libero dolor, id accumsan lacus ultricies id.
+\par Etiam imperdiet enim ut cursus pharetra. Nunc tempus ullamcorper eleifend. Nullam vitae porta nunc. Maecenas sit amet semper dui. Mauris augue metus, rhoncus id imperdiet ut, fringilla ac ligula. Mauris laoreet ac diam ut iaculis. Curabitur quis bibendum elit. Praesent lectus mi, aliquam id consectetur vitae, hendrerit a felis. Proin a gravida lectus, non faucibus ante. Nulla malesuada augue eget ligula fermentum hendrerit. Curabitur accumsan urna id dui efficitur blandit. Integer vitae mi commodo, porttitor mauris a, mattis nisi.
+\par Suspendisse nec commodo lorem. Suspendisse varius bibendum tempus. Sed metus purus, ultrices vel dolor at, lobortis auctor ante. Etiam scelerisque lorem ut enim blandit, ut tristique leo faucibus. Mauris tincidunt dolor vel neque porta, eget ultrices metus pulvinar. Sed semper ante non nulla pharetra, at luctus urna varius. Phasellus eu magna sed enim porta mattis ut et sapien. Nam at mattis magna.}
+
+% Print a table which shows all the Greek letters you can use in math mode
+\newcommand{\allgreek}{
+\newcommand{\blank}{}
+\begin{table}
+\begin{tabular}{|c|c|c|}
+\hline
+{\bf name} & {\bf lowercase} & {\bf uppercase} \\ \hline
+alpha    & $\alpha$     & \blank       \\ \hline
+beta     & $\beta$      & \blank       \\ \hline
+gamma    & $\gamma$     & $\Gamma$     \\ \hline
+delta    & $\delta$     & $\Delta$     \\ \hline   \hline
+
+epsilon  & $\epsilon$   & \blank       \\ \hline
+zeta     & $\zeta$      & \blank       \\ \hline
+eta      & $\eta$       & \blank       \\ \hline
+theta    & $\theta$     & $\Theta$     \\ \hline   \hline
+
+iota     & $\iota$      & \blank       \\ \hline
+kappa    & $\kappa$     & \blank       \\ \hline
+lambda   & $\lambda$    & $\Lambda$    \\ \hline
+mu       & $\mu$        & \blank       \\ \hline   \hline
+
+nu       & $\nu$        & \blank       \\ \hline
+xi       & $\xi$        & $\Xi$        \\ \hline
+omicron  & \blank       & \blank       \\ \hline
+pi       & $\pi$        & $\Pi$        \\ \hline   \hline
+
+rho      & $\rho$       & \blank       \\ \hline
+sigma    & $\sigma$     & $\Sigma$     \\ \hline
+tau      & $\tau$       & \blank       \\ \hline
+upsilon  & $\upsilon$   & $\Upsilon$   \\ \hline   \hline
+
+phi      & $\phi$       & $\Phi$       \\ \hline
+chi      & $\chi$       & \blank       \\ \hline
+psi      & $\psi$       & $\Psi$       \\ \hline
+omega    & $\omega$     & $\Omega$     \\ \hline
+\end{tabular}
+\caption{A table depicting the greek letters available in math mode.}
+\end{table}}

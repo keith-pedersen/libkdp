@@ -1,4 +1,4 @@
-\documentclass[12pt, nofootinbib, notitlepage]{revtex4-1}
+\documentclass[12pt, nofootinbib, notitlepage]{revtex4}
 %~ \documentclass{article}
 \usepackage{amsmath}
 %~ \usepackage[margin=3.4cm]{geometry}
@@ -9,48 +9,87 @@
 \usepackage{cancel}
 \usepackage{units}
 
-\interfootnotelinepenalty=100
-%~ \count\footins = 2000
+\input{./kdpCommands}
 
-%~ \newcommand{\vecN}[1]{\hat{#1}}
-\renewcommand{\vec}[1]{\boldsymbol{#1}}
-\newcommand{\vecN}[1]{\vec{\hat{#1}}}
+%~ \renewcommand{\vec}[1]{\boldsymbol{#1}}
+%~ \newcommand{\vecN}[1]{\vec{\hat{#1}}}
+\newcommand{\vecN}[1]{\hat{#1}}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\Mu}[1]{\bs{#1}}
+\newcommand{\CM}{\text{cm}}
 
-\newcommand{\ds}{^{}}
-\newcommand{\bigO}[1]{\mathcal{O}(#1)}
-\newcommand{\abs}[1]{|#1|}
 \newcommand{\vvv}[3]{(#1,\,#2,\,#3)}
 \newcommand{\ang}{\psi}
 \newcommand{\vict}{\vec{w}}
 \newcommand{\ax}{\vecN{x}}
 \newcommand{\super}[2]{#1\textsuperscript{#2}}
-\newcommand{\diff}[1]{\text{d}#1}
-%~ \newcommand{\openone}{\scalebox{0.91}{1}\!\!1}
 
 \begin{document}
-\title{An arbitrary rotation without matrices}
+\title{Rotations and boost without matrices}
 \author{Keith Pedersen}
 
 \maketitle
 
-{\it NOTE: This paper uses the nomenclature that $\vec{w}$ is a vector and 
-$\vecN{w}$ is a unit vector.}
+{\it NOTE: This paper is a reprint from the Appendix of my doctoral thesis 
+``Expanding the HEP frontier with boosted $b$-tags and the QCD power spectrum''.
+It uses the nomenclature that $\vec{w}$ is a 3-vector, 
+$\vecN{w}$ is a unit 3-vector, and $\Mu{p}$ is a 4-vector.}
 \medskip
 
-A right-handed (RH) rotation, by some angle $\ang$ about some axis $\ax$, 
-can be defined without matrices using Rodrigues' rotation formula.
-The victim vector $\vec{w}$ is projected into three pieces:
-($\vec{w}_\parallel\ds$) the piece parallel to the axis, 
-($\vec{w}_{\bot}\ds$) the piece perpendicular to the axis, 
-and ($\vec{w}^\prime_{\bot}$), the perpendicular $\vec{w}_{\bot}\ds$ rotated by $90^\circ$.
-The parallel piece is unaltered by the rotation, 
-and the two $\vec{w}_{\bot}\ds$ form a basis for the rotation;
+Given my investigation into unsafe operations in floating point arithmetic, 
+I decided to write my own C++ vector classes, so that I could be assured that
+they internally respect floating point limitations
+(e.g., the options available with ROOT use {\tt acos} to find interior angle).
+My {\tt Vector2}, {\tt Vector3}, and {\tt Vector4} classes 
+store 2, 3, and 4-vectors (respectively), 
+and are highly modified extensions of classes originally written by Z.~Sullivan.
+In addition to defining basic functionality (add, scale, dot, cross, etc.),
+I needed tools to rotate 3-vectors and boost 4-vectors;
+this section presents the mathematical formalism I chose to use to 
+accomplish those latter tasks.
+
+{\it NOTE: The Rodrigues formula (both for rotations and boost) is shown for reference, 
+whereas Section~\ref{sec:u-to-v} presents my own work.}
+
+\section{Rotating vectors}%
+%
+The most natural method to rotate 3-vectors is via $3\times3$ square matrices.
+However, it can be cumbersome to implement these matrices for an arbitrary rotation, 
+since they require hard-coding large trigonometric expressions.
+The size of these expressions lends itself to the possibility of
+floating point cancellation,
+and ensuring their numerical stability is a headache.
+However, one does not have to use matrices to define rotations;
+the Rodrigues formula rotates using only the dot and cross product.
+
+\subsection{The Rodrigues rotation formula}%
+%
+To implement an active, right-handed (RH) rotation of vector $\vec{w}$
+by some angle $\ang$ about some axis $\ax$,
+the victim  is projected into two pieces:
+its longitudinal length and transverse vector
+\begin{align}
+	w_L\ds & = \vict\cdot\ax\,,\label{eq:v_L}\\
+	\vec{w}_T\ds & = \vict - w_L\ds \ax \label{eq:v_T}
+	\,.
+\end{align}
+We can then calculate another transverse $\vec{w}_T\ds$, rotated by $90^\circ$ relative to the first;
+\begin{equation}
+	\vec{w}_{T^{\,\prime}}\ds = \ax\times\vict
+	\,.
+\end{equation}
+The two transverse $\vec{w}$ form a basis for the rotation, 
+which $\ax$ is unaltered by;
+this allows us to calculate the rotated vector quite simply
 \begin{equation}\label{eq:rot}
-	\vict^\prime=R(\vict) = \underset{\vec{w}_\parallel\ds}{\underbrace{(\vict\cdot\ax)\ax}} 
-		+ \cos\ang\underset{\vec{w}_{\bot}\ds}{\underbrace{(\vict - \vec{w}_\parallel\ds)}}
-		+ \sin\ang\underset{\vec{w}^\prime_{\bot}}{\underbrace{(\ax\times\vict)}}
+	%~ \vict^\prime=R(\vict) = \underset{\vec{w}_L\ds}{\underbrace{(\vict\cdot\ax)\ax}} 
+		%~ + \cos\ang\underset{\vec{w}_T\ds}{\underbrace{(\vict - \vec{w}_L\ds)}}
+		%~ + \sin\ang\underset{\vec{w}_{T^{\prime}}\ds}{\underbrace{(\ax\times\vict)}}
+		%~ \,.
+	\vict^\prime=R(\vict) = w_L\ds \ax + \cos\ang\, \vec{w}_T\ds + \sin\ang\,\vec{w}_{T^{\,\prime}}\ds
 		\,.
 \end{equation}
+
 We can validate this scheme by showing it preserves %$\abs{\vict}^2$ and $\vict\cdot\ax$, 
 the defining properties of rotations. 
 First, the angle to the axis is unaltered;
@@ -60,44 +99,54 @@ First, the angle to the axis is unaltered;
 	  + \cos\ang(\vict\cdot\ax - (\vict\cdot\ax)\cancelto{1}{\ax\cdot\ax})	
 	  + \sin\ang\cancelto{0}{((\ax\times\vict)\cdot\ax)}		\nonumber\\
 	& = \vict\cdot\ax
+	\,.
 \end{align}
-(which uses $\vec{a}\cdot(\vec{b}\times\vec{c}) 
+(since $\vec{a}\cdot(\vec{b}\times\vec{c}) 
 	= \vec{b}\cdot(\vec{c}\times\vec{a}) 
 	= \vec{c}\cdot(\vec{a}\times\vec{b})$).
 Second, the vector's length is unaltered;
 \begin{align}
 	\abs{\vict^\prime}^2 
-	& = (\vict\cdot\ax)^2\cancelto{1}{\ax\cdot\ax}
-	 + \cos^2\ang\,(\abs{\vict}^2 - 2(\vict\cdot\ax)^2 + (\vict\cdot\ax)^2)
-	  + \sin^2\ang\,\abs{\vict}^2(\abs{\vict}^2 - (\vict\cdot\vecN{x})^2)	\nonumber\\
+	%~ & = (\vict\cdot\ax)^2\cancelto{1}{\ax\cdot\ax}
+	 %~ + \cos^2\ang\,(\abs{\vict}^2 - 2(\vict\cdot\ax)^2 + (\vict\cdot\ax)^2)
+	  %~ + \sin^2\ang\,(\abs{\vict}^2 - (\vict\cdot\vecN{x})^2)	\nonumber\\
 	  & = (\vict\cdot\ax) + (\sin^2\ang + \cos^2\ang)(\abs{\vict}^2 - (\vict\cdot\ax)^2)	\nonumber\\
 	  & = \abs{\vict}^2
+	  \,.
 \end{align}
-Here, we have used the identity 
-$\abs{\vec{u}\times\vec{v}}^2=\abs{\vec{u}}^2\abs{\vec{v}}^2 - (\vec{u}\cdot\vec{v})^2$
-(from $\epsilon_{ijk}\ds\epsilon_{ilm}\ds=\delta_{jl}\ds\delta_{km}\ds-\delta_{jm}\ds\delta_{kl}\ds$), 
-and implicitly used the orthogonality of the each component vector
-\begin{align}
-	\vec{w}_\parallel\ds \cdot \vec{w}_\bot\ds
-		& =(\vict\cdot\ax)^2 - (\vict\cdot\ax)^2 = 0
-	\,,\\
-	\vec{w}_\bot\ds \cdot \vec{w}^\prime_\bot
-		& = \cancelto{0}{\vec{w}\cdot(\ax\times\vec{w})} 
-			- (\vict\cdot\ax)\,\cancelto{0}{\ax\cdot(\ax\times\vec{w})} = 0
-	\,.
-\end{align}
+This result uses the identity 
+$\abs{\vec{u}\times\vec{v}}^2=\abs{\vec{u}}^2\abs{\vec{v}}^2 - (\vec{u}\cdot\vec{v})^2$ and
+%~ (from ${\epsilon_{ijk}\ds\epsilon_{ilm}\ds=\delta_{jl}\ds\delta_{km}\ds-\delta_{jm}\ds\delta_{kl}\ds}$), 
+implicitly draws upon the mutual orthogonality of
+$\vec{w}_L\ds$, $\vec{w}_T\ds$ and $\vec{w}_{T^{\,\prime}}\ds$.
 
+%~ \begin{align}
+	%~ \vec{w}_\parallel\ds \cdot \vec{w}_\bot\ds
+		%~ & =(\vict\cdot\ax)^2 - (\vict\cdot\ax)^2 = 0
+	%~ \,,\\
+	%~ \vec{w}_\bot\ds \cdot \vec{w}^\prime_\bot
+		%~ & = \cancelto{0}{\vec{w}\cdot(\ax\times\vec{w})} 
+			%~ - (\vict\cdot\ax)\,\cancelto{0}{\ax\cdot(\ax\times\vec{w})} = 0
+	%~ \,.
+%~ \end{align}
+
+\subsection{The hidden degree for freedom when rotating $\bs{\vec{u}}$ to $\bs{\vec{v}}$}%
+\label{sec:u-to-v}%
+%
 Instead of an axis $\ax$ and angle $\ang$ as our input degrees of freedom,
 we may want the rotation that takes vector $\vec{u}\to\vec{v}$.
-We can reuse Eq.~\ref{eq:rot}, and define:
+We can reuse Equation~\ref{eq:rot}, and define:
 \begin{align}
 	%~ \cos\ang & = \frac{\vec{u}\cdot\vec{v}}{\abs{\vec{u}}\abs{\vec{v}}}\\
 	%~ \sin\ang & = \frac{\abs{\vec{u}\times\vec{v}}}{\abs{\vec{u}}\abs{\vec{v}}}\\
 	%~ \ax_1\ds & = \frac{\vec{u}\times\vec{v}}{\abs{\vec{u}\times\vec{v}}}\label{eq:x1}
-	\cos\ang & = \vecN{u}\cdot\vecN{v}\\
-	\sin\ang & = \abs{\vec{u}\times\vec{v}}\\
+	\cos\ang & = \vecN{u}\cdot\vecN{v}
+	\,,\\
+	\sin\ang & = \abs{\vec{u}\times\vec{v}}
+	\,,\\
 	\ax_1\ds & = \frac{\vecN{u}\times\vecN{v}}{\abs{\vecN{u}\times\vecN{v}}}
 		= \frac{\vecN{u}\times\vecN{v}}{\sin\ang}\label{eq:x1}
+	\,.
 \end{align}
 However, $\ax_1\ds$ is only one \emph{possible} rotation axis which takes 
 $\vec{u}\to \vec{v}$. Consider a rotation of $\ang = \pi$ 
@@ -115,17 +164,19 @@ In fact, any axis which satisfies
 defines a valid rotation (since $\vec{u}$ and $\vec{v}$ will have 
 the same latitude relative to $\ax$, 
 and thus trace out the same circle during the rotation).
-Thus, ``the rotation which takes $\vec{u}\to\vec{v}\,$'' is ambiguous.
+The ``rotation which takes $\vec{u}\to\vec{v}\,$'' is ambiguous!
 
 This ambiguity stems from a hidden degree of freedom.
-We are free to choose $\vvv{x}{y}{z}$ vectors 
+We are free to choose a coordinate system where
 \begin{align}
-	\vec{u} & = \vvv{0}{0}{1}\\
+	\vec{u} & = \vvv{0}{0}{1}
+	\,,\\
 	\vec{v} & = \vvv{\cos \phi \sin \theta}{\sin \phi \sin \theta}{\cos\theta}
+	\,.
 \end{align}
 We can get from $\vec{u}$ to $\vec{v}$ in two steps:
-(i) A RH rotation about $\vecN{z}$ by angle $\phi$.
-(ii) A RH rotation about $\vecN{y}^\prime$ (the new $y$-axis, after the first rotation) by angle $\theta$.
+(i)~a RH rotation about $\vecN{z}$ by angle $\phi$ and
+(ii)~a RH rotation about $\vecN{y}^\prime$ (the new $y$-axis, after the first rotation) by angle $\theta$.
 This procedure uses only two of the three Euler angles required to 
 cover SO(3) (the group of 3-dimensional rotations).
 To complete the coverage, we need a final RH rotation about $\vecN{z}^{\prime\prime}$ 
@@ -143,6 +194,7 @@ and they are fortuitously orthogonal, so we can use them to construct
 a basis that parameterizes all possible axes of rotation
 \begin{equation}
 	\ax = a\,\ax_1\ds + b\,\ax_2\ds
+	\,.
 	%~ \qquad\qquad(\text{where }a^2+b^2=1)\,.
 \end{equation}
 Our task is now clear; given $\vec{u}$, $\vec{v}$ and $\omega$, 
@@ -156,7 +208,7 @@ which cannot alter the axis of rotation;
 	\ax = R_2\ds(R_1\ds(\ax))\,.
 \end{equation}
 Since this defining property applies to both of $\ax$'s component individually (and linearly), 
-we can solve for $a$ and $b$ by using unitarity as one equation (i.e.\ ${a^2+b^2=1}$), 
+we can solve for $a$ and $b$ by using unitarity as one equation (i.e., ${a^2+b^2=1}$), 
 then obtain the other equation by calculating
 \begin{align}\label{eq:a}
 	a & = R_2\ds(R_1\ds(a\,\ax_1\ds + b\,\ax_2\ds))\cdot\ax_1\ds\nonumber\\
@@ -166,16 +218,18 @@ then obtain the other equation by calculating
 %~ In doing so, we only need to keep terms parallel to $\ax_1\ds$.
 
 Beginning with $\ax_1\ds$, we are lucky that 
-$R_1\ds$ does not alter it's own axis, 
+$R_1\ds$ does not alter its own axis, 
 while $R_2\ds$ creates only one term parallel to $\ax_1\ds$;
 \begin{align}\label{eq:part-x1}
-	R_1\ds(\ax_1\ds) & = \ax_1\ds\,\,;\\
+	R_1\ds(\ax_1\ds) & = \ax_1\ds\,
+	\,;\\
 	R_2\ds(R_1\ds(\ax_1\ds))\cdot\ax_1\ds
 	%~ = R_2\ds(\ax_1\ds)\cdot\ax_1\ds
 	& = (\cancelto{0}{(\ax_1\cdot\vecN{v})}\,\vecN{v}
 		+ \cos\omega(\ax_1\ds - 0) 
 		+ \sin\omega\underset{\bot\text{ to }\ax_1\ds}{\underbrace
 			{(\vecN{v}\times\ax_1\ds)}})\cdot\ax_1\ds = \cos\omega
+	\,.
 \end{align}
 The effect on $\ax_2\ds$ is slightly more complicated;
 \begin{align}\label{eq:R1-x2}
@@ -190,43 +244,51 @@ The effect on $\ax_2\ds$ is slightly more complicated;
 		\vecN{v} - \vecN{u}\cos\theta + \vecN{v}\cos\theta - \vecN{u}\right)\nonumber\\
 		& = \frac{1}{\sqrt{2(1+\cos(\theta))}}
 		\left((2\cos\theta + 1)\vecN{v} - \vecN{u}\right)
+	\,,
 \end{align}
-(using ${(\vec{a}\times\vec{b}\,)\times\vec{c} 
-	= \vec{b}\,(\vec{a}\cdot\vec{c}\,) - \vec{a}\,(\vec{b}\cdot\vec{c}\,)}$).
-Before we put all of Eq.~\ref{eq:R1-x2} through $R_2\ds$, 
-we should recall that the final equation only uses terms parallel to $\ax_1\ds$. 
-$R_2\ds$ only returns terms which are 
+using ${(\vec{a}\times\vec{b}\,)\times\vec{c} 
+	= \vec{b}\,(\vec{a}\cdot\vec{c}\,) - \vec{a}\,(\vec{b}\cdot\vec{c}\,)}$.
+Before we put all of Equation~\ref{eq:R1-x2} through $R_2\ds$, 
+we should recall that the final equation uses only terms parallel to $\ax_1\ds$. 
+$R_2\ds$ returns only terms which are 
 (i)~parallel to the incoming vector 
 (which in this case is in the $uv$-plane, and thus orthogonal to~$\ax_1\ds$), 
 (ii)~parallel to $\vecN{v}$ (also in the $uv$ plane) and 
 (iii)~perpendicular to $\vecN{v}$ (via $\vecN{v}\times\vict$).
 Hence, only the \super{3}{rd} piece is meaningful, 
 and since $\vecN{v}\times\vecN{v}=0$, 
-we only need to give it Eq.~\ref{eq:R1-x2}'s $\vecN{u}$ term;
+we only need to give it Equation~\ref{eq:R1-x2}'s $\vecN{u}$ term;
 \begin{align}\label{eq:part-x2}
 	R_2\ds(R_1\ds(\ax_2\ds))\cdot\ax_1\ds
 		& = \frac{1}{\sqrt{2(1+\cos(\theta))}} \,R_2\ds(-\vecN{u})\cdot\ax_1\ds
 		= \frac{1}{\sqrt{2(1+\cos(\theta))}} (\vecN{v}\times(-\vecN{u}))\cdot\ax_1\ds\nonumber\\
 		& = \sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
+	\,,
 \end{align}
-(using $\vecN{u}\times\vecN{v} = \sin\theta\,\ax_1\ds$).
-Combining Eq.~\ref{eq:a},~\ref{eq:part-x1} and~\ref{eq:part-x2} 
+using $\vecN{u}\times\vecN{v} = \sin\theta\,\ax_1\ds$.
+Combining Equation~\ref{eq:a},~\ref{eq:part-x1} and~\ref{eq:part-x2} 
 we get our system of equations
 \begin{align}
-	a & = a \cos\omega + b\sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}\\
+	a & = a \cos\omega + b\sin\omega\frac{\sin\theta}{\sqrt{2(1+\cos(\theta))}}
+	\,,\\
 	1 &= a^2 + b^2
+	\,.
 \end{align}
 
-Having done the hard work (see Appendix),
+Having done the hard work (see the Appendix),
 we can plug our system of equations into Mathematica to obtain
 \begin{align}
-	a & = 2\cos(\omega/2)\frac{\sin(\theta/2)}{c(\theta)}\\
-	b & = 2\sin(\omega/2)\frac{1}{c(\theta)}\\
+	a & = 2\cos(\omega/2)\frac{\sin(\theta/2)}{c(\theta)}
+	\,,\\
+	b & = 2\sin(\omega/2)\frac{1}{c(\theta)}
+	\,,\\
 	c(\theta) & = \sqrt{3 - \cos(\omega) - \cos(\theta)(1+\cos(\omega))}
+	\,.
 \end{align}
 I then used Mathematica to validate this solution by checking that 
-$\ax$ matches the eigenvector of the composite rotation $R_2\ds(R_1\ds(\vict))$.
-(up to the parity operation $\ax \to -\ax$, which is irreducibly ambiguous).
+$\ax$ matches the eigenvector of the composite rotation $R_2\ds(R_1\ds(\vict))$
+(up to the parity operation ${\ax \to -\ax}$,
+an irreducibly ambiguity of the eigenvector).
 
 However, $c(\theta)$ is numerically unstable if used na\"ively, 
 due to the cosine cancellations. These terms should be rewritten 
@@ -247,7 +309,7 @@ The final cancellation can be corrected using
 		&\mapsto \frac{1}{2}(1-\cos(\theta+\omega))
 		 + \frac{1}{2}(1-\cos(\theta-\omega))\,.
 \end{align}
-Again using Eq.~\ref{eq:1-cos}, we obtain the final expression
+Again using Equation~\ref{eq:1-cos}, we obtain the final expression
 \begin{equation}
 	c(\theta)\mapsto
 	\sqrt{2\sin^2(\theta/2) + 2\sin^2(\omega/2)	
@@ -290,10 +352,81 @@ $\pi$, so we must instead uses a \emph{negative} RH rotation.
 I have tested an implementation of this algorithm and it works quite well
 (it is both length and angle preserving). 
 I have additionally validated that rotating once about $\ax$ gives 
-the same result as the two-step composite rotation.
+the same result as the two-step, composite rotation.
+%~ about $\vecN{x}_1\ds$ and $\vecN{x}_2\ds$.
 %~ The main problem is a slight change in magnitude when $\vec{u}$ and $\vec{v}$
 %~ are mostly anti-parallel. This can be fixed with a
 %~ magnitude preserving step that adds a 15\% overhead.
+
+\section{Boosting between frames}%
+%
+Since SO(3) is a sub-group of the Lorentz group, 
+it is not surprising that there is a boost analog of the Rodrigues formula.
+A four momentum $\Mu{p}$ (with energy $p^0$ and 3-momentum $\vec{p}$\,)
+can be boosted by some speed~$\vec{\beta}$ by 
+splitting $\vec{p}$ into its longitudinal~$p_L\ds$ and
+transverse momentum~$\vec{p}_T\ds$ relative to $\vecN{\beta}$ 
+(see Eqs.~\ref{eq:v_L}~and~\ref{eq:v_T}).
+%~ \begin{align}
+	%~ p_L\ds & = \vec{p}\cdot\vecN{\beta}\\
+	%~ \vec{p}_T\ds & = \vec{p} - p_L\ds\vecN{\beta}
+%~ \end{align}
+Unlike the Rodrigues rotation formula, we do not need to find 
+a second perpendicular axis, because the ``rotation'' is 
+always between the longitudinal momentum and energy/time.
+This allows us to use the standard definition of the Lorentz boost matrix, 
+but with a coordinate system defined by $\vecN{\beta}$;
+writing $p^0$ and $p_L\ds$ as scalars,
+but keeping the transverse momentum $\vec{p}_T\ds$ as a vector
+\begin{align}
+	\Mu{p}^\prime = 
+	\begin{pmatrix}
+		\gamma & 0 & \beta\gamma \\
+		%~ 0 & \left(\begin{smallmatrix}1& 0 \\ 0 & 1\\\end{smallmatrix}\right) & 0 \\
+		%~ 0 & 1 & 0 \\
+		0 & \ident & 0 \\
+		\beta\gamma & 0 & \gamma \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		p^0 \\
+		\vec{p}_T\ds \\
+		p_L\ds \\
+	\end{pmatrix}
+	& = 
+	\begin{pmatrix}
+		\gamma p^0 + \beta\gamma \,p_L\ds \\
+		\vec{p}_T\ds \\
+		\beta\gamma \,p^0 + \gamma p_L\ds \\
+	\end{pmatrix}\\
+	& =
+	\begin{pmatrix}
+		p^0 \\
+		\vec{p}_T\ds \\
+		p_L\ds \\
+	\end{pmatrix}
+	+
+	\begin{pmatrix}
+		(\gamma - 1)p^0 + \beta\gamma \,p_L\ds \\
+		\vec{0} \\
+		\beta\gamma \,p^0 + (\gamma - 1)p_L\ds \\
+	\end{pmatrix}\,.
+\end{align}
+Hence, adding the correct four-momenta implements the desired boost;
+\begin{align}
+	\Mu{p}^\prime & = \Mu{p} + \Mu{b}
+	\,,\\
+	b^0 &= (\gamma - 1)p^0 + \beta\gamma \,p_L\ds
+	\,,\\
+	\vec{b} &= 	\left(\beta\gamma \,p^0 + (\gamma - 1)p_L\ds\right)\vecN{\beta}
+	\,.
+\end{align}
+
+There are intrinsic floating point limitations to this boost scheme.
+When an ultra-relativistic particle $\Mu{p}$ is boosted back to its CM frame,
+machine $\epsilon$ relative rounding errors when adding $\Mu{b}$ to $\Mu{p}$
+can cause relative errors of $\bigO{\gamma\,\epsilon}$ in $p^0_\CM$
+(and absolute errors at the same order in $\vec{p}_\CM\ds$, 
+which should always be a null vector in the CM frame).
 
 \appendix*
 \section{The apology}
@@ -315,7 +448,7 @@ the same result as the two-step composite rotation.
 	\emph{where} the solution can be found, its GPS coordinates ---
 	it is a differential equation, 
 	an unevaluated integral, the polynomial whose roots we will find.
-	Step \ref{sol} is the vehicle that takes us there ---
+	Step~\ref{sol} is the vehicle that takes us there ---
 	an algorithm, a clever change of variable, an analytic continuation. 
 	It is math, and frequently the heavy kind.
 	

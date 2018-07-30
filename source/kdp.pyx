@@ -2,11 +2,11 @@
 
 include "kdpVectors.hpy"
 
-# This file creates wrappers of Vec2, Vec3 and Vec4 from "kdpVectors.hpp".
+# This file creates wrappers of Vec2, Vec3, Vec4, Rot3, and Boost from "kdpVectors.hpp".
 # These wrappers behave identically to the C++ versions (except they cannot be const, 
 # and can only be constructed from within Python using the Cartesian constructor).
-# An important proprety is the ability to access sub-vectors with a bound reference. 
-# For example, the following code gets and alters the tranverse componets of a Vec3
+# An important property is the ability to access sub-vectors with a bound reference. 
+# For example, the following code gets and alters the transverse components of a Vec3
 #
 #		x3 = Vec3(1, 1, 1)
 #		print(x3)
@@ -14,7 +14,7 @@ include "kdpVectors.hpy"
 #		x2 *= 5
 #		print(x3)
 #
-# However, getting this to work was quite a pain in the ass.
+# Getting this to work was quite a pain in the ass.
 # I recount this story for the benefit of myself, in the future, 
 # writing Cython code and having forgot all these lessons.
 
@@ -80,8 +80,6 @@ include "kdpVectors.hpy"
 # I can then expose this function to Cython as a template function 
 # (versus a template ctor, which it seems to choke on). 
 # By the beard of Zeus it works!
-
-# NOTE: Another option is to use ROOT for TLorentzVector. But I hate that option.
 
 from libcpp.memory cimport shared_ptr # First import shared_ptr
 
@@ -203,6 +201,9 @@ cdef class Vec2:
 		
 	def Phi(self):
 		return deref(self.vec).Phi()
+		
+	def DeltaPhi(self, Vec2 other):
+		return deref(self.vec).DeltaPhi(deref(other.vec))
 		
 	def Dot(self, Vec2 other):
 		return deref(self.vec).Dot(deref(other.vec))
@@ -327,6 +328,12 @@ cdef class Vec3:
 	def Theta(self):
 		return deref(self.vec).Theta()
 		
+	def DeltaEta(self, Vec3 other):
+		return deref(self.vec).DeltaEta(deref(other.vec))
+		
+	def DeltaPhi(self, Vec3 other):
+		return deref(self.vec).DeltaPhi(deref(other.vec))
+		
 	def Dot(self, Vec3 other):
 		return deref(self.vec).Dot(deref(other.vec))
 		
@@ -449,12 +456,63 @@ cdef class Vec4:
 		
 	def Length2(self):
 		return deref(self.vec).Length2()
+	
+	def Mass(self):
+		return deref(self.vec).Mass()
+	
+	def Mass2(self):
+		return deref(self.vec).Mass2()
+		
+	def Length_T(self):
+		return deref(self.vec).Length_T()
+		
+	def Length2_T(self):
+		return deref(self.vec).Length2_T()
+		
+	def Contract(self, Vec4 other):
+		return deref(self.vec).Contract(deref(other.vec))
+		
+	def Beta(self):
+		return deref(self.vec).Beta()
+		
+	def BetaVec(self):
+		return Vec3.Factory(deref(self.vec).BetaVec())
 		
 	def Rapidity(self):
 		return deref(self.vec).Rapidity()
 		
-	def Contract(self, Vec4 other):
-		return deref(self.vec).Contract(deref(other.vec))
+	def Eta(self):
+		return deref(self.vec).Eta()
+		
+	def Theta(self):
+		return deref(self.vec).Theta()
+		
+	def Phi(self):
+		return deref(self.vec).Phi()
+		
+	def DeltaEta(self, Vec4 other):
+		return deref(self.vec).DeltaEta(deref(other.vec))
+		
+	def DeltaPhi(self, Vec4 other):
+		return deref(self.vec).DeltaPhi(deref(other.vec))
+		
+	def DeltaR2_rap(self, Vec4 other):
+		return deref(self.vec).DeltaR2_rap(deref(other.vec))
+		
+	def DeltaR_rap(self, Vec4 other):
+		return deref(self.vec).DeltaR_rap(deref(other.vec))
+		
+	def DeltaR2_pseudo(self, Vec4 other):
+		return deref(self.vec).DeltaR2_pseudo(deref(other.vec))
+		
+	def DeltaR_pseudo(self, Vec4 other):
+		return deref(self.vec).DeltaR_pseudo(deref(other.vec))
+		
+	@staticmethod
+	def SetLengthRelDiffThreshold(double newThreshold):
+		Vec4.SetLengthRelDiffThreshold(newThreshold)
+		
+########################################################################
 		
 cdef class Rot3:
 	
@@ -468,6 +526,7 @@ cdef class Rot3:
 	# Have to make this to get the axis for vec to vec rotation
 	@staticmethod
 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):
+		# Create a dummy rotation object to solve for axis/angle
 		# use a pointer so we don't have to declare default ctor for Cython
 		cdef Rot3_c* tmp = new Rot3_c(deref(u.vec), deref(v.vec), omega)
 		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())
@@ -483,8 +542,37 @@ cdef class Rot3:
 		return Vec3.Factory(self.rot.Axis())
 		
 	def Angle(self):
-		return self.rot.Angle()
+		return self.rot.Angle()		
+
+########################################################################
 	
+cdef class Boost:
 	
-	
-	
+	def __cinit__(self, Vec3 beta):
+		self.boost = new Boost_c(deref(beta.vec))
+		
+	def __dealloc__(self):
+		del self.boost
+		
+	def Axis(self):
+		return Vec3.Factory(self.boost.Axis())
+		
+	def BetaVec(self):
+		return Vec3.Factory(self.boost.BetaVec())
+		
+	def Gamma(self):
+		return self.boost.Gamma()
+		
+	def Beta(self):
+		return self.boost.Beta()
+		
+	def Rapidity(self):
+		return self.boost.Rapidity()
+		
+	def Forward(self, Vec4 victim):
+		self.boost.Forward(deref(victim.vec))
+		return victim
+		
+	def Backward(self, Vec4 victim):
+		self.boost.Backward(deref(victim.vec))
+		return victim	

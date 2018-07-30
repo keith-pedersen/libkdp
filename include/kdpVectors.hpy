@@ -52,6 +52,7 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		double Mag2() const
 		
 		double Phi() const
+		double DeltaPhi(const Vec2_c&) const
 		
 		double Dot(const Vec2_c&) const
 		double Cross(const Vec2_c&) const
@@ -100,8 +101,10 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		double Mag2() const
 		
 		double Eta() const
+		double DeltaEta(const Vec3_c&) const
 		double Theta() const		
 		double Phi() const
+		double DeltaPhi(const Vec3_c&) const
 		
 		double Dot(const Vec3_c&) const
 		Vec3_c Cross(const Vec3_c&) const
@@ -112,18 +115,22 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 	cdef cppclass Vec4from4:
 		pass  
 	
-	cdef Vec4from2	V4f4_EnergyEtaPhiM "kdp::Vec4from4::EnergyEtaPhiM"
+	cdef Vec4from2	V4f4_EnergyEtaPhiMass "kdp::Vec4from4::EnergyEtaPhiMass"
 	
 	#####################################################################
 		
 	cdef cppclass Vec4from2:
 		pass  
-		
+	
+	cdef Vec4from2	V4f2_Energy "kdp::Vec4from2::Energy"	
+	cdef Vec4from2	V4f2_Time "kdp::Vec4from2::Time"
 	cdef Vec4from2	V4f2_Mass "kdp::Vec4from2::Mass"
-	cdef Vec4from2	V4f2_Boost_preserve_E "kdp::Vec4from2::Boost_preserve_E"
-	cdef Vec4from2	V4f2_Boost_preserve_p3 "kdp::Vec4from2::Boost_preserve_p3"
-	cdef Vec4from2	V4f2_BoostMinusOne_preserve_E "kdp::Vec4from2::BoostMinusOne_preserve_E"	
-	cdef Vec4from2	V4f2_BoostMinusOne_preserve_p3 "kdp::Vec4from2::BoostMinusOne_preserve_p3"
+	cdef Vec4from2	V4f2_Length "kdp::Vec4from2::Length"
+	
+#~ 	cdef Vec4from2	V4f2_Boost_preserve_E "kdp::Vec4from2::Boost_preserve_E"
+#~ 	cdef Vec4from2	V4f2_Boost_preserve_p3 "kdp::Vec4from2::Boost_preserve_p3"
+#~ 	cdef Vec4from2	V4f2_BoostMinusOne_preserve_E "kdp::Vec4from2::BoostMinusOne_preserve_E"	
+#~ 	cdef Vec4from2	V4f2_BoostMinusOne_preserve_p3 "kdp::Vec4from2::BoostMinusOne_preserve_p3"
 		
 	#####################################################################
 
@@ -155,13 +162,34 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 		
 		Vec3_c& x()
 		Vec3_c& p()
-
+		
 		double Length() const
 		double Length2() const
-		
-		double Rapidity() const
-		
+		double Mass() const
+		double Mass2() const
+		double Length_T() const
+		double Length2_T() const
+				
 		double Contract(const Vec4_c&) const
+		
+		double Beta() const
+		Vec3_c BetaVec() const
+		double Rapidity() const
+		double Eta() const
+		double Theta() const		
+		double Phi() const
+		
+		double DeltaEta(const Vec4_c&) const
+		double DeltaPhi(const Vec4_c&) const	
+		double DeltaR2_rap(const Vec4_c&) const
+		double DeltaR_rap(const Vec4_c&) const
+		double DeltaR2_pseudo(const Vec4_c&) const
+		double DeltaR_pseudo(const Vec4_c&) const
+		
+		@staticmethod
+		void SetLengthRelDiffThreshold(const double newThreshold)
+		
+	#####################################################################
 
 	cdef cppclass Rot3_c "kdp::Rot3":
 		Rot3_c(const Vec3_c&, const Vec3_c&, const double)
@@ -171,3 +199,16 @@ cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
 				
 		const Vec3_c& Axis() const
 		double Angle() const
+		
+	cdef cppclass Boost_c "kdp::Boost":
+		Boost_c(const Vec3_c& beta)
+		Boost_c(const Vec3_c& axis, const double gamma)
+		
+		const Vec3_c& Axis() const
+		const Vec3_c& BetaVec() const
+		double Gamma() const
+		double Beta() const
+		double Rapidity() const
+		
+		Vec4_c& Forward(Vec4_c&)
+		Vec4_c& Backward(Vec4_c&)

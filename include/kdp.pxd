@@ -27,3 +27,7 @@ cdef class Vec4:
 	
 cdef class Rot3:
 	cdef Rot3_c* rot
+	
+cdef class Boost:
+	cdef Boost_c* boost
+	

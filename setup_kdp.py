@@ -18,10 +18,10 @@ from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
-# Tihis build script leverages the pre-compiled kdp library (libkdp.so), 
+# This build script leverages the pre-compiled kdp library (libkdp.so), 
 # a library which must be accessible from anywhere you intend to use pYqRand.
 # This keeps the C-compilation of pYqRand.pyx to a minimal (so the Python module is smaller),
-# and allows different compile flags to be used for the Cython build.s
+# and allows different compile flags to be used for the Cython build.
 
 setup(
   name = "kdp",
