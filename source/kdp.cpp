@@ -535,7 +535,7 @@ struct __pyx_obj_3kdp_Boost {
 
 
 
-/* "kdp.pyx":101
+/* "kdp.pyx":99
  * from cython.operator cimport dereference as deref
  * 
  * cdef class Vec2:             # <<<<<<<<<<<<<<
@@ -549,7 +549,7 @@ struct __pyx_vtabstruct_3kdp_Vec2 {
 static struct __pyx_vtabstruct_3kdp_Vec2 *__pyx_vtabptr_3kdp_Vec2;
 
 
-/* "kdp.pyx":221
+/* "kdp.pyx":219
  * ########################################################################
  * 
  * cdef class Vec3:             # <<<<<<<<<<<<<<
@@ -563,7 +563,7 @@ struct __pyx_vtabstruct_3kdp_Vec3 {
 static struct __pyx_vtabstruct_3kdp_Vec3 *__pyx_vtabptr_3kdp_Vec3;
 
 
-/* "kdp.pyx":352
+/* "kdp.pyx":350
  * ########################################################################
  * 
  * cdef class Vec4:             # <<<<<<<<<<<<<<
@@ -947,7 +947,7 @@ static PyObject *__pyx_codeobj__4;
 static PyObject *__pyx_codeobj__6;
 static PyObject *__pyx_codeobj__8;
 
-/* "kdp.pyx":106
+/* "kdp.pyx":104
  * #~ 	cdef shared_ptr[Vec2_c] vec
  * 
  * 	def __cinit__(self, double x1 = 0., double x2 = 0.):             # <<<<<<<<<<<<<<
@@ -992,7 +992,7 @@ static int __pyx_pw_3kdp_4Vec2_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 106; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 104; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1003,19 +1003,19 @@ static int __pyx_pw_3kdp_4Vec2_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
       }
     }
     if (values[0]) {
-      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 106; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 104; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x1 = ((double)0.);
     }
     if (values[1]) {
-      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 106; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 104; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x2 = ((double)0.);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 106; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 104; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec2.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1033,7 +1033,7 @@ static int __pyx_pf_3kdp_4Vec2___cinit__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_sel
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "kdp.pyx":109
+  /* "kdp.pyx":107
  * #~ 		self.vec = shared_ptr[Vec2_c](new Vec2_c(x1, x2))
  * 		# It appears that using make_shared is *slightly* faster, but creates a 10% larger binary
  * 		self.vec = make_shared[Vec2_c](x1, x2)             # <<<<<<<<<<<<<<
@@ -1042,7 +1042,7 @@ static int __pyx_pf_3kdp_4Vec2___cinit__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_sel
  */
   __pyx_v_self->vec = std::make_shared<kdp::Vec2>(__pyx_v_x1, __pyx_v_x2);
 
-  /* "kdp.pyx":106
+  /* "kdp.pyx":104
  * #~ 	cdef shared_ptr[Vec2_c] vec
  * 
  * 	def __cinit__(self, double x1 = 0., double x2 = 0.):             # <<<<<<<<<<<<<<
@@ -1056,7 +1056,7 @@ static int __pyx_pf_3kdp_4Vec2___cinit__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":111
+/* "kdp.pyx":109
  * 		self.vec = make_shared[Vec2_c](x1, x2)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1079,7 +1079,7 @@ static void __pyx_pf_3kdp_4Vec2_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "kdp.pyx":112
+  /* "kdp.pyx":110
  * 
  * 	def __dealloc__(self):
  * 		return #shared_ptr knows what to do             # <<<<<<<<<<<<<<
@@ -1088,7 +1088,7 @@ static void __pyx_pf_3kdp_4Vec2_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
  */
   goto __pyx_L0;
 
-  /* "kdp.pyx":111
+  /* "kdp.pyx":109
  * 		self.vec = make_shared[Vec2_c](x1, x2)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1101,7 +1101,7 @@ static void __pyx_pf_3kdp_4Vec2_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyFinishContext();
 }
 
-/* "kdp.pyx":114
+/* "kdp.pyx":112
  * 		return #shared_ptr knows what to do
  * 
  * 	def Assign(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1118,7 +1118,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_5Assign(PyObject *__pyx_v_self, PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Assign (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_4Assign(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -1135,7 +1135,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_4Assign(struct __pyx_obj_3kdp_Vec2 *__pyx_v
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Assign", 0);
 
-  /* "kdp.pyx":115
+  /* "kdp.pyx":113
  * 
  * 	def Assign(self, Vec2 other):
  * 		deref(self.vec).assign(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -1144,7 +1144,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_4Assign(struct __pyx_obj_3kdp_Vec2 *__pyx_v
  */
   (*__pyx_v_self->vec).operator=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":116
+  /* "kdp.pyx":114
  * 	def Assign(self, Vec2 other):
  * 		deref(self.vec).assign(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -1156,7 +1156,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_4Assign(struct __pyx_obj_3kdp_Vec2 *__pyx_v
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":114
+  /* "kdp.pyx":112
  * 		return #shared_ptr knows what to do
  * 
  * 	def Assign(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1171,7 +1171,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_4Assign(struct __pyx_obj_3kdp_Vec2 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":119
+/* "kdp.pyx":117
  * 
  * 	@staticmethod
  * 	cdef Vec2 Factory(const Vec2_c& orig):             # <<<<<<<<<<<<<<
@@ -1189,19 +1189,19 @@ static struct __pyx_obj_3kdp_Vec2 *__pyx_f_3kdp_4Vec2_Factory(kdp::Vec2 const &_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Factory", 0);
 
-  /* "kdp.pyx":120
+  /* "kdp.pyx":118
  * 	@staticmethod
  * 	cdef Vec2 Factory(const Vec2_c& orig):
  * 		copy = Vec2()             # <<<<<<<<<<<<<<
  * 		deref(copy.vec).assign(orig)
  * 		return copy
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_copy = ((struct __pyx_obj_3kdp_Vec2 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":121
+  /* "kdp.pyx":119
  * 	cdef Vec2 Factory(const Vec2_c& orig):
  * 		copy = Vec2()
  * 		deref(copy.vec).assign(orig)             # <<<<<<<<<<<<<<
@@ -1210,7 +1210,7 @@ static struct __pyx_obj_3kdp_Vec2 *__pyx_f_3kdp_4Vec2_Factory(kdp::Vec2 const &_
  */
   (*__pyx_v_copy->vec).operator=(__pyx_v_orig);
 
-  /* "kdp.pyx":122
+  /* "kdp.pyx":120
  * 		copy = Vec2()
  * 		deref(copy.vec).assign(orig)
  * 		return copy             # <<<<<<<<<<<<<<
@@ -1222,7 +1222,7 @@ static struct __pyx_obj_3kdp_Vec2 *__pyx_f_3kdp_4Vec2_Factory(kdp::Vec2 const &_
   __pyx_r = __pyx_v_copy;
   goto __pyx_L0;
 
-  /* "kdp.pyx":119
+  /* "kdp.pyx":117
  * 
  * 	@staticmethod
  * 	cdef Vec2 Factory(const Vec2_c& orig):             # <<<<<<<<<<<<<<
@@ -1242,7 +1242,7 @@ static struct __pyx_obj_3kdp_Vec2 *__pyx_f_3kdp_4Vec2_Factory(kdp::Vec2 const &_
   return __pyx_r;
 }
 
-/* "kdp.pyx":124
+/* "kdp.pyx":122
  * 		return copy
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -1272,7 +1272,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_6Copy(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Copy", 0);
 
-  /* "kdp.pyx":125
+  /* "kdp.pyx":123
  * 
  * 	def Copy(self):
  * 		return Vec2.Factory(deref(self.vec))             # <<<<<<<<<<<<<<
@@ -1280,13 +1280,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_6Copy(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
  * 	def __deepcopy__(self, memo):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec2_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 125; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec2_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":124
+  /* "kdp.pyx":122
  * 		return copy
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -1305,7 +1305,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_6Copy(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":127
+/* "kdp.pyx":125
  * 		return Vec2.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -1337,7 +1337,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_8__deepcopy__(struct __pyx_obj_3kdp_Vec2 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__deepcopy__", 0);
 
-  /* "kdp.pyx":128
+  /* "kdp.pyx":126
  * 
  * 	def __deepcopy__(self, memo):
  * 		return self.Copy()             # <<<<<<<<<<<<<<
@@ -1345,7 +1345,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_8__deepcopy__(struct __pyx_obj_3kdp_Vec2 *_
  * 	def __repr__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1358,10 +1358,10 @@ static PyObject *__pyx_pf_3kdp_4Vec2_8__deepcopy__(struct __pyx_obj_3kdp_Vec2 *_
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 128; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1369,7 +1369,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_8__deepcopy__(struct __pyx_obj_3kdp_Vec2 *_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":127
+  /* "kdp.pyx":125
  * 		return Vec2.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -1390,7 +1390,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_8__deepcopy__(struct __pyx_obj_3kdp_Vec2 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":130
+/* "kdp.pyx":128
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -1422,7 +1422,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_10__repr__(struct __pyx_obj_3kdp_Vec2 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "kdp.pyx":131
+  /* "kdp.pyx":129
  * 
  * 	def __repr__(self):
  * 		return str([self.x1, self.x2])             # <<<<<<<<<<<<<<
@@ -1430,11 +1430,11 @@ static PyObject *__pyx_pf_3kdp_4Vec2_10__repr__(struct __pyx_obj_3kdp_Vec2 *__py
  * 	# This way of defining properties is "deprecated",
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -1442,19 +1442,19 @@ static PyObject *__pyx_pf_3kdp_4Vec2_10__repr__(struct __pyx_obj_3kdp_Vec2 *__py
   PyList_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 129; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":130
+  /* "kdp.pyx":128
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -1475,7 +1475,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_10__repr__(struct __pyx_obj_3kdp_Vec2 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":137
+/* "kdp.pyx":135
  * 	property x1:
  * 		# "A doc string can go here."
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -1505,7 +1505,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x1___get__(struct __pyx_obj_3kdp_Vec2 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":138
+  /* "kdp.pyx":136
  * 		# "A doc string can go here."
  * 		def __get__(self):
  * 			return deref(self.vec).x1             # <<<<<<<<<<<<<<
@@ -1513,13 +1513,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x1___get__(struct __pyx_obj_3kdp_Vec2 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 138; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":137
+  /* "kdp.pyx":135
  * 	property x1:
  * 		# "A doc string can go here."
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -1538,7 +1538,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x1___get__(struct __pyx_obj_3kdp_Vec2 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":140
+/* "kdp.pyx":138
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -1568,17 +1568,17 @@ static int __pyx_pf_3kdp_4Vec2_2x1_2__set__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":141
+  /* "kdp.pyx":139
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x1 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x2:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x1 = __pyx_t_1;
 
-  /* "kdp.pyx":140
+  /* "kdp.pyx":138
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -1597,7 +1597,7 @@ static int __pyx_pf_3kdp_4Vec2_2x1_2__set__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":144
+/* "kdp.pyx":142
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -1627,7 +1627,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x2___get__(struct __pyx_obj_3kdp_Vec2 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":145
+  /* "kdp.pyx":143
  * 	property x2:
  * 		def __get__(self):
  * 			return deref(self.vec).x2             # <<<<<<<<<<<<<<
@@ -1635,13 +1635,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x2___get__(struct __pyx_obj_3kdp_Vec2 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 145; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":144
+  /* "kdp.pyx":142
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -1660,7 +1660,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_2x2___get__(struct __pyx_obj_3kdp_Vec2 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":147
+/* "kdp.pyx":145
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -1690,17 +1690,17 @@ static int __pyx_pf_3kdp_4Vec2_2x2_2__set__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":148
+  /* "kdp.pyx":146
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x2 = value             # <<<<<<<<<<<<<<
  * 
  * # The broken way to define properties
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 146; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x2 = __pyx_t_1;
 
-  /* "kdp.pyx":147
+  /* "kdp.pyx":145
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -1719,7 +1719,7 @@ static int __pyx_pf_3kdp_4Vec2_2x2_2__set__(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":159
+/* "kdp.pyx":157
  * #~ 		deref(self.vec).x1 = value
  * 
  * 	def __iadd__(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1736,7 +1736,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_13__iadd__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 159; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 157; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_12__iadd__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -1753,7 +1753,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_12__iadd__(struct __pyx_obj_3kdp_Vec2 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__", 0);
 
-  /* "kdp.pyx":160
+  /* "kdp.pyx":158
  * 
  * 	def __iadd__(self, Vec2 other):
  * 		deref(self.vec).addEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -1762,7 +1762,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_12__iadd__(struct __pyx_obj_3kdp_Vec2 *__py
  */
   (*__pyx_v_self->vec).operator+=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":161
+  /* "kdp.pyx":159
  * 	def __iadd__(self, Vec2 other):
  * 		deref(self.vec).addEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -1774,7 +1774,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_12__iadd__(struct __pyx_obj_3kdp_Vec2 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":159
+  /* "kdp.pyx":157
  * #~ 		deref(self.vec).x1 = value
  * 
  * 	def __iadd__(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1789,7 +1789,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_12__iadd__(struct __pyx_obj_3kdp_Vec2 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":163
+/* "kdp.pyx":161
  * 		return self
  * 
  * 	def __isub__(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1806,7 +1806,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_15__isub__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 163; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_14__isub__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -1823,7 +1823,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_14__isub__(struct __pyx_obj_3kdp_Vec2 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__", 0);
 
-  /* "kdp.pyx":164
+  /* "kdp.pyx":162
  * 
  * 	def __isub__(self, Vec2 other):
  * 		deref(self.vec).subEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -1832,7 +1832,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_14__isub__(struct __pyx_obj_3kdp_Vec2 *__py
  */
   (*__pyx_v_self->vec).operator-=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":165
+  /* "kdp.pyx":163
  * 	def __isub__(self, Vec2 other):
  * 		deref(self.vec).subEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -1844,7 +1844,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_14__isub__(struct __pyx_obj_3kdp_Vec2 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":163
+  /* "kdp.pyx":161
  * 		return self
  * 
  * 	def __isub__(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -1859,7 +1859,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_14__isub__(struct __pyx_obj_3kdp_Vec2 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":167
+/* "kdp.pyx":165
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -1878,7 +1878,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_17__imul__(PyObject *__pyx_v_self, PyObject
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 167; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1898,7 +1898,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_16__imul__(struct __pyx_obj_3kdp_Vec2 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__", 0);
 
-  /* "kdp.pyx":168
+  /* "kdp.pyx":166
  * 
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)             # <<<<<<<<<<<<<<
@@ -1907,7 +1907,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_16__imul__(struct __pyx_obj_3kdp_Vec2 *__py
  */
   (*__pyx_v_self->vec).operator*=(__pyx_v_scale);
 
-  /* "kdp.pyx":169
+  /* "kdp.pyx":167
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -1919,7 +1919,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_16__imul__(struct __pyx_obj_3kdp_Vec2 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":167
+  /* "kdp.pyx":165
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -1934,7 +1934,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_16__imul__(struct __pyx_obj_3kdp_Vec2 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":171
+/* "kdp.pyx":169
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -1953,7 +1953,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_19__itruediv__(PyObject *__pyx_v_self, PyOb
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 171; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1973,7 +1973,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_18__itruediv__(struct __pyx_obj_3kdp_Vec2 *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__", 0);
 
-  /* "kdp.pyx":172
+  /* "kdp.pyx":170
  * 
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)             # <<<<<<<<<<<<<<
@@ -1982,7 +1982,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_18__itruediv__(struct __pyx_obj_3kdp_Vec2 *
  */
   (*__pyx_v_self->vec).operator/=(__pyx_v_scale);
 
-  /* "kdp.pyx":173
+  /* "kdp.pyx":171
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -1994,7 +1994,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_18__itruediv__(struct __pyx_obj_3kdp_Vec2 *
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":171
+  /* "kdp.pyx":169
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -2009,7 +2009,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_18__itruediv__(struct __pyx_obj_3kdp_Vec2 *
   return __pyx_r;
 }
 
-/* "kdp.pyx":175
+/* "kdp.pyx":173
  * 		return self
  * 
  * 	def __add__(Vec2 this, Vec2 that):             # <<<<<<<<<<<<<<
@@ -2026,8 +2026,8 @@ static PyObject *__pyx_pw_3kdp_4Vec2_21__add__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__add__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec2, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 175; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec2, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_20__add__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_that));
 
   /* function exit code */
@@ -2051,7 +2051,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__", 0);
 
-  /* "kdp.pyx":176
+  /* "kdp.pyx":174
  * 
  * 	def __add__(Vec2 this, Vec2 that):
  * 		return this.Copy().__iadd__(that)             # <<<<<<<<<<<<<<
@@ -2059,7 +2059,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
  * 	def __sub__(Vec2 this, Vec2 that):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2072,14 +2072,14 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2093,16 +2093,16 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -2111,7 +2111,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":175
+  /* "kdp.pyx":173
  * 		return self
  * 
  * 	def __add__(Vec2 this, Vec2 that):             # <<<<<<<<<<<<<<
@@ -2133,7 +2133,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_20__add__(struct __pyx_obj_3kdp_Vec2 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":178
+/* "kdp.pyx":176
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec2 this, Vec2 that):             # <<<<<<<<<<<<<<
@@ -2150,8 +2150,8 @@ static PyObject *__pyx_pw_3kdp_4Vec2_23__sub__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__sub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec2, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec2, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_22__sub__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_that));
 
   /* function exit code */
@@ -2175,7 +2175,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__", 0);
 
-  /* "kdp.pyx":179
+  /* "kdp.pyx":177
  * 
  * 	def __sub__(Vec2 this, Vec2 that):
  * 		return this.Copy().__isub__(that)             # <<<<<<<<<<<<<<
@@ -2183,7 +2183,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
  * 	# Currently, __rmul__ is not supported
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2196,14 +2196,14 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2217,16 +2217,16 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 179; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -2235,7 +2235,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":178
+  /* "kdp.pyx":176
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec2 this, Vec2 that):             # <<<<<<<<<<<<<<
@@ -2257,7 +2257,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_22__sub__(struct __pyx_obj_3kdp_Vec2 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":182
+/* "kdp.pyx":180
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec2 this, double scale):             # <<<<<<<<<<<<<<
@@ -2276,7 +2276,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_25__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__mul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 180; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2284,7 +2284,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_25__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_24__mul__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -2309,7 +2309,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__", 0);
 
-  /* "kdp.pyx":183
+  /* "kdp.pyx":181
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec2 this, double scale):
  * 		return this.Copy().__imul__(scale)             # <<<<<<<<<<<<<<
@@ -2317,7 +2317,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
  * 	# Note this is truediv, not div, which is what Python 3 will call for  a / b
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2330,17 +2330,17 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2353,17 +2353,17 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -2372,7 +2372,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":182
+  /* "kdp.pyx":180
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec2 this, double scale):             # <<<<<<<<<<<<<<
@@ -2395,7 +2395,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_24__mul__(struct __pyx_obj_3kdp_Vec2 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":186
+/* "kdp.pyx":184
  * 
  * 	# Note this is truediv, not div, which is what Python 3 will call for  a / b
  * 	def __truediv__(Vec2 this, double scale):             # <<<<<<<<<<<<<<
@@ -2414,7 +2414,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_27__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__truediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 184; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2422,7 +2422,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_27__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec2, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 184; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_26__truediv__(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -2447,7 +2447,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__truediv__", 0);
 
-  /* "kdp.pyx":187
+  /* "kdp.pyx":185
  * 	# Note this is truediv, not div, which is what Python 3 will call for  a / b
  * 	def __truediv__(Vec2 this, double scale):
  * 		return this.Copy().__itruediv__(scale)             # <<<<<<<<<<<<<<
@@ -2455,7 +2455,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
  * 	def __neg__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2468,17 +2468,17 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2491,17 +2491,17 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -2510,7 +2510,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":186
+  /* "kdp.pyx":184
  * 
  * 	# Note this is truediv, not div, which is what Python 3 will call for  a / b
  * 	def __truediv__(Vec2 this, double scale):             # <<<<<<<<<<<<<<
@@ -2533,7 +2533,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_26__truediv__(struct __pyx_obj_3kdp_Vec2 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":189
+/* "kdp.pyx":187
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -2564,19 +2564,19 @@ static PyObject *__pyx_pf_3kdp_4Vec2_28__neg__(struct __pyx_obj_3kdp_Vec2 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__neg__", 0);
 
-  /* "kdp.pyx":190
+  /* "kdp.pyx":188
  * 
  * 	def __neg__(self):
  * 		ret = Vec2()             # <<<<<<<<<<<<<<
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 190; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = ((struct __pyx_obj_3kdp_Vec2 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":191
+  /* "kdp.pyx":189
  * 	def __neg__(self):
  * 		ret = Vec2()
  * 		deref(ret.vec).assign(-deref(self.vec))             # <<<<<<<<<<<<<<
@@ -2585,7 +2585,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_28__neg__(struct __pyx_obj_3kdp_Vec2 *__pyx
  */
   (*__pyx_v_ret->vec).operator=((-(*__pyx_v_self->vec)));
 
-  /* "kdp.pyx":192
+  /* "kdp.pyx":190
  * 		ret = Vec2()
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret             # <<<<<<<<<<<<<<
@@ -2597,7 +2597,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_28__neg__(struct __pyx_obj_3kdp_Vec2 *__pyx
   __pyx_r = ((PyObject *)__pyx_v_ret);
   goto __pyx_L0;
 
-  /* "kdp.pyx":189
+  /* "kdp.pyx":187
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -2617,7 +2617,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_28__neg__(struct __pyx_obj_3kdp_Vec2 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":194
+/* "kdp.pyx":192
  * 		return ret
  * 
  * 	def Normalize(self):             # <<<<<<<<<<<<<<
@@ -2643,7 +2643,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_30Normalize(struct __pyx_obj_3kdp_Vec2 *__p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Normalize", 0);
 
-  /* "kdp.pyx":195
+  /* "kdp.pyx":193
  * 
  * 	def Normalize(self):
  * 		deref(self.vec).Normalize()             # <<<<<<<<<<<<<<
@@ -2652,7 +2652,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_30Normalize(struct __pyx_obj_3kdp_Vec2 *__p
  */
   (*__pyx_v_self->vec).Normalize();
 
-  /* "kdp.pyx":196
+  /* "kdp.pyx":194
  * 	def Normalize(self):
  * 		deref(self.vec).Normalize()
  * 		return self             # <<<<<<<<<<<<<<
@@ -2664,7 +2664,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_30Normalize(struct __pyx_obj_3kdp_Vec2 *__p
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":194
+  /* "kdp.pyx":192
  * 		return ret
  * 
  * 	def Normalize(self):             # <<<<<<<<<<<<<<
@@ -2679,7 +2679,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_30Normalize(struct __pyx_obj_3kdp_Vec2 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":198
+/* "kdp.pyx":196
  * 		return self
  * 
  * 	def Mag(self):             # <<<<<<<<<<<<<<
@@ -2709,7 +2709,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_32Mag(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mag", 0);
 
-  /* "kdp.pyx":199
+  /* "kdp.pyx":197
  * 
  * 	def Mag(self):
  * 		return deref(self.vec).Mag()             # <<<<<<<<<<<<<<
@@ -2717,13 +2717,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_32Mag(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
  * 	def Mag2(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 199; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 197; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":198
+  /* "kdp.pyx":196
  * 		return self
  * 
  * 	def Mag(self):             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_32Mag(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":201
+/* "kdp.pyx":199
  * 		return deref(self.vec).Mag()
  * 
  * 	def Mag2(self):             # <<<<<<<<<<<<<<
@@ -2772,7 +2772,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_34Mag2(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mag2", 0);
 
-  /* "kdp.pyx":202
+  /* "kdp.pyx":200
  * 
  * 	def Mag2(self):
  * 		return deref(self.vec).Mag2()             # <<<<<<<<<<<<<<
@@ -2780,13 +2780,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_34Mag2(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
  * 	def Phi(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 200; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":201
+  /* "kdp.pyx":199
  * 		return deref(self.vec).Mag()
  * 
  * 	def Mag2(self):             # <<<<<<<<<<<<<<
@@ -2805,7 +2805,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_34Mag2(struct __pyx_obj_3kdp_Vec2 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":204
+/* "kdp.pyx":202
  * 		return deref(self.vec).Mag2()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -2835,7 +2835,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_36Phi(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Phi", 0);
 
-  /* "kdp.pyx":205
+  /* "kdp.pyx":203
  * 
  * 	def Phi(self):
  * 		return deref(self.vec).Phi()             # <<<<<<<<<<<<<<
@@ -2843,13 +2843,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_36Phi(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
  * 	def DeltaPhi(self, Vec2 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":204
+  /* "kdp.pyx":202
  * 		return deref(self.vec).Mag2()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -2868,7 +2868,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_36Phi(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":207
+/* "kdp.pyx":205
  * 		return deref(self.vec).Phi()
  * 
  * 	def DeltaPhi(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -2885,7 +2885,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_39DeltaPhi(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaPhi (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 207; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_38DeltaPhi(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -2906,7 +2906,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_38DeltaPhi(struct __pyx_obj_3kdp_Vec2 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaPhi", 0);
 
-  /* "kdp.pyx":208
+  /* "kdp.pyx":206
  * 
  * 	def DeltaPhi(self, Vec2 other):
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -2914,13 +2914,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_38DeltaPhi(struct __pyx_obj_3kdp_Vec2 *__py
  * 	def Dot(self, Vec2 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 206; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":207
+  /* "kdp.pyx":205
  * 		return deref(self.vec).Phi()
  * 
  * 	def DeltaPhi(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -2939,7 +2939,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_38DeltaPhi(struct __pyx_obj_3kdp_Vec2 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":210
+/* "kdp.pyx":208
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def Dot(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -2956,7 +2956,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_41Dot(PyObject *__pyx_v_self, PyObject *__p
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Dot (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 208; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_40Dot(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -2977,7 +2977,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_40Dot(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Dot", 0);
 
-  /* "kdp.pyx":211
+  /* "kdp.pyx":209
  * 
  * 	def Dot(self, Vec2 other):
  * 		return deref(self.vec).Dot(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -2985,13 +2985,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_40Dot(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
  * 	def Cross(self, Vec2 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Dot((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Dot((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 209; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":210
+  /* "kdp.pyx":208
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def Dot(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -3010,7 +3010,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_40Dot(struct __pyx_obj_3kdp_Vec2 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":213
+/* "kdp.pyx":211
  * 		return deref(self.vec).Dot(deref(other.vec))
  * 
  * 	def Cross(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -3027,7 +3027,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_43Cross(PyObject *__pyx_v_self, PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Cross (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_42Cross(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -3048,7 +3048,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_42Cross(struct __pyx_obj_3kdp_Vec2 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Cross", 0);
 
-  /* "kdp.pyx":214
+  /* "kdp.pyx":212
  * 
  * 	def Cross(self, Vec2 other):
  * 		return deref(self.vec).Cross(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -3056,13 +3056,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_42Cross(struct __pyx_obj_3kdp_Vec2 *__pyx_v
  * 	def InteriorAngle(self, Vec2 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Cross((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 214; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Cross((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":213
+  /* "kdp.pyx":211
  * 		return deref(self.vec).Dot(deref(other.vec))
  * 
  * 	def Cross(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -3081,7 +3081,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_42Cross(struct __pyx_obj_3kdp_Vec2 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":216
+/* "kdp.pyx":214
  * 		return deref(self.vec).Cross(deref(other.vec))
  * 
  * 	def InteriorAngle(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -3098,7 +3098,7 @@ static PyObject *__pyx_pw_3kdp_4Vec2_45InteriorAngle(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("InteriorAngle (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec2, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 214; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec2_44InteriorAngle(((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec2 *)__pyx_v_other));
 
   /* function exit code */
@@ -3119,7 +3119,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_44InteriorAngle(struct __pyx_obj_3kdp_Vec2 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("InteriorAngle", 0);
 
-  /* "kdp.pyx":217
+  /* "kdp.pyx":215
  * 
  * 	def InteriorAngle(self, Vec2 other):
  * 		return deref(self.vec).InteriorAngle(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -3127,13 +3127,13 @@ static PyObject *__pyx_pf_3kdp_4Vec2_44InteriorAngle(struct __pyx_obj_3kdp_Vec2 
  * ########################################################################
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).InteriorAngle((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 217; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).InteriorAngle((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 215; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":216
+  /* "kdp.pyx":214
  * 		return deref(self.vec).Cross(deref(other.vec))
  * 
  * 	def InteriorAngle(self, Vec2 other):             # <<<<<<<<<<<<<<
@@ -3152,7 +3152,7 @@ static PyObject *__pyx_pf_3kdp_4Vec2_44InteriorAngle(struct __pyx_obj_3kdp_Vec2 
   return __pyx_r;
 }
 
-/* "kdp.pyx":224
+/* "kdp.pyx":222
  * #~ 	cdef shared_ptr[Vec3_c] vec
  * 
  * 	def __cinit__(self, double x1 = 0., double x2 = 0., double x3 = 0.):             # <<<<<<<<<<<<<<
@@ -3204,7 +3204,7 @@ static int __pyx_pw_3kdp_4Vec3_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 224; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3216,24 +3216,24 @@ static int __pyx_pw_3kdp_4Vec3_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
       }
     }
     if (values[0]) {
-      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 224; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x1 = ((double)0.);
     }
     if (values[1]) {
-      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 224; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x2 = ((double)0.);
     }
     if (values[2]) {
-      __pyx_v_x3 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 224; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x3 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x3 = ((double)0.);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 224; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec3.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3251,7 +3251,7 @@ static int __pyx_pf_3kdp_4Vec3___cinit__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "kdp.pyx":226
+  /* "kdp.pyx":224
  * 	def __cinit__(self, double x1 = 0., double x2 = 0., double x3 = 0.):
  * #~ 		self.vec = shared_ptr[Vec3_c](new Vec3_c(x1, x2, x3))
  * 		self.vec = make_shared[Vec3_c](x1, x2, x3)             # <<<<<<<<<<<<<<
@@ -3260,7 +3260,7 @@ static int __pyx_pf_3kdp_4Vec3___cinit__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
  */
   __pyx_v_self->vec = std::make_shared<kdp::Vec3>(__pyx_v_x1, __pyx_v_x2, __pyx_v_x3);
 
-  /* "kdp.pyx":224
+  /* "kdp.pyx":222
  * #~ 	cdef shared_ptr[Vec3_c] vec
  * 
  * 	def __cinit__(self, double x1 = 0., double x2 = 0., double x3 = 0.):             # <<<<<<<<<<<<<<
@@ -3274,7 +3274,7 @@ static int __pyx_pf_3kdp_4Vec3___cinit__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":228
+/* "kdp.pyx":226
  * 		self.vec = make_shared[Vec3_c](x1, x2, x3)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3297,7 +3297,7 @@ static void __pyx_pf_3kdp_4Vec3_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "kdp.pyx":229
+  /* "kdp.pyx":227
  * 
  * 	def __dealloc__(self):
  * 		return             # <<<<<<<<<<<<<<
@@ -3306,7 +3306,7 @@ static void __pyx_pf_3kdp_4Vec3_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
  */
   goto __pyx_L0;
 
-  /* "kdp.pyx":228
+  /* "kdp.pyx":226
  * 		self.vec = make_shared[Vec3_c](x1, x2, x3)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3319,7 +3319,7 @@ static void __pyx_pf_3kdp_4Vec3_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyFinishContext();
 }
 
-/* "kdp.pyx":231
+/* "kdp.pyx":229
  * 		return
  * 
  * 	def Assign(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -3336,7 +3336,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_5Assign(PyObject *__pyx_v_self, PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Assign (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 229; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_4Assign(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -3353,7 +3353,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_4Assign(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Assign", 0);
 
-  /* "kdp.pyx":232
+  /* "kdp.pyx":230
  * 
  * 	def Assign(self, Vec3 other):
  * 		deref(self.vec).assign(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -3362,7 +3362,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_4Assign(struct __pyx_obj_3kdp_Vec3 *__pyx_v
  */
   (*__pyx_v_self->vec).operator=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":231
+  /* "kdp.pyx":229
  * 		return
  * 
  * 	def Assign(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -3377,7 +3377,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_4Assign(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":235
+/* "kdp.pyx":233
  * 
  * 	@staticmethod
  * 	cdef Vec3 Factory(const Vec3_c& orig):             # <<<<<<<<<<<<<<
@@ -3395,19 +3395,19 @@ static struct __pyx_obj_3kdp_Vec3 *__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3 const &_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Factory", 0);
 
-  /* "kdp.pyx":236
+  /* "kdp.pyx":234
  * 	@staticmethod
  * 	cdef Vec3 Factory(const Vec3_c& orig):
  * 		copy = Vec3()             # <<<<<<<<<<<<<<
  * 		deref(copy.vec).assign(orig)
  * 		return copy
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 236; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_copy = ((struct __pyx_obj_3kdp_Vec3 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":237
+  /* "kdp.pyx":235
  * 	cdef Vec3 Factory(const Vec3_c& orig):
  * 		copy = Vec3()
  * 		deref(copy.vec).assign(orig)             # <<<<<<<<<<<<<<
@@ -3416,7 +3416,7 @@ static struct __pyx_obj_3kdp_Vec3 *__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3 const &_
  */
   (*__pyx_v_copy->vec).operator=(__pyx_v_orig);
 
-  /* "kdp.pyx":238
+  /* "kdp.pyx":236
  * 		copy = Vec3()
  * 		deref(copy.vec).assign(orig)
  * 		return copy             # <<<<<<<<<<<<<<
@@ -3428,7 +3428,7 @@ static struct __pyx_obj_3kdp_Vec3 *__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3 const &_
   __pyx_r = __pyx_v_copy;
   goto __pyx_L0;
 
-  /* "kdp.pyx":235
+  /* "kdp.pyx":233
  * 
  * 	@staticmethod
  * 	cdef Vec3 Factory(const Vec3_c& orig):             # <<<<<<<<<<<<<<
@@ -3448,7 +3448,7 @@ static struct __pyx_obj_3kdp_Vec3 *__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3 const &_
   return __pyx_r;
 }
 
-/* "kdp.pyx":241
+/* "kdp.pyx":239
  * 
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):             # <<<<<<<<<<<<<<
@@ -3490,16 +3490,16 @@ static PyObject *__pyx_pw_3kdp_4Vec3_7Make_LengthThetaPhi(CYTHON_UNUSED PyObject
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_theta)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_phi)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_LengthThetaPhi") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_LengthThetaPhi") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3508,13 +3508,13 @@ static PyObject *__pyx_pw_3kdp_4Vec3_7Make_LengthThetaPhi(CYTHON_UNUSED PyObject
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_length = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_length == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    __pyx_v_theta = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_theta == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_phi == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_length = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_length == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_theta = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_theta == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_phi = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_phi == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Make_LengthThetaPhi", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec3.Make_LengthThetaPhi", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3536,7 +3536,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_6Make_LengthThetaPhi(double __pyx_v_length,
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Make_LengthThetaPhi", 0);
 
-  /* "kdp.pyx":242
+  /* "kdp.pyx":240
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))             # <<<<<<<<<<<<<<
@@ -3544,13 +3544,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_6Make_LengthThetaPhi(double __pyx_v_length,
  * 	def Copy(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3(__pyx_v_length, __pyx_v_theta, __pyx_v_phi, kdp::Vec3from::LengthThetaPhi))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(kdp::Vec3(__pyx_v_length, __pyx_v_theta, __pyx_v_phi, kdp::Vec3from::LengthThetaPhi))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":241
+  /* "kdp.pyx":239
  * 
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):             # <<<<<<<<<<<<<<
@@ -3569,7 +3569,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_6Make_LengthThetaPhi(double __pyx_v_length,
   return __pyx_r;
 }
 
-/* "kdp.pyx":244
+/* "kdp.pyx":242
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -3599,7 +3599,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_8Copy(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Copy", 0);
 
-  /* "kdp.pyx":245
+  /* "kdp.pyx":243
  * 
  * 	def Copy(self):
  * 		return Vec3.Factory(deref(self.vec))             # <<<<<<<<<<<<<<
@@ -3607,13 +3607,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_8Copy(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
  * 	def __deepcopy__(self, memo):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 245; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 243; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":244
+  /* "kdp.pyx":242
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -3632,7 +3632,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_8Copy(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":247
+/* "kdp.pyx":245
  * 		return Vec3.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -3664,7 +3664,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_10__deepcopy__(struct __pyx_obj_3kdp_Vec3 *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__deepcopy__", 0);
 
-  /* "kdp.pyx":248
+  /* "kdp.pyx":246
  * 
  * 	def __deepcopy__(self, memo):
  * 		return self.Copy()             # <<<<<<<<<<<<<<
@@ -3672,7 +3672,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_10__deepcopy__(struct __pyx_obj_3kdp_Vec3 *
  * 	def __repr__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3685,10 +3685,10 @@ static PyObject *__pyx_pf_3kdp_4Vec3_10__deepcopy__(struct __pyx_obj_3kdp_Vec3 *
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3696,7 +3696,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_10__deepcopy__(struct __pyx_obj_3kdp_Vec3 *
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":247
+  /* "kdp.pyx":245
  * 		return Vec3.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -3717,7 +3717,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_10__deepcopy__(struct __pyx_obj_3kdp_Vec3 *
   return __pyx_r;
 }
 
-/* "kdp.pyx":250
+/* "kdp.pyx":248
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -3750,7 +3750,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_12__repr__(struct __pyx_obj_3kdp_Vec3 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "kdp.pyx":251
+  /* "kdp.pyx":249
  * 
  * 	def __repr__(self):
  * 		return str([self.x1, self.x2, self.x3])             # <<<<<<<<<<<<<<
@@ -3758,13 +3758,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_12__repr__(struct __pyx_obj_3kdp_Vec3 *__py
  * 	property x1:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyList_New(3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyList_New(3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -3775,19 +3775,19 @@ static PyObject *__pyx_pf_3kdp_4Vec3_12__repr__(struct __pyx_obj_3kdp_Vec3 *__py
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":250
+  /* "kdp.pyx":248
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -3809,7 +3809,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_12__repr__(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":254
+/* "kdp.pyx":252
  * 
  * 	property x1:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -3839,7 +3839,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x1___get__(struct __pyx_obj_3kdp_Vec3 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":255
+  /* "kdp.pyx":253
  * 	property x1:
  * 		def __get__(self):
  * 			return deref(self.vec).x1             # <<<<<<<<<<<<<<
@@ -3847,13 +3847,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x1___get__(struct __pyx_obj_3kdp_Vec3 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 255; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":254
+  /* "kdp.pyx":252
  * 
  * 	property x1:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -3872,7 +3872,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x1___get__(struct __pyx_obj_3kdp_Vec3 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":257
+/* "kdp.pyx":255
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -3902,17 +3902,17 @@ static int __pyx_pf_3kdp_4Vec3_2x1_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":258
+  /* "kdp.pyx":256
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x1 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x2:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 258; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 256; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x1 = __pyx_t_1;
 
-  /* "kdp.pyx":257
+  /* "kdp.pyx":255
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -3931,7 +3931,7 @@ static int __pyx_pf_3kdp_4Vec3_2x1_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":261
+/* "kdp.pyx":259
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -3961,7 +3961,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x2___get__(struct __pyx_obj_3kdp_Vec3 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":262
+  /* "kdp.pyx":260
  * 	property x2:
  * 		def __get__(self):
  * 			return deref(self.vec).x2             # <<<<<<<<<<<<<<
@@ -3969,13 +3969,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x2___get__(struct __pyx_obj_3kdp_Vec3 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 262; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 260; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":261
+  /* "kdp.pyx":259
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -3994,7 +3994,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x2___get__(struct __pyx_obj_3kdp_Vec3 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":264
+/* "kdp.pyx":262
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -4024,17 +4024,17 @@ static int __pyx_pf_3kdp_4Vec3_2x2_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":265
+  /* "kdp.pyx":263
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x2 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x3:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x2 = __pyx_t_1;
 
-  /* "kdp.pyx":264
+  /* "kdp.pyx":262
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -4053,7 +4053,7 @@ static int __pyx_pf_3kdp_4Vec3_2x2_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":268
+/* "kdp.pyx":266
  * 
  * 	property x3:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -4083,7 +4083,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x3___get__(struct __pyx_obj_3kdp_Vec3 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":269
+  /* "kdp.pyx":267
  * 	property x3:
  * 		def __get__(self):
  * 			return deref(self.vec).x3             # <<<<<<<<<<<<<<
@@ -4091,13 +4091,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x3___get__(struct __pyx_obj_3kdp_Vec3 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 269; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 267; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":268
+  /* "kdp.pyx":266
  * 
  * 	property x3:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -4116,7 +4116,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_2x3___get__(struct __pyx_obj_3kdp_Vec3 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":271
+/* "kdp.pyx":269
  * 			return deref(self.vec).x3
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -4146,17 +4146,17 @@ static int __pyx_pf_3kdp_4Vec3_2x3_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":272
+  /* "kdp.pyx":270
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x3 = value             # <<<<<<<<<<<<<<
  * 
  * 	def T(self):
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 272; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 270; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x3 = __pyx_t_1;
 
-  /* "kdp.pyx":271
+  /* "kdp.pyx":269
  * 			return deref(self.vec).x3
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -4175,7 +4175,7 @@ static int __pyx_pf_3kdp_4Vec3_2x3_2__set__(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":274
+/* "kdp.pyx":272
  * 			deref(self.vec).x3 = value
  * 
  * 	def T(self):             # <<<<<<<<<<<<<<
@@ -4206,19 +4206,19 @@ static PyObject *__pyx_pf_3kdp_4Vec3_14T(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("T", 0);
 
-  /* "kdp.pyx":275
+  /* "kdp.pyx":273
  * 
  * 	def T(self):
  * 		vec2 = Vec2()             # <<<<<<<<<<<<<<
  * 		vec2.vec = shared_ptr_alias[Vec2_c, Vec3_c](self.vec, <Vec2_c*>(self.vec.get()))
  * 		return vec2
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 275; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec2), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 273; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_vec2 = ((struct __pyx_obj_3kdp_Vec2 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":276
+  /* "kdp.pyx":274
  * 	def T(self):
  * 		vec2 = Vec2()
  * 		vec2.vec = shared_ptr_alias[Vec2_c, Vec3_c](self.vec, <Vec2_c*>(self.vec.get()))             # <<<<<<<<<<<<<<
@@ -4227,7 +4227,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_14T(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
  */
   __pyx_v_vec2->vec = shared_ptr_alias<kdp::Vec2,kdp::Vec3>(__pyx_v_self->vec, ((kdp::Vec2 *)__pyx_v_self->vec.get()));
 
-  /* "kdp.pyx":277
+  /* "kdp.pyx":275
  * 		vec2 = Vec2()
  * 		vec2.vec = shared_ptr_alias[Vec2_c, Vec3_c](self.vec, <Vec2_c*>(self.vec.get()))
  * 		return vec2             # <<<<<<<<<<<<<<
@@ -4239,7 +4239,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_14T(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
   __pyx_r = ((PyObject *)__pyx_v_vec2);
   goto __pyx_L0;
 
-  /* "kdp.pyx":274
+  /* "kdp.pyx":272
  * 			deref(self.vec).x3 = value
  * 
  * 	def T(self):             # <<<<<<<<<<<<<<
@@ -4259,7 +4259,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_14T(struct __pyx_obj_3kdp_Vec3 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":279
+/* "kdp.pyx":277
  * 		return vec2
  * 
  * 	def __iadd__(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -4276,7 +4276,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_17__iadd__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 277; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_16__iadd__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -4293,7 +4293,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_16__iadd__(struct __pyx_obj_3kdp_Vec3 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__", 0);
 
-  /* "kdp.pyx":280
+  /* "kdp.pyx":278
  * 
  * 	def __iadd__(self, Vec3 other):
  * 		deref(self.vec).addEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -4302,7 +4302,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_16__iadd__(struct __pyx_obj_3kdp_Vec3 *__py
  */
   (*__pyx_v_self->vec).operator+=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":281
+  /* "kdp.pyx":279
  * 	def __iadd__(self, Vec3 other):
  * 		deref(self.vec).addEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -4314,7 +4314,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_16__iadd__(struct __pyx_obj_3kdp_Vec3 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":279
+  /* "kdp.pyx":277
  * 		return vec2
  * 
  * 	def __iadd__(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -4329,7 +4329,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_16__iadd__(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":283
+/* "kdp.pyx":281
  * 		return self
  * 
  * 	def __isub__(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -4346,7 +4346,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_19__isub__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 283; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 281; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_18__isub__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -4363,7 +4363,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_18__isub__(struct __pyx_obj_3kdp_Vec3 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__", 0);
 
-  /* "kdp.pyx":284
+  /* "kdp.pyx":282
  * 
  * 	def __isub__(self, Vec3 other):
  * 		deref(self.vec).subEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -4372,7 +4372,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_18__isub__(struct __pyx_obj_3kdp_Vec3 *__py
  */
   (*__pyx_v_self->vec).operator-=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":285
+  /* "kdp.pyx":283
  * 	def __isub__(self, Vec3 other):
  * 		deref(self.vec).subEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -4384,7 +4384,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_18__isub__(struct __pyx_obj_3kdp_Vec3 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":283
+  /* "kdp.pyx":281
  * 		return self
  * 
  * 	def __isub__(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -4399,7 +4399,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_18__isub__(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":287
+/* "kdp.pyx":285
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -4418,7 +4418,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_21__imul__(PyObject *__pyx_v_self, PyObject
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 287; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 285; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4438,7 +4438,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_20__imul__(struct __pyx_obj_3kdp_Vec3 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__", 0);
 
-  /* "kdp.pyx":288
+  /* "kdp.pyx":286
  * 
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)             # <<<<<<<<<<<<<<
@@ -4447,7 +4447,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_20__imul__(struct __pyx_obj_3kdp_Vec3 *__py
  */
   (*__pyx_v_self->vec).operator*=(__pyx_v_scale);
 
-  /* "kdp.pyx":289
+  /* "kdp.pyx":287
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -4459,7 +4459,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_20__imul__(struct __pyx_obj_3kdp_Vec3 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":287
+  /* "kdp.pyx":285
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -4474,7 +4474,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_20__imul__(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":291
+/* "kdp.pyx":289
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -4493,7 +4493,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_23__itruediv__(PyObject *__pyx_v_self, PyOb
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 291; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 289; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4513,7 +4513,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_22__itruediv__(struct __pyx_obj_3kdp_Vec3 *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__", 0);
 
-  /* "kdp.pyx":292
+  /* "kdp.pyx":290
  * 
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)             # <<<<<<<<<<<<<<
@@ -4522,7 +4522,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_22__itruediv__(struct __pyx_obj_3kdp_Vec3 *
  */
   (*__pyx_v_self->vec).operator/=(__pyx_v_scale);
 
-  /* "kdp.pyx":293
+  /* "kdp.pyx":291
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -4534,7 +4534,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_22__itruediv__(struct __pyx_obj_3kdp_Vec3 *
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":291
+  /* "kdp.pyx":289
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -4549,7 +4549,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_22__itruediv__(struct __pyx_obj_3kdp_Vec3 *
   return __pyx_r;
 }
 
-/* "kdp.pyx":295
+/* "kdp.pyx":293
  * 		return self
  * 
  * 	def __add__(Vec3 this, Vec3 that):             # <<<<<<<<<<<<<<
@@ -4566,8 +4566,8 @@ static PyObject *__pyx_pw_3kdp_4Vec3_25__add__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__add__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 295; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec3, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 295; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 293; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec3, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 293; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_24__add__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_that));
 
   /* function exit code */
@@ -4591,7 +4591,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__", 0);
 
-  /* "kdp.pyx":296
+  /* "kdp.pyx":294
  * 
  * 	def __add__(Vec3 this, Vec3 that):
  * 		return this.Copy().__iadd__(that)             # <<<<<<<<<<<<<<
@@ -4599,7 +4599,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
  * 	def __sub__(Vec3 this, Vec3 that):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4612,14 +4612,14 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -4633,16 +4633,16 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 294; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -4651,7 +4651,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":295
+  /* "kdp.pyx":293
  * 		return self
  * 
  * 	def __add__(Vec3 this, Vec3 that):             # <<<<<<<<<<<<<<
@@ -4673,7 +4673,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_24__add__(struct __pyx_obj_3kdp_Vec3 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":298
+/* "kdp.pyx":296
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec3 this, Vec3 that):             # <<<<<<<<<<<<<<
@@ -4690,8 +4690,8 @@ static PyObject *__pyx_pw_3kdp_4Vec3_27__sub__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__sub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec3, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec3, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 296; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_26__sub__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_that));
 
   /* function exit code */
@@ -4715,7 +4715,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__", 0);
 
-  /* "kdp.pyx":299
+  /* "kdp.pyx":297
  * 
  * 	def __sub__(Vec3 this, Vec3 that):
  * 		return this.Copy().__isub__(that)             # <<<<<<<<<<<<<<
@@ -4723,7 +4723,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
  * 	# Currently, __rmul__ is not supported
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4736,14 +4736,14 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -4757,16 +4757,16 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -4775,7 +4775,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":298
+  /* "kdp.pyx":296
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec3 this, Vec3 that):             # <<<<<<<<<<<<<<
@@ -4797,7 +4797,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_26__sub__(struct __pyx_obj_3kdp_Vec3 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":302
+/* "kdp.pyx":300
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec3 this, double scale):             # <<<<<<<<<<<<<<
@@ -4816,7 +4816,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_29__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__mul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 300; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4824,7 +4824,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_29__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 300; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_28__mul__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -4849,7 +4849,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__", 0);
 
-  /* "kdp.pyx":303
+  /* "kdp.pyx":301
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec3 this, double scale):
  * 		return this.Copy().__imul__(scale)             # <<<<<<<<<<<<<<
@@ -4857,7 +4857,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
  * 	# Note this is truediv, not div
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4870,17 +4870,17 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -4893,17 +4893,17 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 303; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 301; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -4912,7 +4912,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":302
+  /* "kdp.pyx":300
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec3 this, double scale):             # <<<<<<<<<<<<<<
@@ -4935,7 +4935,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_28__mul__(struct __pyx_obj_3kdp_Vec3 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":306
+/* "kdp.pyx":304
  * 
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec3 this, double scale):             # <<<<<<<<<<<<<<
@@ -4954,7 +4954,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_31__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__truediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 306; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 304; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4962,7 +4962,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_31__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 306; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec3, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 304; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_30__truediv__(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -4987,7 +4987,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__truediv__", 0);
 
-  /* "kdp.pyx":307
+  /* "kdp.pyx":305
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec3 this, double scale):
  * 		return this.Copy().__itruediv__(scale)             # <<<<<<<<<<<<<<
@@ -4995,7 +4995,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
  * 	def __neg__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5008,17 +5008,17 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5031,17 +5031,17 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 307; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 305; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -5050,7 +5050,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":306
+  /* "kdp.pyx":304
  * 
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec3 this, double scale):             # <<<<<<<<<<<<<<
@@ -5073,7 +5073,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_30__truediv__(struct __pyx_obj_3kdp_Vec3 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":309
+/* "kdp.pyx":307
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -5104,19 +5104,19 @@ static PyObject *__pyx_pf_3kdp_4Vec3_32__neg__(struct __pyx_obj_3kdp_Vec3 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__neg__", 0);
 
-  /* "kdp.pyx":310
+  /* "kdp.pyx":308
  * 
  * 	def __neg__(self):
  * 		ret = Vec3()             # <<<<<<<<<<<<<<
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 308; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = ((struct __pyx_obj_3kdp_Vec3 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":311
+  /* "kdp.pyx":309
  * 	def __neg__(self):
  * 		ret = Vec3()
  * 		deref(ret.vec).assign(-deref(self.vec))             # <<<<<<<<<<<<<<
@@ -5125,7 +5125,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_32__neg__(struct __pyx_obj_3kdp_Vec3 *__pyx
  */
   (*__pyx_v_ret->vec).operator=((-(*__pyx_v_self->vec)));
 
-  /* "kdp.pyx":312
+  /* "kdp.pyx":310
  * 		ret = Vec3()
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret             # <<<<<<<<<<<<<<
@@ -5137,7 +5137,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_32__neg__(struct __pyx_obj_3kdp_Vec3 *__pyx
   __pyx_r = ((PyObject *)__pyx_v_ret);
   goto __pyx_L0;
 
-  /* "kdp.pyx":309
+  /* "kdp.pyx":307
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -5157,7 +5157,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_32__neg__(struct __pyx_obj_3kdp_Vec3 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":314
+/* "kdp.pyx":312
  * 		return ret
  * 
  * 	def Normalize(self):             # <<<<<<<<<<<<<<
@@ -5183,7 +5183,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_34Normalize(struct __pyx_obj_3kdp_Vec3 *__p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Normalize", 0);
 
-  /* "kdp.pyx":315
+  /* "kdp.pyx":313
  * 
  * 	def Normalize(self):
  * 		deref(self.vec).Normalize()             # <<<<<<<<<<<<<<
@@ -5192,7 +5192,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_34Normalize(struct __pyx_obj_3kdp_Vec3 *__p
  */
   (*__pyx_v_self->vec).Normalize();
 
-  /* "kdp.pyx":316
+  /* "kdp.pyx":314
  * 	def Normalize(self):
  * 		deref(self.vec).Normalize()
  * 		return self             # <<<<<<<<<<<<<<
@@ -5204,7 +5204,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_34Normalize(struct __pyx_obj_3kdp_Vec3 *__p
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":314
+  /* "kdp.pyx":312
  * 		return ret
  * 
  * 	def Normalize(self):             # <<<<<<<<<<<<<<
@@ -5219,7 +5219,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_34Normalize(struct __pyx_obj_3kdp_Vec3 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":318
+/* "kdp.pyx":316
  * 		return self
  * 
  * 	def Mag(self):             # <<<<<<<<<<<<<<
@@ -5249,7 +5249,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_36Mag(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mag", 0);
 
-  /* "kdp.pyx":319
+  /* "kdp.pyx":317
  * 
  * 	def Mag(self):
  * 		return deref(self.vec).Mag()             # <<<<<<<<<<<<<<
@@ -5257,13 +5257,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_36Mag(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
  * 	def Mag2(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 319; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":318
+  /* "kdp.pyx":316
  * 		return self
  * 
  * 	def Mag(self):             # <<<<<<<<<<<<<<
@@ -5282,7 +5282,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_36Mag(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":321
+/* "kdp.pyx":319
  * 		return deref(self.vec).Mag()
  * 
  * 	def Mag2(self):             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_38Mag2(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mag2", 0);
 
-  /* "kdp.pyx":322
+  /* "kdp.pyx":320
  * 
  * 	def Mag2(self):
  * 		return deref(self.vec).Mag2()             # <<<<<<<<<<<<<<
@@ -5320,13 +5320,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_38Mag2(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
  * 	def Phi(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 322; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mag2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 320; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":321
+  /* "kdp.pyx":319
  * 		return deref(self.vec).Mag()
  * 
  * 	def Mag2(self):             # <<<<<<<<<<<<<<
@@ -5345,7 +5345,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_38Mag2(struct __pyx_obj_3kdp_Vec3 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":324
+/* "kdp.pyx":322
  * 		return deref(self.vec).Mag2()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -5375,7 +5375,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_40Phi(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Phi", 0);
 
-  /* "kdp.pyx":325
+  /* "kdp.pyx":323
  * 
  * 	def Phi(self):
  * 		return deref(self.vec).Phi()             # <<<<<<<<<<<<<<
@@ -5383,13 +5383,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_40Phi(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
  * 	def Eta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 325; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 323; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":324
+  /* "kdp.pyx":322
  * 		return deref(self.vec).Mag2()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -5408,7 +5408,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_40Phi(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":327
+/* "kdp.pyx":325
  * 		return deref(self.vec).Phi()
  * 
  * 	def Eta(self):             # <<<<<<<<<<<<<<
@@ -5438,7 +5438,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_42Eta(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Eta", 0);
 
-  /* "kdp.pyx":328
+  /* "kdp.pyx":326
  * 
  * 	def Eta(self):
  * 		return deref(self.vec).Eta()             # <<<<<<<<<<<<<<
@@ -5446,13 +5446,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_42Eta(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
  * 	def Theta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Eta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 328; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Eta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 326; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":327
+  /* "kdp.pyx":325
  * 		return deref(self.vec).Phi()
  * 
  * 	def Eta(self):             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_42Eta(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":330
+/* "kdp.pyx":328
  * 		return deref(self.vec).Eta()
  * 
  * 	def Theta(self):             # <<<<<<<<<<<<<<
@@ -5501,7 +5501,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_44Theta(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Theta", 0);
 
-  /* "kdp.pyx":331
+  /* "kdp.pyx":329
  * 
  * 	def Theta(self):
  * 		return deref(self.vec).Theta()             # <<<<<<<<<<<<<<
@@ -5509,13 +5509,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_44Theta(struct __pyx_obj_3kdp_Vec3 *__pyx_v
  * 	def DeltaEta(self, Vec3 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Theta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 331; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Theta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":330
+  /* "kdp.pyx":328
  * 		return deref(self.vec).Eta()
  * 
  * 	def Theta(self):             # <<<<<<<<<<<<<<
@@ -5534,7 +5534,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_44Theta(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":333
+/* "kdp.pyx":331
  * 		return deref(self.vec).Theta()
  * 
  * 	def DeltaEta(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5551,7 +5551,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_47DeltaEta(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaEta (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 333; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 331; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_46DeltaEta(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -5572,7 +5572,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_46DeltaEta(struct __pyx_obj_3kdp_Vec3 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaEta", 0);
 
-  /* "kdp.pyx":334
+  /* "kdp.pyx":332
  * 
  * 	def DeltaEta(self, Vec3 other):
  * 		return deref(self.vec).DeltaEta(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -5580,13 +5580,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_46DeltaEta(struct __pyx_obj_3kdp_Vec3 *__py
  * 	def DeltaPhi(self, Vec3 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaEta((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 334; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaEta((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 332; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":333
+  /* "kdp.pyx":331
  * 		return deref(self.vec).Theta()
  * 
  * 	def DeltaEta(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5605,7 +5605,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_46DeltaEta(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":336
+/* "kdp.pyx":334
  * 		return deref(self.vec).DeltaEta(deref(other.vec))
  * 
  * 	def DeltaPhi(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5622,7 +5622,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_49DeltaPhi(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaPhi (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 336; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 334; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_48DeltaPhi(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -5643,7 +5643,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_48DeltaPhi(struct __pyx_obj_3kdp_Vec3 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaPhi", 0);
 
-  /* "kdp.pyx":337
+  /* "kdp.pyx":335
  * 
  * 	def DeltaPhi(self, Vec3 other):
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -5651,13 +5651,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_48DeltaPhi(struct __pyx_obj_3kdp_Vec3 *__py
  * 	def Dot(self, Vec3 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 337; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 335; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":336
+  /* "kdp.pyx":334
  * 		return deref(self.vec).DeltaEta(deref(other.vec))
  * 
  * 	def DeltaPhi(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5676,7 +5676,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_48DeltaPhi(struct __pyx_obj_3kdp_Vec3 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":339
+/* "kdp.pyx":337
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def Dot(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5693,7 +5693,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_51Dot(PyObject *__pyx_v_self, PyObject *__p
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Dot (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 337; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_50Dot(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -5714,7 +5714,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_50Dot(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Dot", 0);
 
-  /* "kdp.pyx":340
+  /* "kdp.pyx":338
  * 
  * 	def Dot(self, Vec3 other):
  * 		return deref(self.vec).Dot(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -5722,13 +5722,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_50Dot(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
  * 	def Cross(self, Vec3 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Dot((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Dot((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":339
+  /* "kdp.pyx":337
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def Dot(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5747,7 +5747,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_50Dot(struct __pyx_obj_3kdp_Vec3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":342
+/* "kdp.pyx":340
  * 		return deref(self.vec).Dot(deref(other.vec))
  * 
  * 	def Cross(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5764,7 +5764,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_53Cross(PyObject *__pyx_v_self, PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Cross (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 342; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_52Cross(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -5786,19 +5786,19 @@ static PyObject *__pyx_pf_3kdp_4Vec3_52Cross(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Cross", 0);
 
-  /* "kdp.pyx":343
+  /* "kdp.pyx":341
  * 
  * 	def Cross(self, Vec3 other):
  * 		ret = Vec3()             # <<<<<<<<<<<<<<
  * 		deref(ret.vec).assign(deref(self.vec).Cross(deref(other.vec)))
  * 		return ret
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 343; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 341; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = ((struct __pyx_obj_3kdp_Vec3 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":344
+  /* "kdp.pyx":342
  * 	def Cross(self, Vec3 other):
  * 		ret = Vec3()
  * 		deref(ret.vec).assign(deref(self.vec).Cross(deref(other.vec)))             # <<<<<<<<<<<<<<
@@ -5807,7 +5807,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_52Cross(struct __pyx_obj_3kdp_Vec3 *__pyx_v
  */
   (*__pyx_v_ret->vec).operator=((*__pyx_v_self->vec).Cross((*__pyx_v_other->vec)));
 
-  /* "kdp.pyx":345
+  /* "kdp.pyx":343
  * 		ret = Vec3()
  * 		deref(ret.vec).assign(deref(self.vec).Cross(deref(other.vec)))
  * 		return ret             # <<<<<<<<<<<<<<
@@ -5819,7 +5819,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_52Cross(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   __pyx_r = ((PyObject *)__pyx_v_ret);
   goto __pyx_L0;
 
-  /* "kdp.pyx":342
+  /* "kdp.pyx":340
  * 		return deref(self.vec).Dot(deref(other.vec))
  * 
  * 	def Cross(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5839,7 +5839,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_52Cross(struct __pyx_obj_3kdp_Vec3 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":347
+/* "kdp.pyx":345
  * 		return ret
  * 
  * 	def InteriorAngle(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5856,7 +5856,7 @@ static PyObject *__pyx_pw_3kdp_4Vec3_55InteriorAngle(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("InteriorAngle (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 347; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec3, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 345; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec3_54InteriorAngle(((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec3 *)__pyx_v_other));
 
   /* function exit code */
@@ -5877,7 +5877,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_54InteriorAngle(struct __pyx_obj_3kdp_Vec3 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("InteriorAngle", 0);
 
-  /* "kdp.pyx":348
+  /* "kdp.pyx":346
  * 
  * 	def InteriorAngle(self, Vec3 other):
  * 		return deref(self.vec).InteriorAngle(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -5885,13 +5885,13 @@ static PyObject *__pyx_pf_3kdp_4Vec3_54InteriorAngle(struct __pyx_obj_3kdp_Vec3 
  * ########################################################################
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).InteriorAngle((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).InteriorAngle((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 346; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":347
+  /* "kdp.pyx":345
  * 		return ret
  * 
  * 	def InteriorAngle(self, Vec3 other):             # <<<<<<<<<<<<<<
@@ -5910,7 +5910,7 @@ static PyObject *__pyx_pf_3kdp_4Vec3_54InteriorAngle(struct __pyx_obj_3kdp_Vec3 
   return __pyx_r;
 }
 
-/* "kdp.pyx":355
+/* "kdp.pyx":353
  * #~ 	cdef shared_ptr[Vec4_c] vec
  * 
  * 	def __cinit__(self, double x0 = 0., double x1 = 0., double x2 = 0., double x3 = 0.):             # <<<<<<<<<<<<<<
@@ -5969,7 +5969,7 @@ static int __pyx_pw_3kdp_4Vec4_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5982,29 +5982,29 @@ static int __pyx_pw_3kdp_4Vec4_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
       }
     }
     if (values[0]) {
-      __pyx_v_x0 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x0 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x0 = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x0 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x0 = ((double)0.);
     }
     if (values[1]) {
-      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x1 = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_x1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x1 = ((double)0.);
     }
     if (values[2]) {
-      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x2 = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_x2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x2 = ((double)0.);
     }
     if (values[3]) {
-      __pyx_v_x3 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_x3 = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_x3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_x3 = ((double)0.);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 353; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec4.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6022,7 +6022,7 @@ static int __pyx_pf_3kdp_4Vec4___cinit__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "kdp.pyx":357
+  /* "kdp.pyx":355
  * 	def __cinit__(self, double x0 = 0., double x1 = 0., double x2 = 0., double x3 = 0.):
  * #~ 		self.vec = shared_ptr[Vec4_c](new Vec4_c(x0, x1, x2, x3))
  * 		self.vec = make_shared[Vec4_c](x0, x1, x2, x3)             # <<<<<<<<<<<<<<
@@ -6031,7 +6031,7 @@ static int __pyx_pf_3kdp_4Vec4___cinit__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
  */
   __pyx_v_self->vec = std::make_shared<kdp::Vec4>(__pyx_v_x0, __pyx_v_x1, __pyx_v_x2, __pyx_v_x3);
 
-  /* "kdp.pyx":355
+  /* "kdp.pyx":353
  * #~ 	cdef shared_ptr[Vec4_c] vec
  * 
  * 	def __cinit__(self, double x0 = 0., double x1 = 0., double x2 = 0., double x3 = 0.):             # <<<<<<<<<<<<<<
@@ -6045,7 +6045,7 @@ static int __pyx_pf_3kdp_4Vec4___cinit__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":360
+/* "kdp.pyx":358
  * 
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):             # <<<<<<<<<<<<<<
@@ -6085,11 +6085,11 @@ static PyObject *__pyx_pw_3kdp_4Vec4_3From_MassP3(CYTHON_UNUSED PyObject *__pyx_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_p3)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("From_MassP3", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("From_MassP3", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "From_MassP3") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "From_MassP3") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6097,18 +6097,18 @@ static PyObject *__pyx_pw_3kdp_4Vec4_3From_MassP3(CYTHON_UNUSED PyObject *__pyx_
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_mass = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_mass == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_mass = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_mass == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __pyx_v_p3 = ((struct __pyx_obj_3kdp_Vec3 *)values[1]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("From_MassP3", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("From_MassP3", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec4.From_MassP3", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p3), __pyx_ptype_3kdp_Vec3, 1, "p3", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p3), __pyx_ptype_3kdp_Vec3, 1, "p3", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_2From_MassP3(__pyx_v_mass, __pyx_v_p3);
 
   /* function exit code */
@@ -6130,19 +6130,19 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2From_MassP3(double __pyx_v_mass, struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("From_MassP3", 0);
 
-  /* "kdp.pyx":361
+  /* "kdp.pyx":359
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):
  * 		ret = Vec4()             # <<<<<<<<<<<<<<
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  * 		ret.vec = make_shared[Vec4_c](mass, deref(p3.vec), V4f2_Mass)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 361; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 359; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = ((struct __pyx_obj_3kdp_Vec4 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":363
+  /* "kdp.pyx":361
  * 		ret = Vec4()
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  * 		ret.vec = make_shared[Vec4_c](mass, deref(p3.vec), V4f2_Mass)             # <<<<<<<<<<<<<<
@@ -6151,7 +6151,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2From_MassP3(double __pyx_v_mass, struct __
  */
   __pyx_v_ret->vec = std::make_shared<kdp::Vec4>(__pyx_v_mass, (*__pyx_v_p3->vec), kdp::Vec4from2::Mass);
 
-  /* "kdp.pyx":364
+  /* "kdp.pyx":362
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  * 		ret.vec = make_shared[Vec4_c](mass, deref(p3.vec), V4f2_Mass)
  * 		return ret             # <<<<<<<<<<<<<<
@@ -6163,7 +6163,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2From_MassP3(double __pyx_v_mass, struct __
   __pyx_r = ((PyObject *)__pyx_v_ret);
   goto __pyx_L0;
 
-  /* "kdp.pyx":360
+  /* "kdp.pyx":358
  * 
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):             # <<<<<<<<<<<<<<
@@ -6183,7 +6183,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2From_MassP3(double __pyx_v_mass, struct __
   return __pyx_r;
 }
 
-/* "kdp.pyx":366
+/* "kdp.pyx":364
  * 		return ret
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -6206,7 +6206,7 @@ static void __pyx_pf_3kdp_4Vec4_4__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "kdp.pyx":367
+  /* "kdp.pyx":365
  * 
  * 	def __dealloc__(self):
  * 		return             # <<<<<<<<<<<<<<
@@ -6215,7 +6215,7 @@ static void __pyx_pf_3kdp_4Vec4_4__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
  */
   goto __pyx_L0;
 
-  /* "kdp.pyx":366
+  /* "kdp.pyx":364
  * 		return ret
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -6228,7 +6228,7 @@ static void __pyx_pf_3kdp_4Vec4_4__dealloc__(CYTHON_UNUSED struct __pyx_obj_3kdp
   __Pyx_RefNannyFinishContext();
 }
 
-/* "kdp.pyx":370
+/* "kdp.pyx":368
  * 
  * 	@staticmethod
  * 	cdef Vec4 Factory(const Vec4_c& orig):             # <<<<<<<<<<<<<<
@@ -6246,19 +6246,19 @@ static struct __pyx_obj_3kdp_Vec4 *__pyx_f_3kdp_4Vec4_Factory(kdp::Vec4 const &_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Factory", 0);
 
-  /* "kdp.pyx":371
+  /* "kdp.pyx":369
  * 	@staticmethod
  * 	cdef Vec4 Factory(const Vec4_c& orig):
  * 		copy = Vec4()             # <<<<<<<<<<<<<<
  * 		deref(copy.vec).assign(orig)
  * 		return copy
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 371; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_copy = ((struct __pyx_obj_3kdp_Vec4 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":372
+  /* "kdp.pyx":370
  * 	cdef Vec4 Factory(const Vec4_c& orig):
  * 		copy = Vec4()
  * 		deref(copy.vec).assign(orig)             # <<<<<<<<<<<<<<
@@ -6267,7 +6267,7 @@ static struct __pyx_obj_3kdp_Vec4 *__pyx_f_3kdp_4Vec4_Factory(kdp::Vec4 const &_
  */
   (*__pyx_v_copy->vec).operator=(__pyx_v_orig);
 
-  /* "kdp.pyx":373
+  /* "kdp.pyx":371
  * 		copy = Vec4()
  * 		deref(copy.vec).assign(orig)
  * 		return copy             # <<<<<<<<<<<<<<
@@ -6279,7 +6279,7 @@ static struct __pyx_obj_3kdp_Vec4 *__pyx_f_3kdp_4Vec4_Factory(kdp::Vec4 const &_
   __pyx_r = __pyx_v_copy;
   goto __pyx_L0;
 
-  /* "kdp.pyx":370
+  /* "kdp.pyx":368
  * 
  * 	@staticmethod
  * 	cdef Vec4 Factory(const Vec4_c& orig):             # <<<<<<<<<<<<<<
@@ -6299,7 +6299,7 @@ static struct __pyx_obj_3kdp_Vec4 *__pyx_f_3kdp_4Vec4_Factory(kdp::Vec4 const &_
   return __pyx_r;
 }
 
-/* "kdp.pyx":375
+/* "kdp.pyx":373
  * 		return copy
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -6329,7 +6329,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_6Copy(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Copy", 0);
 
-  /* "kdp.pyx":376
+  /* "kdp.pyx":374
  * 
  * 	def Copy(self):
  * 		return Vec4.Factory(deref(self.vec))             # <<<<<<<<<<<<<<
@@ -6337,13 +6337,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_6Copy(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
  * 	def __deepcopy__(self, memo):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec4_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 376; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec4_Factory((*__pyx_v_self->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 374; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":375
+  /* "kdp.pyx":373
  * 		return copy
  * 
  * 	def Copy(self):             # <<<<<<<<<<<<<<
@@ -6362,7 +6362,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_6Copy(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":378
+/* "kdp.pyx":376
  * 		return Vec4.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -6394,7 +6394,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_8__deepcopy__(struct __pyx_obj_3kdp_Vec4 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__deepcopy__", 0);
 
-  /* "kdp.pyx":379
+  /* "kdp.pyx":377
  * 
  * 	def __deepcopy__(self, memo):
  * 		return self.Copy()             # <<<<<<<<<<<<<<
@@ -6402,7 +6402,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_8__deepcopy__(struct __pyx_obj_3kdp_Vec4 *_
  * 	def __repr__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 379; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 377; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6415,10 +6415,10 @@ static PyObject *__pyx_pf_3kdp_4Vec4_8__deepcopy__(struct __pyx_obj_3kdp_Vec4 *_
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 379; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 377; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 379; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 377; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6426,7 +6426,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_8__deepcopy__(struct __pyx_obj_3kdp_Vec4 *_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":378
+  /* "kdp.pyx":376
  * 		return Vec4.Factory(deref(self.vec))
  * 
  * 	def __deepcopy__(self, memo):             # <<<<<<<<<<<<<<
@@ -6447,7 +6447,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_8__deepcopy__(struct __pyx_obj_3kdp_Vec4 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":381
+/* "kdp.pyx":379
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -6481,7 +6481,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_10__repr__(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "kdp.pyx":382
+  /* "kdp.pyx":380
  * 
  * 	def __repr__(self):
  * 		return str([self.x0, [self.x1, self.x2, self.x3]])             # <<<<<<<<<<<<<<
@@ -6489,15 +6489,15 @@ static PyObject *__pyx_pf_3kdp_4Vec4_10__repr__(struct __pyx_obj_3kdp_Vec4 *__py
  * 	property x0:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyList_New(3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyList_New(3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -6508,7 +6508,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_10__repr__(struct __pyx_obj_3kdp_Vec4 *__py
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyList_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -6516,19 +6516,19 @@ static PyObject *__pyx_pf_3kdp_4Vec4_10__repr__(struct __pyx_obj_3kdp_Vec4 *__py
   PyList_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyUnicode_Type)), __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":381
+  /* "kdp.pyx":379
  * 		return self.Copy()
  * 
  * 	def __repr__(self):             # <<<<<<<<<<<<<<
@@ -6551,7 +6551,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_10__repr__(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":386
+/* "kdp.pyx":384
  * 	property x0:
  * 		# "A doc string can go here."
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6581,7 +6581,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x0___get__(struct __pyx_obj_3kdp_Vec4 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":387
+  /* "kdp.pyx":385
  * 		# "A doc string can go here."
  * 		def __get__(self):
  * 			return deref(self.vec).x0             # <<<<<<<<<<<<<<
@@ -6589,13 +6589,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x0___get__(struct __pyx_obj_3kdp_Vec4 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 387; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 385; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":386
+  /* "kdp.pyx":384
  * 	property x0:
  * 		# "A doc string can go here."
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6614,7 +6614,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x0___get__(struct __pyx_obj_3kdp_Vec4 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":389
+/* "kdp.pyx":387
  * 			return deref(self.vec).x0
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6644,17 +6644,17 @@ static int __pyx_pf_3kdp_4Vec4_2x0_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":390
+  /* "kdp.pyx":388
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x0 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x1:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 390; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 388; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x0 = __pyx_t_1;
 
-  /* "kdp.pyx":389
+  /* "kdp.pyx":387
  * 			return deref(self.vec).x0
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6673,7 +6673,7 @@ static int __pyx_pf_3kdp_4Vec4_2x0_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":393
+/* "kdp.pyx":391
  * 
  * 	property x1:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6703,7 +6703,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x1___get__(struct __pyx_obj_3kdp_Vec4 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":394
+  /* "kdp.pyx":392
  * 	property x1:
  * 		def __get__(self):
  * 			return deref(self.vec).x1             # <<<<<<<<<<<<<<
@@ -6711,13 +6711,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x1___get__(struct __pyx_obj_3kdp_Vec4 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 394; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 392; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":393
+  /* "kdp.pyx":391
  * 
  * 	property x1:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6736,7 +6736,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x1___get__(struct __pyx_obj_3kdp_Vec4 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":396
+/* "kdp.pyx":394
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6766,17 +6766,17 @@ static int __pyx_pf_3kdp_4Vec4_2x1_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":397
+  /* "kdp.pyx":395
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x1 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x2:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 395; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x1 = __pyx_t_1;
 
-  /* "kdp.pyx":396
+  /* "kdp.pyx":394
  * 			return deref(self.vec).x1
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6795,7 +6795,7 @@ static int __pyx_pf_3kdp_4Vec4_2x1_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":400
+/* "kdp.pyx":398
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6825,7 +6825,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x2___get__(struct __pyx_obj_3kdp_Vec4 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":401
+  /* "kdp.pyx":399
  * 	property x2:
  * 		def __get__(self):
  * 			return deref(self.vec).x2             # <<<<<<<<<<<<<<
@@ -6833,13 +6833,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x2___get__(struct __pyx_obj_3kdp_Vec4 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":400
+  /* "kdp.pyx":398
  * 
  * 	property x2:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6858,7 +6858,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x2___get__(struct __pyx_obj_3kdp_Vec4 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":403
+/* "kdp.pyx":401
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6888,17 +6888,17 @@ static int __pyx_pf_3kdp_4Vec4_2x2_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":404
+  /* "kdp.pyx":402
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x2 = value             # <<<<<<<<<<<<<<
  * 
  * 	property x3:
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x2 = __pyx_t_1;
 
-  /* "kdp.pyx":403
+  /* "kdp.pyx":401
  * 			return deref(self.vec).x2
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -6917,7 +6917,7 @@ static int __pyx_pf_3kdp_4Vec4_2x2_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":407
+/* "kdp.pyx":405
  * 
  * 	property x3:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6947,7 +6947,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x3___get__(struct __pyx_obj_3kdp_Vec4 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "kdp.pyx":408
+  /* "kdp.pyx":406
  * 	property x3:
  * 		def __get__(self):
  * 			return deref(self.vec).x3             # <<<<<<<<<<<<<<
@@ -6955,13 +6955,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x3___get__(struct __pyx_obj_3kdp_Vec4 *__p
  * 		def __set__(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).x3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":407
+  /* "kdp.pyx":405
  * 
  * 	property x3:
  * 		def __get__(self):             # <<<<<<<<<<<<<<
@@ -6980,7 +6980,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_2x3___get__(struct __pyx_obj_3kdp_Vec4 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":410
+/* "kdp.pyx":408
  * 			return deref(self.vec).x3
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -7010,17 +7010,17 @@ static int __pyx_pf_3kdp_4Vec4_2x3_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "kdp.pyx":411
+  /* "kdp.pyx":409
  * 
  * 		def __set__(self, value):
  * 			deref(self.vec).x3 = value             # <<<<<<<<<<<<<<
  * 
  * 	def x(self):
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_value); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   (*__pyx_v_self->vec).x3 = __pyx_t_1;
 
-  /* "kdp.pyx":410
+  /* "kdp.pyx":408
  * 			return deref(self.vec).x3
  * 
  * 		def __set__(self, value):             # <<<<<<<<<<<<<<
@@ -7039,7 +7039,7 @@ static int __pyx_pf_3kdp_4Vec4_2x3_2__set__(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":413
+/* "kdp.pyx":411
  * 			deref(self.vec).x3 = value
  * 
  * 	def x(self):             # <<<<<<<<<<<<<<
@@ -7070,19 +7070,19 @@ static PyObject *__pyx_pf_3kdp_4Vec4_12x(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("x", 0);
 
-  /* "kdp.pyx":414
+  /* "kdp.pyx":412
  * 
  * 	def x(self):
  * 		vec3 = Vec3()             # <<<<<<<<<<<<<<
  * 		vec3.vec = shared_ptr_alias[Vec3_c, Vec4_c](self.vec, <Vec3_c*>(self.vec.get()))
  * 		return vec3
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 414; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec3), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 412; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_vec3 = ((struct __pyx_obj_3kdp_Vec3 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":415
+  /* "kdp.pyx":413
  * 	def x(self):
  * 		vec3 = Vec3()
  * 		vec3.vec = shared_ptr_alias[Vec3_c, Vec4_c](self.vec, <Vec3_c*>(self.vec.get()))             # <<<<<<<<<<<<<<
@@ -7091,7 +7091,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_12x(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
  */
   __pyx_v_vec3->vec = shared_ptr_alias<kdp::Vec3,kdp::Vec4>(__pyx_v_self->vec, ((kdp::Vec3 *)__pyx_v_self->vec.get()));
 
-  /* "kdp.pyx":416
+  /* "kdp.pyx":414
  * 		vec3 = Vec3()
  * 		vec3.vec = shared_ptr_alias[Vec3_c, Vec4_c](self.vec, <Vec3_c*>(self.vec.get()))
  * 		return vec3             # <<<<<<<<<<<<<<
@@ -7103,7 +7103,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_12x(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   __pyx_r = ((PyObject *)__pyx_v_vec3);
   goto __pyx_L0;
 
-  /* "kdp.pyx":413
+  /* "kdp.pyx":411
  * 			deref(self.vec).x3 = value
  * 
  * 	def x(self):             # <<<<<<<<<<<<<<
@@ -7123,7 +7123,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_12x(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":418
+/* "kdp.pyx":416
  * 		return vec3
  * 
  * 	def p(self):             # <<<<<<<<<<<<<<
@@ -7155,7 +7155,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_14p(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("p", 0);
 
-  /* "kdp.pyx":419
+  /* "kdp.pyx":417
  * 
  * 	def p(self):
  * 		return self.x()             # <<<<<<<<<<<<<<
@@ -7163,7 +7163,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_14p(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
  * 	def __iadd__(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_x); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7176,10 +7176,10 @@ static PyObject *__pyx_pf_3kdp_4Vec4_14p(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -7187,7 +7187,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_14p(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":418
+  /* "kdp.pyx":416
  * 		return vec3
  * 
  * 	def p(self):             # <<<<<<<<<<<<<<
@@ -7208,7 +7208,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_14p(struct __pyx_obj_3kdp_Vec4 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":421
+/* "kdp.pyx":419
  * 		return self.x()
  * 
  * 	def __iadd__(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -7225,7 +7225,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_17__iadd__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 421; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_16__iadd__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -7242,7 +7242,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_16__iadd__(struct __pyx_obj_3kdp_Vec4 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iadd__", 0);
 
-  /* "kdp.pyx":422
+  /* "kdp.pyx":420
  * 
  * 	def __iadd__(self, Vec4 other):
  * 		deref(self.vec).addEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -7251,7 +7251,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_16__iadd__(struct __pyx_obj_3kdp_Vec4 *__py
  */
   (*__pyx_v_self->vec).operator+=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":423
+  /* "kdp.pyx":421
  * 	def __iadd__(self, Vec4 other):
  * 		deref(self.vec).addEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -7263,7 +7263,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_16__iadd__(struct __pyx_obj_3kdp_Vec4 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":421
+  /* "kdp.pyx":419
  * 		return self.x()
  * 
  * 	def __iadd__(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -7278,7 +7278,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_16__iadd__(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":425
+/* "kdp.pyx":423
  * 		return self
  * 
  * 	def __isub__(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -7295,7 +7295,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_19__isub__(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 423; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_18__isub__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -7312,7 +7312,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_18__isub__(struct __pyx_obj_3kdp_Vec4 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__isub__", 0);
 
-  /* "kdp.pyx":426
+  /* "kdp.pyx":424
  * 
  * 	def __isub__(self, Vec4 other):
  * 		deref(self.vec).subEquals(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -7321,7 +7321,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_18__isub__(struct __pyx_obj_3kdp_Vec4 *__py
  */
   (*__pyx_v_self->vec).operator-=((*__pyx_v_other->vec));
 
-  /* "kdp.pyx":427
+  /* "kdp.pyx":425
  * 	def __isub__(self, Vec4 other):
  * 		deref(self.vec).subEquals(deref(other.vec))
  * 		return self             # <<<<<<<<<<<<<<
@@ -7333,7 +7333,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_18__isub__(struct __pyx_obj_3kdp_Vec4 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":425
+  /* "kdp.pyx":423
  * 		return self
  * 
  * 	def __isub__(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -7348,7 +7348,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_18__isub__(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":429
+/* "kdp.pyx":427
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -7367,7 +7367,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_21__imul__(PyObject *__pyx_v_self, PyObject
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7387,7 +7387,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_20__imul__(struct __pyx_obj_3kdp_Vec4 *__py
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__imul__", 0);
 
-  /* "kdp.pyx":430
+  /* "kdp.pyx":428
  * 
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)             # <<<<<<<<<<<<<<
@@ -7396,7 +7396,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_20__imul__(struct __pyx_obj_3kdp_Vec4 *__py
  */
   (*__pyx_v_self->vec).operator*=(__pyx_v_scale);
 
-  /* "kdp.pyx":431
+  /* "kdp.pyx":429
  * 	def __imul__(self, double scale):
  * 		deref(self.vec).mulEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -7408,7 +7408,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_20__imul__(struct __pyx_obj_3kdp_Vec4 *__py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":429
+  /* "kdp.pyx":427
  * 		return self
  * 
  * 	def __imul__(self, double scale):             # <<<<<<<<<<<<<<
@@ -7423,7 +7423,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_20__imul__(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":433
+/* "kdp.pyx":431
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -7442,7 +7442,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_23__itruediv__(PyObject *__pyx_v_self, PyOb
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 433; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7462,7 +7462,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_22__itruediv__(struct __pyx_obj_3kdp_Vec4 *
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__itruediv__", 0);
 
-  /* "kdp.pyx":434
+  /* "kdp.pyx":432
  * 
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)             # <<<<<<<<<<<<<<
@@ -7471,7 +7471,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_22__itruediv__(struct __pyx_obj_3kdp_Vec4 *
  */
   (*__pyx_v_self->vec).operator/=(__pyx_v_scale);
 
-  /* "kdp.pyx":435
+  /* "kdp.pyx":433
  * 	def __itruediv__(self, double scale):
  * 		deref(self.vec).divEquals(scale)
  * 		return self             # <<<<<<<<<<<<<<
@@ -7483,7 +7483,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_22__itruediv__(struct __pyx_obj_3kdp_Vec4 *
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "kdp.pyx":433
+  /* "kdp.pyx":431
  * 		return self
  * 
  * 	def __itruediv__(self, double scale):             # <<<<<<<<<<<<<<
@@ -7498,7 +7498,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_22__itruediv__(struct __pyx_obj_3kdp_Vec4 *
   return __pyx_r;
 }
 
-/* "kdp.pyx":437
+/* "kdp.pyx":435
  * 		return self
  * 
  * 	def __add__(Vec4 this, Vec4 that):             # <<<<<<<<<<<<<<
@@ -7515,8 +7515,8 @@ static PyObject *__pyx_pw_3kdp_4Vec4_25__add__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__add__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec4, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec4, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_24__add__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_that));
 
   /* function exit code */
@@ -7540,7 +7540,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__", 0);
 
-  /* "kdp.pyx":438
+  /* "kdp.pyx":436
  * 
  * 	def __add__(Vec4 this, Vec4 that):
  * 		return this.Copy().__iadd__(that)             # <<<<<<<<<<<<<<
@@ -7548,7 +7548,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
  * 	def __sub__(Vec4 this, Vec4 that):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7561,14 +7561,14 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iadd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7582,16 +7582,16 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -7600,7 +7600,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":437
+  /* "kdp.pyx":435
  * 		return self
  * 
  * 	def __add__(Vec4 this, Vec4 that):             # <<<<<<<<<<<<<<
@@ -7622,7 +7622,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_24__add__(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":440
+/* "kdp.pyx":438
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec4 this, Vec4 that):             # <<<<<<<<<<<<<<
@@ -7639,8 +7639,8 @@ static PyObject *__pyx_pw_3kdp_4Vec4_27__sub__(PyObject *__pyx_v_this, PyObject 
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__sub__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec4, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_that), __pyx_ptype_3kdp_Vec4, 1, "that", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_26__sub__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_this), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_that));
 
   /* function exit code */
@@ -7664,7 +7664,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__", 0);
 
-  /* "kdp.pyx":441
+  /* "kdp.pyx":439
  * 
  * 	def __sub__(Vec4 this, Vec4 that):
  * 		return this.Copy().__isub__(that)             # <<<<<<<<<<<<<<
@@ -7672,7 +7672,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
  * 	# Currently, __rmul__ is not supported
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7685,14 +7685,14 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_isub); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -7706,16 +7706,16 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_that)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(((PyObject *)__pyx_v_that));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_that));
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, ((PyObject *)__pyx_v_that));
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -7724,7 +7724,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":440
+  /* "kdp.pyx":438
  * 		return this.Copy().__iadd__(that)
  * 
  * 	def __sub__(Vec4 this, Vec4 that):             # <<<<<<<<<<<<<<
@@ -7746,7 +7746,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_26__sub__(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":444
+/* "kdp.pyx":442
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec4 this, double scale):             # <<<<<<<<<<<<<<
@@ -7765,7 +7765,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_29__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__mul__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7773,7 +7773,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_29__mul__(PyObject *__pyx_v_this, PyObject 
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_28__mul__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -7798,7 +7798,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__", 0);
 
-  /* "kdp.pyx":445
+  /* "kdp.pyx":443
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec4 this, double scale):
  * 		return this.Copy().__imul__(scale)             # <<<<<<<<<<<<<<
@@ -7806,7 +7806,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
  * 	# Note this is truediv, not div
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7819,17 +7819,17 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_imul); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7842,17 +7842,17 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -7861,7 +7861,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":444
+  /* "kdp.pyx":442
  * 
  * 	# Currently, __rmul__ is not supported
  * 	def __mul__(Vec4 this, double scale):             # <<<<<<<<<<<<<<
@@ -7884,7 +7884,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_28__mul__(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":448
+/* "kdp.pyx":446
  * 
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec4 this, double scale):             # <<<<<<<<<<<<<<
@@ -7903,7 +7903,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_31__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__truediv__ (wrapper)", 0);
   assert(__pyx_arg_scale); {
-    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 448; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_scale = __pyx_PyFloat_AsDouble(__pyx_arg_scale); if (unlikely((__pyx_v_scale == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 446; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7911,7 +7911,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_31__truediv__(PyObject *__pyx_v_this, PyObj
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 448; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_this), __pyx_ptype_3kdp_Vec4, 1, "this", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 446; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_30__truediv__(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_this), ((double)__pyx_v_scale));
 
   /* function exit code */
@@ -7936,7 +7936,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__truediv__", 0);
 
-  /* "kdp.pyx":449
+  /* "kdp.pyx":447
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec4 this, double scale):
  * 		return this.Copy().__itruediv__(scale)             # <<<<<<<<<<<<<<
@@ -7944,7 +7944,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
  * 	def __neg__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_this), __pyx_n_s_Copy); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7957,17 +7957,17 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_itruediv); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_scale); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7980,17 +7980,17 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 449; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 447; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -7999,7 +7999,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":448
+  /* "kdp.pyx":446
  * 
  * 	# Note this is truediv, not div
  * 	def __truediv__(Vec4 this, double scale):             # <<<<<<<<<<<<<<
@@ -8022,7 +8022,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_30__truediv__(struct __pyx_obj_3kdp_Vec4 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":451
+/* "kdp.pyx":449
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -8053,19 +8053,19 @@ static PyObject *__pyx_pf_3kdp_4Vec4_32__neg__(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__neg__", 0);
 
-  /* "kdp.pyx":452
+  /* "kdp.pyx":450
  * 
  * 	def __neg__(self):
  * 		ret = Vec4()             # <<<<<<<<<<<<<<
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 452; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 450; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ret = ((struct __pyx_obj_3kdp_Vec4 *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "kdp.pyx":453
+  /* "kdp.pyx":451
  * 	def __neg__(self):
  * 		ret = Vec4()
  * 		deref(ret.vec).assign(-deref(self.vec))             # <<<<<<<<<<<<<<
@@ -8074,7 +8074,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_32__neg__(struct __pyx_obj_3kdp_Vec4 *__pyx
  */
   (*__pyx_v_ret->vec).operator=((-(*__pyx_v_self->vec)));
 
-  /* "kdp.pyx":454
+  /* "kdp.pyx":452
  * 		ret = Vec4()
  * 		deref(ret.vec).assign(-deref(self.vec))
  * 		return ret             # <<<<<<<<<<<<<<
@@ -8086,7 +8086,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_32__neg__(struct __pyx_obj_3kdp_Vec4 *__pyx
   __pyx_r = ((PyObject *)__pyx_v_ret);
   goto __pyx_L0;
 
-  /* "kdp.pyx":451
+  /* "kdp.pyx":449
  * 		return this.Copy().__itruediv__(scale)
  * 
  * 	def __neg__(self):             # <<<<<<<<<<<<<<
@@ -8106,7 +8106,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_32__neg__(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":456
+/* "kdp.pyx":454
  * 		return ret
  * 
  * 	def Length(self):             # <<<<<<<<<<<<<<
@@ -8136,7 +8136,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_34Length(struct __pyx_obj_3kdp_Vec4 *__pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Length", 0);
 
-  /* "kdp.pyx":457
+  /* "kdp.pyx":455
  * 
  * 	def Length(self):
  * 		return deref(self.vec).Length()             # <<<<<<<<<<<<<<
@@ -8144,13 +8144,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_34Length(struct __pyx_obj_3kdp_Vec4 *__pyx_
  * 	def Length2(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 457; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 455; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":456
+  /* "kdp.pyx":454
  * 		return ret
  * 
  * 	def Length(self):             # <<<<<<<<<<<<<<
@@ -8169,7 +8169,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_34Length(struct __pyx_obj_3kdp_Vec4 *__pyx_
   return __pyx_r;
 }
 
-/* "kdp.pyx":459
+/* "kdp.pyx":457
  * 		return deref(self.vec).Length()
  * 
  * 	def Length2(self):             # <<<<<<<<<<<<<<
@@ -8199,7 +8199,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_36Length2(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Length2", 0);
 
-  /* "kdp.pyx":460
+  /* "kdp.pyx":458
  * 
  * 	def Length2(self):
  * 		return deref(self.vec).Length2()             # <<<<<<<<<<<<<<
@@ -8207,13 +8207,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_36Length2(struct __pyx_obj_3kdp_Vec4 *__pyx
  * 	def Mass(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 460; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 458; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":459
+  /* "kdp.pyx":457
  * 		return deref(self.vec).Length()
  * 
  * 	def Length2(self):             # <<<<<<<<<<<<<<
@@ -8232,7 +8232,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_36Length2(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":462
+/* "kdp.pyx":460
  * 		return deref(self.vec).Length2()
  * 
  * 	def Mass(self):             # <<<<<<<<<<<<<<
@@ -8262,7 +8262,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_38Mass(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mass", 0);
 
-  /* "kdp.pyx":463
+  /* "kdp.pyx":461
  * 
  * 	def Mass(self):
  * 		return deref(self.vec).Mass()             # <<<<<<<<<<<<<<
@@ -8270,13 +8270,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_38Mass(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
  * 	def Mass2(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mass()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 463; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mass()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 461; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":462
+  /* "kdp.pyx":460
  * 		return deref(self.vec).Length2()
  * 
  * 	def Mass(self):             # <<<<<<<<<<<<<<
@@ -8295,7 +8295,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_38Mass(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":465
+/* "kdp.pyx":463
  * 		return deref(self.vec).Mass()
  * 
  * 	def Mass2(self):             # <<<<<<<<<<<<<<
@@ -8325,7 +8325,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_40Mass2(struct __pyx_obj_3kdp_Vec4 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Mass2", 0);
 
-  /* "kdp.pyx":466
+  /* "kdp.pyx":464
  * 
  * 	def Mass2(self):
  * 		return deref(self.vec).Mass2()             # <<<<<<<<<<<<<<
@@ -8333,13 +8333,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_40Mass2(struct __pyx_obj_3kdp_Vec4 *__pyx_v
  * 	def Length_T(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mass2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Mass2()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 464; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":465
+  /* "kdp.pyx":463
  * 		return deref(self.vec).Mass()
  * 
  * 	def Mass2(self):             # <<<<<<<<<<<<<<
@@ -8358,7 +8358,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_40Mass2(struct __pyx_obj_3kdp_Vec4 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":468
+/* "kdp.pyx":466
  * 		return deref(self.vec).Mass2()
  * 
  * 	def Length_T(self):             # <<<<<<<<<<<<<<
@@ -8388,7 +8388,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_42Length_T(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Length_T", 0);
 
-  /* "kdp.pyx":469
+  /* "kdp.pyx":467
  * 
  * 	def Length_T(self):
  * 		return deref(self.vec).Length_T()             # <<<<<<<<<<<<<<
@@ -8396,13 +8396,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_42Length_T(struct __pyx_obj_3kdp_Vec4 *__py
  * 	def Length2_T(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length_T()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length_T()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":468
+  /* "kdp.pyx":466
  * 		return deref(self.vec).Mass2()
  * 
  * 	def Length_T(self):             # <<<<<<<<<<<<<<
@@ -8421,7 +8421,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_42Length_T(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":471
+/* "kdp.pyx":469
  * 		return deref(self.vec).Length_T()
  * 
  * 	def Length2_T(self):             # <<<<<<<<<<<<<<
@@ -8451,7 +8451,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_44Length2_T(struct __pyx_obj_3kdp_Vec4 *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Length2_T", 0);
 
-  /* "kdp.pyx":472
+  /* "kdp.pyx":470
  * 
  * 	def Length2_T(self):
  * 		return deref(self.vec).Length2_T()             # <<<<<<<<<<<<<<
@@ -8459,13 +8459,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_44Length2_T(struct __pyx_obj_3kdp_Vec4 *__p
  * 	def Contract(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length2_T()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Length2_T()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":471
+  /* "kdp.pyx":469
  * 		return deref(self.vec).Length_T()
  * 
  * 	def Length2_T(self):             # <<<<<<<<<<<<<<
@@ -8484,7 +8484,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_44Length2_T(struct __pyx_obj_3kdp_Vec4 *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":474
+/* "kdp.pyx":472
  * 		return deref(self.vec).Length2_T()
  * 
  * 	def Contract(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -8501,7 +8501,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_47Contract(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Contract (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_46Contract(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -8522,7 +8522,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_46Contract(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Contract", 0);
 
-  /* "kdp.pyx":475
+  /* "kdp.pyx":473
  * 
  * 	def Contract(self, Vec4 other):
  * 		return deref(self.vec).Contract(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -8530,13 +8530,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_46Contract(struct __pyx_obj_3kdp_Vec4 *__py
  * 	def Beta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Contract((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Contract((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":474
+  /* "kdp.pyx":472
  * 		return deref(self.vec).Length2_T()
  * 
  * 	def Contract(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -8555,7 +8555,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_46Contract(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":477
+/* "kdp.pyx":475
  * 		return deref(self.vec).Contract(deref(other.vec))
  * 
  * 	def Beta(self):             # <<<<<<<<<<<<<<
@@ -8585,7 +8585,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_48Beta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Beta", 0);
 
-  /* "kdp.pyx":478
+  /* "kdp.pyx":476
  * 
  * 	def Beta(self):
  * 		return deref(self.vec).Beta()             # <<<<<<<<<<<<<<
@@ -8593,13 +8593,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_48Beta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
  * 	def BetaVec(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Beta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 478; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Beta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":477
+  /* "kdp.pyx":475
  * 		return deref(self.vec).Contract(deref(other.vec))
  * 
  * 	def Beta(self):             # <<<<<<<<<<<<<<
@@ -8618,7 +8618,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_48Beta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":480
+/* "kdp.pyx":478
  * 		return deref(self.vec).Beta()
  * 
  * 	def BetaVec(self):             # <<<<<<<<<<<<<<
@@ -8648,7 +8648,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_50BetaVec(struct __pyx_obj_3kdp_Vec4 *__pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("BetaVec", 0);
 
-  /* "kdp.pyx":481
+  /* "kdp.pyx":479
  * 
  * 	def BetaVec(self):
  * 		return Vec3.Factory(deref(self.vec).BetaVec())             # <<<<<<<<<<<<<<
@@ -8656,13 +8656,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_50BetaVec(struct __pyx_obj_3kdp_Vec4 *__pyx
  * 	def Rapidity(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory((*__pyx_v_self->vec).BetaVec())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 481; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory((*__pyx_v_self->vec).BetaVec())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 479; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":480
+  /* "kdp.pyx":478
  * 		return deref(self.vec).Beta()
  * 
  * 	def BetaVec(self):             # <<<<<<<<<<<<<<
@@ -8681,7 +8681,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_50BetaVec(struct __pyx_obj_3kdp_Vec4 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":483
+/* "kdp.pyx":481
  * 		return Vec3.Factory(deref(self.vec).BetaVec())
  * 
  * 	def Rapidity(self):             # <<<<<<<<<<<<<<
@@ -8711,7 +8711,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_52Rapidity(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Rapidity", 0);
 
-  /* "kdp.pyx":484
+  /* "kdp.pyx":482
  * 
  * 	def Rapidity(self):
  * 		return deref(self.vec).Rapidity()             # <<<<<<<<<<<<<<
@@ -8719,13 +8719,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_52Rapidity(struct __pyx_obj_3kdp_Vec4 *__py
  * 	def Eta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Rapidity()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 484; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Rapidity()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 482; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":483
+  /* "kdp.pyx":481
  * 		return Vec3.Factory(deref(self.vec).BetaVec())
  * 
  * 	def Rapidity(self):             # <<<<<<<<<<<<<<
@@ -8744,7 +8744,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_52Rapidity(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":486
+/* "kdp.pyx":484
  * 		return deref(self.vec).Rapidity()
  * 
  * 	def Eta(self):             # <<<<<<<<<<<<<<
@@ -8774,7 +8774,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_54Eta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Eta", 0);
 
-  /* "kdp.pyx":487
+  /* "kdp.pyx":485
  * 
  * 	def Eta(self):
  * 		return deref(self.vec).Eta()             # <<<<<<<<<<<<<<
@@ -8782,13 +8782,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_54Eta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
  * 	def Theta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Eta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 487; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Eta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":486
+  /* "kdp.pyx":484
  * 		return deref(self.vec).Rapidity()
  * 
  * 	def Eta(self):             # <<<<<<<<<<<<<<
@@ -8807,7 +8807,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_54Eta(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":489
+/* "kdp.pyx":487
  * 		return deref(self.vec).Eta()
  * 
  * 	def Theta(self):             # <<<<<<<<<<<<<<
@@ -8837,7 +8837,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_56Theta(struct __pyx_obj_3kdp_Vec4 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Theta", 0);
 
-  /* "kdp.pyx":490
+  /* "kdp.pyx":488
  * 
  * 	def Theta(self):
  * 		return deref(self.vec).Theta()             # <<<<<<<<<<<<<<
@@ -8845,13 +8845,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_56Theta(struct __pyx_obj_3kdp_Vec4 *__pyx_v
  * 	def Phi(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Theta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 490; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Theta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 488; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":489
+  /* "kdp.pyx":487
  * 		return deref(self.vec).Eta()
  * 
  * 	def Theta(self):             # <<<<<<<<<<<<<<
@@ -8870,7 +8870,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_56Theta(struct __pyx_obj_3kdp_Vec4 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":492
+/* "kdp.pyx":490
  * 		return deref(self.vec).Theta()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -8900,7 +8900,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_58Phi(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Phi", 0);
 
-  /* "kdp.pyx":493
+  /* "kdp.pyx":491
  * 
  * 	def Phi(self):
  * 		return deref(self.vec).Phi()             # <<<<<<<<<<<<<<
@@ -8908,13 +8908,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_58Phi(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
  * 	def DeltaEta(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 493; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).Phi()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 491; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":492
+  /* "kdp.pyx":490
  * 		return deref(self.vec).Theta()
  * 
  * 	def Phi(self):             # <<<<<<<<<<<<<<
@@ -8933,7 +8933,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_58Phi(struct __pyx_obj_3kdp_Vec4 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":495
+/* "kdp.pyx":493
  * 		return deref(self.vec).Phi()
  * 
  * 	def DeltaEta(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -8950,7 +8950,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_61DeltaEta(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaEta (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 493; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_60DeltaEta(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -8971,7 +8971,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_60DeltaEta(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaEta", 0);
 
-  /* "kdp.pyx":496
+  /* "kdp.pyx":494
  * 
  * 	def DeltaEta(self, Vec4 other):
  * 		return deref(self.vec).DeltaEta(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -8979,13 +8979,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_60DeltaEta(struct __pyx_obj_3kdp_Vec4 *__py
  * 	def DeltaPhi(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaEta((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 496; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaEta((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 494; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":495
+  /* "kdp.pyx":493
  * 		return deref(self.vec).Phi()
  * 
  * 	def DeltaEta(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9004,7 +9004,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_60DeltaEta(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":498
+/* "kdp.pyx":496
  * 		return deref(self.vec).DeltaEta(deref(other.vec))
  * 
  * 	def DeltaPhi(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9021,7 +9021,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_63DeltaPhi(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaPhi (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 498; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 496; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_62DeltaPhi(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -9042,7 +9042,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_62DeltaPhi(struct __pyx_obj_3kdp_Vec4 *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaPhi", 0);
 
-  /* "kdp.pyx":499
+  /* "kdp.pyx":497
  * 
  * 	def DeltaPhi(self, Vec4 other):
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -9050,13 +9050,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_62DeltaPhi(struct __pyx_obj_3kdp_Vec4 *__py
  * 	def DeltaR2_rap(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 499; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaPhi((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 497; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":498
+  /* "kdp.pyx":496
  * 		return deref(self.vec).DeltaEta(deref(other.vec))
  * 
  * 	def DeltaPhi(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9075,7 +9075,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_62DeltaPhi(struct __pyx_obj_3kdp_Vec4 *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":501
+/* "kdp.pyx":499
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def DeltaR2_rap(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9092,7 +9092,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_65DeltaR2_rap(PyObject *__pyx_v_self, PyObj
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaR2_rap (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 501; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 499; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_64DeltaR2_rap(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -9113,7 +9113,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_64DeltaR2_rap(struct __pyx_obj_3kdp_Vec4 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaR2_rap", 0);
 
-  /* "kdp.pyx":502
+  /* "kdp.pyx":500
  * 
  * 	def DeltaR2_rap(self, Vec4 other):
  * 		return deref(self.vec).DeltaR2_rap(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -9121,13 +9121,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_64DeltaR2_rap(struct __pyx_obj_3kdp_Vec4 *_
  * 	def DeltaR_rap(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR2_rap((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 502; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR2_rap((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 500; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":501
+  /* "kdp.pyx":499
  * 		return deref(self.vec).DeltaPhi(deref(other.vec))
  * 
  * 	def DeltaR2_rap(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9146,7 +9146,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_64DeltaR2_rap(struct __pyx_obj_3kdp_Vec4 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":504
+/* "kdp.pyx":502
  * 		return deref(self.vec).DeltaR2_rap(deref(other.vec))
  * 
  * 	def DeltaR_rap(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9163,7 +9163,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_67DeltaR_rap(PyObject *__pyx_v_self, PyObje
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaR_rap (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 504; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 502; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_66DeltaR_rap(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -9184,7 +9184,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_66DeltaR_rap(struct __pyx_obj_3kdp_Vec4 *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaR_rap", 0);
 
-  /* "kdp.pyx":505
+  /* "kdp.pyx":503
  * 
  * 	def DeltaR_rap(self, Vec4 other):
  * 		return deref(self.vec).DeltaR_rap(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -9192,13 +9192,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_66DeltaR_rap(struct __pyx_obj_3kdp_Vec4 *__
  * 	def DeltaR2_pseudo(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR_rap((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 505; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR_rap((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 503; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":504
+  /* "kdp.pyx":502
  * 		return deref(self.vec).DeltaR2_rap(deref(other.vec))
  * 
  * 	def DeltaR_rap(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9217,7 +9217,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_66DeltaR_rap(struct __pyx_obj_3kdp_Vec4 *__
   return __pyx_r;
 }
 
-/* "kdp.pyx":507
+/* "kdp.pyx":505
  * 		return deref(self.vec).DeltaR_rap(deref(other.vec))
  * 
  * 	def DeltaR2_pseudo(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9234,7 +9234,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_69DeltaR2_pseudo(PyObject *__pyx_v_self, Py
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaR2_pseudo (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 507; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 505; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_68DeltaR2_pseudo(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -9255,7 +9255,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_68DeltaR2_pseudo(struct __pyx_obj_3kdp_Vec4
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaR2_pseudo", 0);
 
-  /* "kdp.pyx":508
+  /* "kdp.pyx":506
  * 
  * 	def DeltaR2_pseudo(self, Vec4 other):
  * 		return deref(self.vec).DeltaR2_pseudo(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -9263,13 +9263,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_68DeltaR2_pseudo(struct __pyx_obj_3kdp_Vec4
  * 	def DeltaR_pseudo(self, Vec4 other):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR2_pseudo((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 508; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR2_pseudo((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 506; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":507
+  /* "kdp.pyx":505
  * 		return deref(self.vec).DeltaR_rap(deref(other.vec))
  * 
  * 	def DeltaR2_pseudo(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9288,7 +9288,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_68DeltaR2_pseudo(struct __pyx_obj_3kdp_Vec4
   return __pyx_r;
 }
 
-/* "kdp.pyx":510
+/* "kdp.pyx":508
  * 		return deref(self.vec).DeltaR2_pseudo(deref(other.vec))
  * 
  * 	def DeltaR_pseudo(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9305,7 +9305,7 @@ static PyObject *__pyx_pw_3kdp_4Vec4_71DeltaR_pseudo(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("DeltaR_pseudo (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 510; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_3kdp_Vec4, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 508; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Vec4_70DeltaR_pseudo(((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_other));
 
   /* function exit code */
@@ -9326,7 +9326,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_70DeltaR_pseudo(struct __pyx_obj_3kdp_Vec4 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("DeltaR_pseudo", 0);
 
-  /* "kdp.pyx":511
+  /* "kdp.pyx":509
  * 
  * 	def DeltaR_pseudo(self, Vec4 other):
  * 		return deref(self.vec).DeltaR_pseudo(deref(other.vec))             # <<<<<<<<<<<<<<
@@ -9334,13 +9334,13 @@ static PyObject *__pyx_pf_3kdp_4Vec4_70DeltaR_pseudo(struct __pyx_obj_3kdp_Vec4 
  * 	@staticmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR_pseudo((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble((*__pyx_v_self->vec).DeltaR_pseudo((*__pyx_v_other->vec))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 509; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":510
+  /* "kdp.pyx":508
  * 		return deref(self.vec).DeltaR2_pseudo(deref(other.vec))
  * 
  * 	def DeltaR_pseudo(self, Vec4 other):             # <<<<<<<<<<<<<<
@@ -9359,7 +9359,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_70DeltaR_pseudo(struct __pyx_obj_3kdp_Vec4 
   return __pyx_r;
 }
 
-/* "kdp.pyx":514
+/* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
@@ -9396,18 +9396,18 @@ static PyObject *__pyx_pw_3kdp_4Vec4_73SetLengthRelDiffThreshold(CYTHON_UNUSED P
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SetLengthRelDiffThreshold") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SetLengthRelDiffThreshold") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_newThreshold = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_newThreshold == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_newThreshold = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_newThreshold == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SetLengthRelDiffThreshold", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("SetLengthRelDiffThreshold", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Vec4.SetLengthRelDiffThreshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9433,16 +9433,16 @@ static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SetLengthRelDiffThreshold", 0);
 
-  /* "kdp.pyx":515
+  /* "kdp.pyx":513
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)             # <<<<<<<<<<<<<<
  * 
  * ########################################################################
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_newThreshold); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_newThreshold); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -9455,24 +9455,24 @@ static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "kdp.pyx":514
+  /* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
@@ -9497,7 +9497,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_
   return __pyx_r;
 }
 
-/* "kdp.pyx":521
+/* "kdp.pyx":519
  * cdef class Rot3:
  * 
  * 	def __cinit__(self, Vec3 axis, double angle):             # <<<<<<<<<<<<<<
@@ -9536,11 +9536,11 @@ static int __pyx_pw_3kdp_4Rot3_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_angle)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -9549,17 +9549,17 @@ static int __pyx_pw_3kdp_4Rot3_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_axis = ((struct __pyx_obj_3kdp_Vec3 *)values[0]);
-    __pyx_v_angle = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_angle == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_angle = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_angle == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Rot3.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_axis), __pyx_ptype_3kdp_Vec3, 1, "axis", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_axis), __pyx_ptype_3kdp_Vec3, 1, "axis", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Rot3___cinit__(((struct __pyx_obj_3kdp_Rot3 *)__pyx_v_self), __pyx_v_axis, __pyx_v_angle);
 
   /* function exit code */
@@ -9576,7 +9576,7 @@ static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_sel
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "kdp.pyx":523
+  /* "kdp.pyx":521
  * 	def __cinit__(self, Vec3 axis, double angle):
  * #~ 		self.vec = shared_ptr[Vec4_c](new Vec4_c(x0, x1, x2, x3))
  * 		self.rot = new Rot3_c(deref(axis.vec), angle)             # <<<<<<<<<<<<<<
@@ -9585,7 +9585,7 @@ static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_sel
  */
   __pyx_v_self->rot = new kdp::Rot3((*__pyx_v_axis->vec), __pyx_v_angle);
 
-  /* "kdp.pyx":521
+  /* "kdp.pyx":519
  * cdef class Rot3:
  * 
  * 	def __cinit__(self, Vec3 axis, double angle):             # <<<<<<<<<<<<<<
@@ -9599,7 +9599,7 @@ static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_sel
   return __pyx_r;
 }
 
-/* "kdp.pyx":525
+/* "kdp.pyx":523
  * 		self.rot = new Rot3_c(deref(axis.vec), angle)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -9622,7 +9622,7 @@ static void __pyx_pf_3kdp_4Rot3_2__dealloc__(struct __pyx_obj_3kdp_Rot3 *__pyx_v
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "kdp.pyx":526
+  /* "kdp.pyx":524
  * 
  * 	def __dealloc__(self):
  * 		del self.rot             # <<<<<<<<<<<<<<
@@ -9631,7 +9631,7 @@ static void __pyx_pf_3kdp_4Rot3_2__dealloc__(struct __pyx_obj_3kdp_Rot3 *__pyx_v
  */
   delete __pyx_v_self->rot;
 
-  /* "kdp.pyx":525
+  /* "kdp.pyx":523
  * 		self.rot = new Rot3_c(deref(axis.vec), angle)
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -9643,7 +9643,7 @@ static void __pyx_pf_3kdp_4Rot3_2__dealloc__(struct __pyx_obj_3kdp_Rot3 *__pyx_v
   __Pyx_RefNannyFinishContext();
 }
 
-/* "kdp.pyx":530
+/* "kdp.pyx":528
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):             # <<<<<<<<<<<<<<
@@ -9685,16 +9685,16 @@ static PyObject *__pyx_pw_3kdp_4Rot3_5Make_Vec2Vec(CYTHON_UNUSED PyObject *__pyx
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_v)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_omega)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_Vec2Vec") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Make_Vec2Vec") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -9705,18 +9705,18 @@ static PyObject *__pyx_pw_3kdp_4Rot3_5Make_Vec2Vec(CYTHON_UNUSED PyObject *__pyx
     }
     __pyx_v_u = ((struct __pyx_obj_3kdp_Vec3 *)values[0]);
     __pyx_v_v = ((struct __pyx_obj_3kdp_Vec3 *)values[1]);
-    __pyx_v_omega = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_omega == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_omega = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_omega == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Make_Vec2Vec", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Rot3.Make_Vec2Vec", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u), __pyx_ptype_3kdp_Vec3, 1, "u", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_v), __pyx_ptype_3kdp_Vec3, 1, "v", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_u), __pyx_ptype_3kdp_Vec3, 1, "u", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_v), __pyx_ptype_3kdp_Vec3, 1, "v", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(__pyx_v_u, __pyx_v_v, __pyx_v_omega);
 
   /* function exit code */
@@ -9741,7 +9741,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Make_Vec2Vec", 0);
 
-  /* "kdp.pyx":533
+  /* "kdp.pyx":531
  * 		# Create a dummy rotation object to solve for axis/angle
  * 		# use a pointer so we don't have to declare default ctor for Cython
  * 		cdef Rot3_c* tmp = new Rot3_c(deref(u.vec), deref(v.vec), omega)             # <<<<<<<<<<<<<<
@@ -9750,18 +9750,18 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
  */
   __pyx_v_tmp = new kdp::Rot3((*__pyx_v_u->vec), (*__pyx_v_v->vec), __pyx_v_omega);
 
-  /* "kdp.pyx":534
+  /* "kdp.pyx":532
  * 		# use a pointer so we don't have to declare default ctor for Cython
  * 		cdef Rot3_c* tmp = new Rot3_c(deref(u.vec), deref(v.vec), omega)
  * 		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())             # <<<<<<<<<<<<<<
  * 
  * 		del tmp # must clean
  */
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_tmp->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 534; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_tmp->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_tmp->Angle()); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 534; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_tmp->Angle()); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 534; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -9769,13 +9769,13 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Rot3), __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 534; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Rot3), __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_rot = ((struct __pyx_obj_3kdp_Rot3 *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "kdp.pyx":536
+  /* "kdp.pyx":534
  * 		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())
  * 
  * 		del tmp # must clean             # <<<<<<<<<<<<<<
@@ -9784,7 +9784,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
  */
   delete __pyx_v_tmp;
 
-  /* "kdp.pyx":537
+  /* "kdp.pyx":535
  * 
  * 		del tmp # must clean
  * 		return rot             # <<<<<<<<<<<<<<
@@ -9796,7 +9796,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
   __pyx_r = ((PyObject *)__pyx_v_rot);
   goto __pyx_L0;
 
-  /* "kdp.pyx":530
+  /* "kdp.pyx":528
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):             # <<<<<<<<<<<<<<
@@ -9818,7 +9818,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
   return __pyx_r;
 }
 
-/* "kdp.pyx":539
+/* "kdp.pyx":537
  * 		return rot
  * 
  * 	def __call__(self, Vec3 victim):             # <<<<<<<<<<<<<<
@@ -9854,7 +9854,7 @@ static PyObject *__pyx_pw_3kdp_4Rot3_7__call__(PyObject *__pyx_v_self, PyObject 
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 539; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__call__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 537; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -9865,13 +9865,13 @@ static PyObject *__pyx_pw_3kdp_4Rot3_7__call__(PyObject *__pyx_v_self, PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 539; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 537; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Rot3.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec3, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 539; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec3, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 537; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_4Rot3_6__call__(((struct __pyx_obj_3kdp_Rot3 *)__pyx_v_self), __pyx_v_victim);
 
   /* function exit code */
@@ -9888,7 +9888,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_6__call__(struct __pyx_obj_3kdp_Rot3 *__pyx
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__call__", 0);
 
-  /* "kdp.pyx":540
+  /* "kdp.pyx":538
  * 
  * 	def __call__(self, Vec3 victim):
  * 		self.rot.Rotate(deref(victim.vec))             # <<<<<<<<<<<<<<
@@ -9897,7 +9897,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_6__call__(struct __pyx_obj_3kdp_Rot3 *__pyx
  */
   __pyx_v_self->rot->operator()((*__pyx_v_victim->vec));
 
-  /* "kdp.pyx":541
+  /* "kdp.pyx":539
  * 	def __call__(self, Vec3 victim):
  * 		self.rot.Rotate(deref(victim.vec))
  * 		return victim             # <<<<<<<<<<<<<<
@@ -9909,7 +9909,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_6__call__(struct __pyx_obj_3kdp_Rot3 *__pyx
   __pyx_r = ((PyObject *)__pyx_v_victim);
   goto __pyx_L0;
 
-  /* "kdp.pyx":539
+  /* "kdp.pyx":537
  * 		return rot
  * 
  * 	def __call__(self, Vec3 victim):             # <<<<<<<<<<<<<<
@@ -9924,7 +9924,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_6__call__(struct __pyx_obj_3kdp_Rot3 *__pyx
   return __pyx_r;
 }
 
-/* "kdp.pyx":543
+/* "kdp.pyx":541
  * 		return victim
  * 
  * 	def Axis(self):             # <<<<<<<<<<<<<<
@@ -9954,7 +9954,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_8Axis(struct __pyx_obj_3kdp_Rot3 *__pyx_v_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Axis", 0);
 
-  /* "kdp.pyx":544
+  /* "kdp.pyx":542
  * 
  * 	def Axis(self):
  * 		return Vec3.Factory(self.rot.Axis())             # <<<<<<<<<<<<<<
@@ -9962,13 +9962,13 @@ static PyObject *__pyx_pf_3kdp_4Rot3_8Axis(struct __pyx_obj_3kdp_Rot3 *__pyx_v_s
  * 	def Angle(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->rot->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->rot->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 542; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":543
+  /* "kdp.pyx":541
  * 		return victim
  * 
  * 	def Axis(self):             # <<<<<<<<<<<<<<
@@ -9987,7 +9987,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_8Axis(struct __pyx_obj_3kdp_Rot3 *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":546
+/* "kdp.pyx":544
  * 		return Vec3.Factory(self.rot.Axis())
  * 
  * 	def Angle(self):             # <<<<<<<<<<<<<<
@@ -10017,7 +10017,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_10Angle(struct __pyx_obj_3kdp_Rot3 *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Angle", 0);
 
-  /* "kdp.pyx":547
+  /* "kdp.pyx":545
  * 
  * 	def Angle(self):
  * 		return self.rot.Angle()             # <<<<<<<<<<<<<<
@@ -10025,13 +10025,13 @@ static PyObject *__pyx_pf_3kdp_4Rot3_10Angle(struct __pyx_obj_3kdp_Rot3 *__pyx_v
  * ########################################################################
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->rot->Angle()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 547; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->rot->Angle()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 545; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":546
+  /* "kdp.pyx":544
  * 		return Vec3.Factory(self.rot.Axis())
  * 
  * 	def Angle(self):             # <<<<<<<<<<<<<<
@@ -10050,7 +10050,7 @@ static PyObject *__pyx_pf_3kdp_4Rot3_10Angle(struct __pyx_obj_3kdp_Rot3 *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":553
+/* "kdp.pyx":551
  * cdef class Boost:
  * 
  * 	def __cinit__(self, Vec3 beta):             # <<<<<<<<<<<<<<
@@ -10086,7 +10086,7 @@ static int __pyx_pw_3kdp_5Boost_1__cinit__(PyObject *__pyx_v_self, PyObject *__p
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 553; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -10097,13 +10097,13 @@ static int __pyx_pw_3kdp_5Boost_1__cinit__(PyObject *__pyx_v_self, PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 553; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("kdp.Boost.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_beta), __pyx_ptype_3kdp_Vec3, 1, "beta", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 553; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_beta), __pyx_ptype_3kdp_Vec3, 1, "beta", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_5Boost___cinit__(((struct __pyx_obj_3kdp_Boost *)__pyx_v_self), __pyx_v_beta);
 
   /* function exit code */
@@ -10120,7 +10120,7 @@ static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_s
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "kdp.pyx":554
+  /* "kdp.pyx":552
  * 
  * 	def __cinit__(self, Vec3 beta):
  * 		self.boost = new Boost_c(deref(beta.vec))             # <<<<<<<<<<<<<<
@@ -10129,7 +10129,7 @@ static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_s
  */
   __pyx_v_self->boost = new kdp::Boost((*__pyx_v_beta->vec));
 
-  /* "kdp.pyx":553
+  /* "kdp.pyx":551
  * cdef class Boost:
  * 
  * 	def __cinit__(self, Vec3 beta):             # <<<<<<<<<<<<<<
@@ -10143,7 +10143,7 @@ static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_s
   return __pyx_r;
 }
 
-/* "kdp.pyx":556
+/* "kdp.pyx":554
  * 		self.boost = new Boost_c(deref(beta.vec))
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -10166,7 +10166,7 @@ static void __pyx_pf_3kdp_5Boost_2__dealloc__(struct __pyx_obj_3kdp_Boost *__pyx
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "kdp.pyx":557
+  /* "kdp.pyx":555
  * 
  * 	def __dealloc__(self):
  * 		del self.boost             # <<<<<<<<<<<<<<
@@ -10175,7 +10175,7 @@ static void __pyx_pf_3kdp_5Boost_2__dealloc__(struct __pyx_obj_3kdp_Boost *__pyx
  */
   delete __pyx_v_self->boost;
 
-  /* "kdp.pyx":556
+  /* "kdp.pyx":554
  * 		self.boost = new Boost_c(deref(beta.vec))
  * 
  * 	def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -10187,7 +10187,7 @@ static void __pyx_pf_3kdp_5Boost_2__dealloc__(struct __pyx_obj_3kdp_Boost *__pyx
   __Pyx_RefNannyFinishContext();
 }
 
-/* "kdp.pyx":559
+/* "kdp.pyx":557
  * 		del self.boost
  * 
  * 	def Axis(self):             # <<<<<<<<<<<<<<
@@ -10217,7 +10217,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_4Axis(struct __pyx_obj_3kdp_Boost *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Axis", 0);
 
-  /* "kdp.pyx":560
+  /* "kdp.pyx":558
  * 
  * 	def Axis(self):
  * 		return Vec3.Factory(self.boost.Axis())             # <<<<<<<<<<<<<<
@@ -10225,13 +10225,13 @@ static PyObject *__pyx_pf_3kdp_5Boost_4Axis(struct __pyx_obj_3kdp_Boost *__pyx_v
  * 	def BetaVec(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->boost->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->boost->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 558; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":559
+  /* "kdp.pyx":557
  * 		del self.boost
  * 
  * 	def Axis(self):             # <<<<<<<<<<<<<<
@@ -10250,7 +10250,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_4Axis(struct __pyx_obj_3kdp_Boost *__pyx_v
   return __pyx_r;
 }
 
-/* "kdp.pyx":562
+/* "kdp.pyx":560
  * 		return Vec3.Factory(self.boost.Axis())
  * 
  * 	def BetaVec(self):             # <<<<<<<<<<<<<<
@@ -10280,7 +10280,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_6BetaVec(struct __pyx_obj_3kdp_Boost *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("BetaVec", 0);
 
-  /* "kdp.pyx":563
+  /* "kdp.pyx":561
  * 
  * 	def BetaVec(self):
  * 		return Vec3.Factory(self.boost.BetaVec())             # <<<<<<<<<<<<<<
@@ -10288,13 +10288,13 @@ static PyObject *__pyx_pf_3kdp_5Boost_6BetaVec(struct __pyx_obj_3kdp_Boost *__py
  * 	def Gamma(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->boost->BetaVec())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 563; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_self->boost->BetaVec())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 561; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":562
+  /* "kdp.pyx":560
  * 		return Vec3.Factory(self.boost.Axis())
  * 
  * 	def BetaVec(self):             # <<<<<<<<<<<<<<
@@ -10313,7 +10313,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_6BetaVec(struct __pyx_obj_3kdp_Boost *__py
   return __pyx_r;
 }
 
-/* "kdp.pyx":565
+/* "kdp.pyx":563
  * 		return Vec3.Factory(self.boost.BetaVec())
  * 
  * 	def Gamma(self):             # <<<<<<<<<<<<<<
@@ -10343,7 +10343,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_8Gamma(struct __pyx_obj_3kdp_Boost *__pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Gamma", 0);
 
-  /* "kdp.pyx":566
+  /* "kdp.pyx":564
  * 
  * 	def Gamma(self):
  * 		return self.boost.Gamma()             # <<<<<<<<<<<<<<
@@ -10351,13 +10351,13 @@ static PyObject *__pyx_pf_3kdp_5Boost_8Gamma(struct __pyx_obj_3kdp_Boost *__pyx_
  * 	def Beta(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Gamma()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 566; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Gamma()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 564; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":565
+  /* "kdp.pyx":563
  * 		return Vec3.Factory(self.boost.BetaVec())
  * 
  * 	def Gamma(self):             # <<<<<<<<<<<<<<
@@ -10376,7 +10376,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_8Gamma(struct __pyx_obj_3kdp_Boost *__pyx_
   return __pyx_r;
 }
 
-/* "kdp.pyx":568
+/* "kdp.pyx":566
  * 		return self.boost.Gamma()
  * 
  * 	def Beta(self):             # <<<<<<<<<<<<<<
@@ -10406,7 +10406,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_10Beta(struct __pyx_obj_3kdp_Boost *__pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Beta", 0);
 
-  /* "kdp.pyx":569
+  /* "kdp.pyx":567
  * 
  * 	def Beta(self):
  * 		return self.boost.Beta()             # <<<<<<<<<<<<<<
@@ -10414,13 +10414,13 @@ static PyObject *__pyx_pf_3kdp_5Boost_10Beta(struct __pyx_obj_3kdp_Boost *__pyx_
  * 	def Rapidity(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Beta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 569; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Beta()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 567; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":568
+  /* "kdp.pyx":566
  * 		return self.boost.Gamma()
  * 
  * 	def Beta(self):             # <<<<<<<<<<<<<<
@@ -10439,7 +10439,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_10Beta(struct __pyx_obj_3kdp_Boost *__pyx_
   return __pyx_r;
 }
 
-/* "kdp.pyx":571
+/* "kdp.pyx":569
  * 		return self.boost.Beta()
  * 
  * 	def Rapidity(self):             # <<<<<<<<<<<<<<
@@ -10469,7 +10469,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_12Rapidity(struct __pyx_obj_3kdp_Boost *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Rapidity", 0);
 
-  /* "kdp.pyx":572
+  /* "kdp.pyx":570
  * 
  * 	def Rapidity(self):
  * 		return self.boost.Rapidity()             # <<<<<<<<<<<<<<
@@ -10477,13 +10477,13 @@ static PyObject *__pyx_pf_3kdp_5Boost_12Rapidity(struct __pyx_obj_3kdp_Boost *__
  * 	def Forward(self, Vec4 victim):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Rapidity()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->boost->Rapidity()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "kdp.pyx":571
+  /* "kdp.pyx":569
  * 		return self.boost.Beta()
  * 
  * 	def Rapidity(self):             # <<<<<<<<<<<<<<
@@ -10502,7 +10502,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_12Rapidity(struct __pyx_obj_3kdp_Boost *__
   return __pyx_r;
 }
 
-/* "kdp.pyx":574
+/* "kdp.pyx":572
  * 		return self.boost.Rapidity()
  * 
  * 	def Forward(self, Vec4 victim):             # <<<<<<<<<<<<<<
@@ -10519,7 +10519,7 @@ static PyObject *__pyx_pw_3kdp_5Boost_15Forward(PyObject *__pyx_v_self, PyObject
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Forward (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec4, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 574; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec4, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_5Boost_14Forward(((struct __pyx_obj_3kdp_Boost *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_victim));
 
   /* function exit code */
@@ -10536,7 +10536,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_14Forward(struct __pyx_obj_3kdp_Boost *__p
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Forward", 0);
 
-  /* "kdp.pyx":575
+  /* "kdp.pyx":573
  * 
  * 	def Forward(self, Vec4 victim):
  * 		self.boost.Forward(deref(victim.vec))             # <<<<<<<<<<<<<<
@@ -10545,7 +10545,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_14Forward(struct __pyx_obj_3kdp_Boost *__p
  */
   __pyx_v_self->boost->Forward((*__pyx_v_victim->vec));
 
-  /* "kdp.pyx":576
+  /* "kdp.pyx":574
  * 	def Forward(self, Vec4 victim):
  * 		self.boost.Forward(deref(victim.vec))
  * 		return victim             # <<<<<<<<<<<<<<
@@ -10557,7 +10557,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_14Forward(struct __pyx_obj_3kdp_Boost *__p
   __pyx_r = ((PyObject *)__pyx_v_victim);
   goto __pyx_L0;
 
-  /* "kdp.pyx":574
+  /* "kdp.pyx":572
  * 		return self.boost.Rapidity()
  * 
  * 	def Forward(self, Vec4 victim):             # <<<<<<<<<<<<<<
@@ -10572,7 +10572,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_14Forward(struct __pyx_obj_3kdp_Boost *__p
   return __pyx_r;
 }
 
-/* "kdp.pyx":578
+/* "kdp.pyx":576
  * 		return victim
  * 
  * 	def Backward(self, Vec4 victim):             # <<<<<<<<<<<<<<
@@ -10589,7 +10589,7 @@ static PyObject *__pyx_pw_3kdp_5Boost_17Backward(PyObject *__pyx_v_self, PyObjec
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Backward (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec4, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_victim), __pyx_ptype_3kdp_Vec4, 1, "victim", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_3kdp_5Boost_16Backward(((struct __pyx_obj_3kdp_Boost *)__pyx_v_self), ((struct __pyx_obj_3kdp_Vec4 *)__pyx_v_victim));
 
   /* function exit code */
@@ -10606,7 +10606,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_16Backward(struct __pyx_obj_3kdp_Boost *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("Backward", 0);
 
-  /* "kdp.pyx":579
+  /* "kdp.pyx":577
  * 
  * 	def Backward(self, Vec4 victim):
  * 		self.boost.Backward(deref(victim.vec))             # <<<<<<<<<<<<<<
@@ -10614,7 +10614,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_16Backward(struct __pyx_obj_3kdp_Boost *__
  */
   __pyx_v_self->boost->Backward((*__pyx_v_victim->vec));
 
-  /* "kdp.pyx":580
+  /* "kdp.pyx":578
  * 	def Backward(self, Vec4 victim):
  * 		self.boost.Backward(deref(victim.vec))
  * 		return victim             # <<<<<<<<<<<<<<
@@ -10624,7 +10624,7 @@ static PyObject *__pyx_pf_3kdp_5Boost_16Backward(struct __pyx_obj_3kdp_Boost *__
   __pyx_r = ((PyObject *)__pyx_v_victim);
   goto __pyx_L0;
 
-  /* "kdp.pyx":578
+  /* "kdp.pyx":576
  * 		return victim
  * 
  * 	def Backward(self, Vec4 victim):             # <<<<<<<<<<<<<<
@@ -11582,7 +11582,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -11592,53 +11592,53 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "kdp.pyx":241
+  /* "kdp.pyx":239
  * 
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):             # <<<<<<<<<<<<<<
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  * 
  */
-  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_length, __pyx_n_s_theta, __pyx_n_s_phi); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_length, __pyx_n_s_theta, __pyx_n_s_phi); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_Make_LengthThetaPhi, 241, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_Make_LengthThetaPhi, 239, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "kdp.pyx":360
+  /* "kdp.pyx":358
  * 
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):             # <<<<<<<<<<<<<<
  * 		ret = Vec4()
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  */
-  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_n_s_mass, __pyx_n_s_p3, __pyx_n_s_ret); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__3 = PyTuple_Pack(3, __pyx_n_s_mass, __pyx_n_s_p3, __pyx_n_s_ret); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_From_MassP3, 360, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_From_MassP3, 358, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "kdp.pyx":514
+  /* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_newThreshold); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_newThreshold); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_SetLengthRelDiffThreshold, 514, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_SetLengthRelDiffThreshold, 512, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "kdp.pyx":530
+  /* "kdp.pyx":528
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):             # <<<<<<<<<<<<<<
  * 		# Create a dummy rotation object to solve for axis/angle
  * 		# use a pointer so we don't have to declare default ctor for Cython
  */
-  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_omega, __pyx_n_s_tmp, __pyx_n_s_rot); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(5, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_omega, __pyx_n_s_tmp, __pyx_n_s_rot); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_Make_Vec2Vec, 530, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_keith_Documents_Projects_l, __pyx_n_s_Make_Vec2Vec, 528, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -11742,32 +11742,32 @@ PyMODINIT_FUNC PyInit_kdp(void)
   /*--- Type init code ---*/
   __pyx_vtabptr_3kdp_Vec2 = &__pyx_vtable_3kdp_Vec2;
   __pyx_vtable_3kdp_Vec2.Factory = (struct __pyx_obj_3kdp_Vec2 *(*)(kdp::Vec2 const &))__pyx_f_3kdp_4Vec2_Factory;
-  if (PyType_Ready(&__pyx_type_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_3kdp_Vec2.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec2.tp_dict, __pyx_vtabptr_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Vec2", (PyObject *)&__pyx_type_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec2.tp_dict, __pyx_vtabptr_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Vec2", (PyObject *)&__pyx_type_3kdp_Vec2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_3kdp_Vec2 = &__pyx_type_3kdp_Vec2;
   __pyx_vtabptr_3kdp_Vec3 = &__pyx_vtable_3kdp_Vec3;
   __pyx_vtable_3kdp_Vec3.Factory = (struct __pyx_obj_3kdp_Vec3 *(*)(kdp::Vec3 const &))__pyx_f_3kdp_4Vec3_Factory;
-  if (PyType_Ready(&__pyx_type_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_3kdp_Vec3.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec3.tp_dict, __pyx_vtabptr_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Vec3", (PyObject *)&__pyx_type_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec3.tp_dict, __pyx_vtabptr_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Vec3", (PyObject *)&__pyx_type_3kdp_Vec3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_3kdp_Vec3 = &__pyx_type_3kdp_Vec3;
   __pyx_vtabptr_3kdp_Vec4 = &__pyx_vtable_3kdp_Vec4;
   __pyx_vtable_3kdp_Vec4.Factory = (struct __pyx_obj_3kdp_Vec4 *(*)(kdp::Vec4 const &))__pyx_f_3kdp_4Vec4_Factory;
-  if (PyType_Ready(&__pyx_type_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 352; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 350; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_3kdp_Vec4.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec4.tp_dict, __pyx_vtabptr_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 352; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Vec4", (PyObject *)&__pyx_type_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 352; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_3kdp_Vec4.tp_dict, __pyx_vtabptr_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 350; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Vec4", (PyObject *)&__pyx_type_3kdp_Vec4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 350; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_3kdp_Vec4 = &__pyx_type_3kdp_Vec4;
-  if (PyType_Ready(&__pyx_type_3kdp_Rot3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_3kdp_Rot3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_3kdp_Rot3.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Rot3", (PyObject *)&__pyx_type_3kdp_Rot3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Rot3", (PyObject *)&__pyx_type_3kdp_Rot3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_3kdp_Rot3 = &__pyx_type_3kdp_Rot3;
-  if (PyType_Ready(&__pyx_type_3kdp_Boost) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_3kdp_Boost) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 549; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_3kdp_Boost.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Boost", (PyObject *)&__pyx_type_3kdp_Boost) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Boost", (PyObject *)&__pyx_type_3kdp_Boost) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 549; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_3kdp_Boost = &__pyx_type_3kdp_Boost;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
@@ -11777,235 +11777,235 @@ PyMODINIT_FUNC PyInit_kdp(void)
   if (__Pyx_patch_abc() < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   #endif
 
-  /* "kdp.pyx":241
+  /* "kdp.pyx":239
  * 
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):             # <<<<<<<<<<<<<<
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec3_7Make_LengthThetaPhi, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec3_7Make_LengthThetaPhi, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":240
+  /* "kdp.pyx":238
  * 		return copy
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec3->tp_dict, __pyx_n_s_Make_LengthThetaPhi, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec3->tp_dict, __pyx_n_s_Make_LengthThetaPhi, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec3);
 
-  /* "kdp.pyx":241
+  /* "kdp.pyx":239
  * 
  * 	@staticmethod
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):             # <<<<<<<<<<<<<<
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  * 
  */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec3, __pyx_n_s_Make_LengthThetaPhi); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec3, __pyx_n_s_Make_LengthThetaPhi); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":240
+  /* "kdp.pyx":238
  * 		return copy
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def Make_LengthThetaPhi(double length, double theta, double phi):
  * 		return Vec3.Factory(Vec3_c(length, theta, phi, V3f_LengthThetaPhi))
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec3->tp_dict, __pyx_n_s_Make_LengthThetaPhi, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec3->tp_dict, __pyx_n_s_Make_LengthThetaPhi, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 239; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec3);
 
-  /* "kdp.pyx":360
+  /* "kdp.pyx":358
  * 
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):             # <<<<<<<<<<<<<<
  * 		ret = Vec4()
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec4_3From_MassP3, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec4_3From_MassP3, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":359
+  /* "kdp.pyx":357
  * 		self.vec = make_shared[Vec4_c](x0, x1, x2, x3)
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def From_MassP3(double mass, Vec3 p3):
  * 		ret = Vec4()
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 359; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 359; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_From_MassP3, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_From_MassP3, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec4);
 
-  /* "kdp.pyx":360
+  /* "kdp.pyx":358
  * 
  * 	@staticmethod
  * 	def From_MassP3(double mass, Vec3 p3):             # <<<<<<<<<<<<<<
  * 		ret = Vec4()
  * #~ 		ret.vec = shared_ptr[Vec4_c](new Vec4_c(mass, deref(p3.vec), Mass))
  */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec4, __pyx_n_s_From_MassP3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec4, __pyx_n_s_From_MassP3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":359
+  /* "kdp.pyx":357
  * 		self.vec = make_shared[Vec4_c](x0, x1, x2, x3)
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def From_MassP3(double mass, Vec3 p3):
  * 		ret = Vec4()
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 359; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 359; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_From_MassP3, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_From_MassP3, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 358; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec4);
 
-  /* "kdp.pyx":514
+  /* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec4_73SetLengthRelDiffThreshold, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec4_73SetLengthRelDiffThreshold, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":513
+  /* "kdp.pyx":511
  * 		return deref(self.vec).DeltaR_pseudo(deref(other.vec))
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def SetLengthRelDiffThreshold(double newThreshold):
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_SetLengthRelDiffThreshold, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_SetLengthRelDiffThreshold, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec4);
 
-  /* "kdp.pyx":514
+  /* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec4, __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec4, __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":513
+  /* "kdp.pyx":511
  * 		return deref(self.vec).DeltaR_pseudo(deref(other.vec))
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def SetLengthRelDiffThreshold(double newThreshold):
  * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_SetLengthRelDiffThreshold, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Vec4->tp_dict, __pyx_n_s_SetLengthRelDiffThreshold, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Vec4);
 
-  /* "kdp.pyx":530
+  /* "kdp.pyx":528
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):             # <<<<<<<<<<<<<<
  * 		# Create a dummy rotation object to solve for axis/angle
  * 		# use a pointer so we don't have to declare default ctor for Cython
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Rot3_5Make_Vec2Vec, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Rot3_5Make_Vec2Vec, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":529
+  /* "kdp.pyx":527
  * 
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):
  * 		# Create a dummy rotation object to solve for axis/angle
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 529; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 529; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Rot3->tp_dict, __pyx_n_s_Make_Vec2Vec, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Rot3->tp_dict, __pyx_n_s_Make_Vec2Vec, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Rot3);
 
-  /* "kdp.pyx":530
+  /* "kdp.pyx":528
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):             # <<<<<<<<<<<<<<
  * 		# Create a dummy rotation object to solve for axis/angle
  * 		# use a pointer so we don't have to declare default ctor for Cython
  */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Rot3, __pyx_n_s_Make_Vec2Vec); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Rot3, __pyx_n_s_Make_Vec2Vec); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "kdp.pyx":529
+  /* "kdp.pyx":527
  * 
  * 	# Have to make this to get the axis for vec to vec rotation
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def Make_Vec2Vec(Vec3 u, Vec3 v, double omega):
  * 		# Create a dummy rotation object to solve for axis/angle
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 529; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 529; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_staticmethod, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 527; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Rot3->tp_dict, __pyx_n_s_Make_Vec2Vec, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 530; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_3kdp_Rot3->tp_dict, __pyx_n_s_Make_Vec2Vec, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_3kdp_Rot3);
 

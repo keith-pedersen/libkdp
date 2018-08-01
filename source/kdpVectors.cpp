@@ -590,6 +590,22 @@ real_t kdp::Vector4<real_t>::Beta() const
 }
 
 template<typename real_t>
+real_t kdp::Vector4<real_t>::Beta(kdp::Vector3<real_t> const& p3, real_t const mass)
+{
+									GCC_IGNORE_PUSH(-Wfloat-equal)
+	if(mass < real_t(0))
+		throw std::domain_error("Vector4::Beta(p3, mass): space-like particle.");
+	else if (mass == real_t(0))
+		return real_t(1);
+	else 
+	{
+		real_t const pSquared = p3.Mag2();
+		return std::sqrt(pSquared/(pSquared + kdp::Squared(mass)));
+	}
+									GCC_IGNORE_POP
+}
+
+template<typename real_t>
 kdp::Vector3<real_t> kdp::Vector4<real_t>::BetaVec() const
 {
 	return p() / x0;
@@ -642,14 +658,6 @@ kdp::Vector4<real_t>::operator kdp::Vector4<convertTo>() const
 			//~ (real_t(1) + (gm1 + std::sqrt(gm1*(gm1 + real_t(2))))));
 	//~ }
 //~ }
-
-//~ template<typename real_t>
-//~ real_t kdp::Vector4<real_t>::BetaFrom_Mass_pSquared(real_t const mass, real_t const pSquared)
-//~ {
-	//~ if((mass == real_t(0)) and (pSquared == real_t(0)))
-		//~ return real_t(1);
-	//~ else 
-		//~ return std::sqrt(pSquared/(pSquared + kdp::Squared(mass)));
 
 // Insantiate common types
 template class kdp::Vector4<double>;

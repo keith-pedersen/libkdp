@@ -315,6 +315,7 @@ struct Vector4 : private Vector3<real_t>
    
    real_t Beta() const; //!< @brief Speed \f$ \beta = |\vec{p}|/E \f$
    Vector3<real_t> BetaVec() const; //!< @brief Speed \f$ \vec{beta} = |vec{p}/E \f$
+   static real_t Beta(kdp::Vector3<real_t> const& p3, real_t const mass); //!< @brief More accurate speed from 3-momentum and mass
    
    /*! @brief Rapidity. Difference in rapidity \f$ \Delta y \$ is invariant to longitudinal boosts.
     * 
