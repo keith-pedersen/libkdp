@@ -245,7 +245,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 
 #define __PYX_HAVE__kdp
 #define __PYX_HAVE_API__kdp
-#include "kdp/kdpVectors.hpp"
+#include "kdpVectors.hpp"
 #include <memory>
 #include "shared_ptr_alias.hpp"
 #ifdef _OPENMP

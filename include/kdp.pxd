@@ -1,4 +1,4 @@
-include "kdp/kdpVectors.hpy"
+include "kdpVectors.hpy"
 # This file allows the classes to be used in other Cython files
 # Any cdef class method must be declared here to be used externally, 
 # as must any cdef class member

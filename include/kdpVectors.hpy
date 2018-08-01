@@ -1,6 +1,6 @@
 from libcpp cimport bool # access bool as bool
 
-cdef extern from "kdp/kdpVectors.hpp" namespace "kdp":
+cdef extern from "kdpVectors.hpp" namespace "kdp":
 	
 	#####################################################################
 		
