@@ -60,5 +60,4 @@ except ImportError:
 					  libraries = ['kdp'],
 					  library_dirs = ['./lib'],
 					  extra_compile_args = flags,
-					  language='c++')
-			 ], cmdclass = {'build_ext': build_ext})
+					  language='c++')])
