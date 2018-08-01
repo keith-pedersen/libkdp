@@ -14,25 +14,51 @@
 # This allows me to easily build against and link to the C++ libraries, 
 # and to "import module" from any running Python shell
 
+from sys import version_info
 from distutils.core import setup
 from distutils.extension import Extension
-from Cython.Distutils import build_ext
 
-# This build script leverages the pre-compiled kdp library (libkdp.so), 
-# a library which must be accessible from anywhere you intend to use pYqRand.
-# This keeps the C-compilation of pYqRand.pyx to a minimal (so the Python module is smaller),
-# and allows different compile flags to be used for the Cython build.
+flags = ['-std=c++11', '-mfpmath=sse', '-mieee-fp', '-march=native', '-ftree-vectorize'] # -O2 is default
 
-setup(
-  name = "kdp",
-  ext_modules=[
-    Extension('kdp',
-              sources=['source/kdp.pyx'],
-              include_dirs = ['include/', '/home/keith/local/include/'],
-              libraries = ['kdp'],
-              library_dirs = ['/home/keith/local/lib/'],
-              extra_compile_args=['-std=c++11', '-msse4', '-mavx2', '-mfpmath=sse', '-mieee-fp', '-march=native', '-ftree-vectorize'], # -O2 is default
-              language='c++')
-       ],
-  cmdclass = {'build_ext': build_ext}
-)
+from subprocess import check_output
+# Add CPU specific flags to accelerate vector math
+extraFlags = check_output(["sh", "getSSE_AVX.sh"]).split()
+
+# convert 'bytes' to string in python3, and 
+if (version_info > (3, 0)):
+	for i in range(len(extraFlags)):	
+		extraFlags[i] = extraFlags[i].decode()		
+		
+flags += extraFlags
+
+try:
+	from Cython.Distutils import build_ext
+
+	# This build script leverages the pre-compiled kdp library (libkdp.so), 
+	# a library which must be accessible from anywhere you intend to use pYqRand.
+	# This keeps the C-compilation of pYqRand.pyx to a minimal (so the Python module is smaller),
+	# and allows different compile flags to be used for the Cython build.
+
+	setup(
+	  name = "kdp",
+	  ext_modules=[
+		 Extension('kdp',
+					  sources=['source/kdp.pyx'],
+					  include_dirs = ['./include/'],
+					  libraries = ['kdp'],
+					  library_dirs = ['./lib'],
+					  extra_compile_args=flags,
+					  language='c++')
+			 ], cmdclass = {'build_ext': build_ext})
+except ImportError:
+	setup(
+	  name = "kdp",
+	  ext_modules=[
+		 Extension('kdp',
+					  sources=['source/kdp.cpp'],
+					  include_dirs = ['./include/'],
+					  libraries = ['kdp'],
+					  library_dirs = ['./lib'],
+					  extra_compile_args = flags,
+					  language='c++')
+			 ], cmdclass = {'build_ext': build_ext})
