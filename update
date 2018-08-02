@@ -1,0 +1,4 @@
+#!/bin/bash
+# This batch rebuilds everything
+make clean
+./install

@@ -176,7 +176,7 @@ struct Vector3 : protected Vector2<real_t>
    
    /*! @brief Pseudorapidity
     * 
-    *  \f$ \eta = \text{arctanh}\left(\frac{\tt vec.x3}{\tt vec.T().Mag()}\right) \f$
+    *  \f$ \eta = {\rm arctanh}\left(\frac{\tt vec.x3}{\tt vec.T().Mag()}\right) \f$
     * 
     *  \return (+/- infinity) for a particle parallel to z-axis 
     *  (the only way to define +/- z^ using Vec3from::LengthEtaPhi).
