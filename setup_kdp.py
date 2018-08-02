@@ -1,5 +1,5 @@
 # run this script via
-# 		$ python3 setup_kdp.py build_ext --inplace
+# 		$ python3 setup_kdp.py build_ext --build-lib=./lib
 # (or via command python2 if you want a python2 library).
 # This creates a shared library kdp.so, whose objects (Vec2, Vec3, Vec4) can be imported via
 # 		>>> from kdp import *
@@ -44,7 +44,7 @@ try:
 	  ext_modules=[
 		 Extension('kdp',
 					  sources=['source/kdp.pyx'],
-					  include_dirs = ['./include/'],
+					  include_dirs = ['./include'],
 					  libraries = ['kdp'],
 					  library_dirs = ['./lib'],
 					  extra_compile_args=flags,
@@ -56,7 +56,7 @@ except ImportError:
 	  ext_modules=[
 		 Extension('kdp',
 					  sources=['source/kdp.cpp'],
-					  include_dirs = ['./include/'],
+					  include_dirs = ['./include'],
 					  libraries = ['kdp'],
 					  library_dirs = ['./lib'],
 					  extra_compile_args = flags,
