@@ -851,15 +851,20 @@ template<typename real_t>
 kdp::Vector4<real_t>& kdp::LorentzBoost<real_t>::Boost_sign(Vector4<real_t>& victim, 
 	real_t const sign) const
 {
-	// sign = -1 indicates a backward boost, which alters the sign of beta
-	real_t const betaGamma_thisBoost = std::copysign(betaGamma, sign);
-	
-	// (29.07.2018 @ 21:36) Tripe-checked math and corrected sign error
-	real_t const p_L = victim.p().Dot(axis);
-	// CAREFUL: must alter momentum first, because x0 is used for new-p calculation 
-	// (whereas p_L is previously calculated for new-x0 calculation).
-	victim.p() += axis * (betaGamma_thisBoost * victim.x0 + gamma_m_1 * p_L);
-	victim.x0 += gamma_m_1 * victim.x0 + betaGamma_thisBoost * p_L;
+												GCC_IGNORE_PUSH(-Wfloat-equal)
+	if(betaGamma not_eq real_t(0))
+	{
+		// sign = -1 indicates a backward boost, which alters the sign of beta
+		real_t const betaGamma_thisBoost = std::copysign(betaGamma, sign);
+		
+		// (29.07.2018 @ 21:36) Tripe-checked math and corrected sign error
+		real_t const p_L = victim.p().Dot(axis);
+		// CAREFUL: must alter momentum first, because x0 is used for new-p calculation 
+		// (whereas p_L is previously calculated for new-x0 calculation).
+		victim.p() += axis * (betaGamma_thisBoost * victim.x0 + gamma_m_1 * p_L);
+		victim.x0 += gamma_m_1 * victim.x0 + betaGamma_thisBoost * p_L;
+	}
+												GCC_IGNORE_POP
 	return victim;
 }
 

@@ -10,4 +10,8 @@ build/
 *.zip
 *.bak
 *.log
+*.aux
+*.dvi
+*.histo2D
+doc/html/
 compiler.errors
