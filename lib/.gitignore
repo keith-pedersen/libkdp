@@ -1,4 +1,4 @@
 # This .gitignore exists so that git tracks the empty lib directory, 
 # and therefore creates it when the repository is cloned, 
 # because the Makefile will fail if the lib directory is not there.
-libkdp.so
+*.so
