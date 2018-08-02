@@ -246,6 +246,10 @@ static CYTHON_INLINE float __PYX_NAN() {
 #define __PYX_HAVE__kdp
 #define __PYX_HAVE_API__kdp
 #include "kdpVectors.hpp"
+#include "ios"
+#include "new"
+#include "stdexcept"
+#include "typeinfo"
 #include <memory>
 #include "shared_ptr_alias.hpp"
 #ifdef _OPENMP
@@ -710,6 +714,45 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
 #include <new>
+
+#ifndef __Pyx_CppExn2PyErr
+#include <new>
+#include <typeinfo>
+#include <stdexcept>
+#include <ios>
+static void __Pyx_CppExn2PyErr() {
+  try {
+    if (PyErr_Occurred())
+      ; // let the latest Python exn pass through and ignore the current one
+    else
+      throw;
+  } catch (const std::bad_alloc& exn) {
+    PyErr_SetString(PyExc_MemoryError, exn.what());
+  } catch (const std::bad_cast& exn) {
+    PyErr_SetString(PyExc_TypeError, exn.what());
+  } catch (const std::domain_error& exn) {
+    PyErr_SetString(PyExc_ValueError, exn.what());
+  } catch (const std::invalid_argument& exn) {
+    PyErr_SetString(PyExc_ValueError, exn.what());
+  } catch (const std::ios_base::failure& exn) {
+    PyErr_SetString(PyExc_IOError, exn.what());
+  } catch (const std::out_of_range& exn) {
+    PyErr_SetString(PyExc_IndexError, exn.what());
+  } catch (const std::overflow_error& exn) {
+    PyErr_SetString(PyExc_OverflowError, exn.what());
+  } catch (const std::range_error& exn) {
+    PyErr_SetString(PyExc_ArithmeticError, exn.what());
+  } catch (const std::underflow_error& exn) {
+    PyErr_SetString(PyExc_ArithmeticError, exn.what());
+  } catch (const std::exception& exn) {
+    PyErr_SetString(PyExc_RuntimeError, exn.what());
+  }
+  catch (...)
+  {
+    PyErr_SetString(PyExc_RuntimeError, "Unknown exception");
+  }
+}
+#endif
 
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
@@ -9574,6 +9617,10 @@ static int __pyx_pw_3kdp_4Rot3_1__cinit__(PyObject *__pyx_v_self, PyObject *__py
 static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_self, struct __pyx_obj_3kdp_Vec3 *__pyx_v_axis, double __pyx_v_angle) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
+  kdp::Rot3 *__pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "kdp.pyx":521
@@ -9583,7 +9630,13 @@ static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_sel
  * 
  * 	def __dealloc__(self):
  */
-  __pyx_v_self->rot = new kdp::Rot3((*__pyx_v_axis->vec), __pyx_v_angle);
+  try {
+    __pyx_t_1 = new kdp::Rot3((*__pyx_v_axis->vec), __pyx_v_angle);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __pyx_v_self->rot = __pyx_t_1;
 
   /* "kdp.pyx":519
  * cdef class Rot3:
@@ -9595,6 +9648,11 @@ static int __pyx_pf_3kdp_4Rot3___cinit__(struct __pyx_obj_3kdp_Rot3 *__pyx_v_sel
 
   /* function exit code */
   __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("kdp.Rot3.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -9733,9 +9791,10 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
   struct __pyx_obj_3kdp_Rot3 *__pyx_v_rot = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  kdp::Rot3 *__pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9748,7 +9807,13 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
  * 		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())
  * 
  */
-  __pyx_v_tmp = new kdp::Rot3((*__pyx_v_u->vec), (*__pyx_v_v->vec), __pyx_v_omega);
+  try {
+    __pyx_t_1 = new kdp::Rot3((*__pyx_v_u->vec), (*__pyx_v_v->vec), __pyx_v_omega);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __pyx_v_tmp = __pyx_t_1;
 
   /* "kdp.pyx":532
  * 		# use a pointer so we don't have to declare default ctor for Cython
@@ -9757,23 +9822,23 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
  * 
  * 		del tmp # must clean
  */
-  __pyx_t_1 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_tmp->Axis())); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_tmp->Angle()); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = ((PyObject *)__pyx_f_3kdp_4Vec3_Factory(__pyx_v_tmp->Axis())); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_tmp->Angle()); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
-  __pyx_t_1 = 0;
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Rot3), __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_rot = ((struct __pyx_obj_3kdp_Rot3 *)__pyx_t_2);
-  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_3kdp_Rot3), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 532; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_v_rot = ((struct __pyx_obj_3kdp_Rot3 *)__pyx_t_3);
+  __pyx_t_3 = 0;
 
   /* "kdp.pyx":534
  * 		rot = Rot3(Vec3.Factory(tmp.Axis()), tmp.Angle())
@@ -9806,9 +9871,9 @@ static PyObject *__pyx_pf_3kdp_4Rot3_4Make_Vec2Vec(struct __pyx_obj_3kdp_Vec3 *_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("kdp.Rot3.Make_Vec2Vec", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -10118,6 +10183,10 @@ static int __pyx_pw_3kdp_5Boost_1__cinit__(PyObject *__pyx_v_self, PyObject *__p
 static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_self, struct __pyx_obj_3kdp_Vec3 *__pyx_v_beta) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
+  kdp::Boost *__pyx_t_1;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
   /* "kdp.pyx":552
@@ -10127,7 +10196,13 @@ static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_s
  * 
  * 	def __dealloc__(self):
  */
-  __pyx_v_self->boost = new kdp::Boost((*__pyx_v_beta->vec));
+  try {
+    __pyx_t_1 = new kdp::Boost((*__pyx_v_beta->vec));
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 552; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __pyx_v_self->boost = __pyx_t_1;
 
   /* "kdp.pyx":551
  * cdef class Boost:
@@ -10139,6 +10214,11 @@ static int __pyx_pf_3kdp_5Boost___cinit__(struct __pyx_obj_3kdp_Boost *__pyx_v_s
 
   /* function exit code */
   __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("kdp.Boost.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
