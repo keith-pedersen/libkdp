@@ -143,8 +143,8 @@ cdef extern from "kdpVectors.hpp" namespace "kdp":
 		Vec4_c()
 		Vec4_c(bool)
 		Vec4_c(const double, const double, const double, const double)
-		Vec4_c(const double, const double, const double, const double, const Vec4from4)
-		Vec4_c(const double, const Vec3_c&, const Vec4from2)
+		Vec4_c(const double, const double, const double, const double, const Vec4from4) except +
+		Vec4_c(const double, const Vec3_c&, const Vec4from2) except +
 		
 		Vec4_c& assign "operator=" (const Vec4_c&)
 		
@@ -187,13 +187,13 @@ cdef extern from "kdpVectors.hpp" namespace "kdp":
 		double DeltaR_pseudo(const Vec4_c&) const
 		
 		@staticmethod
-		void SetLengthRelDiffThreshold(const double newThreshold)
+		void SetLengthRelDiffThreshold(const double newThreshold) except +
 		
 	#####################################################################
 
 	cdef cppclass Rot3_c "kdp::Rot3":
-		Rot3_c(const Vec3_c&, const Vec3_c&, const double)
-		Rot3_c(const Vec3_c&, const double)
+		Rot3_c(const Vec3_c&, const Vec3_c&, const double) except +
+		Rot3_c(const Vec3_c&, const double) except +
 		
 		Vec3_c& Rotate "operator()" (Vec3_c& victim) const
 				
@@ -201,8 +201,8 @@ cdef extern from "kdpVectors.hpp" namespace "kdp":
 		double Angle() const
 		
 	cdef cppclass Boost_c "kdp::Boost":
-		Boost_c(const Vec3_c& beta)
-		Boost_c(const Vec3_c& axis, const double gamma)
+		Boost_c(const Vec3_c& beta) except +
+		Boost_c(const Vec3_c& axis, const double gamma) except +
 		
 		const Vec3_c& Axis() const
 		const Vec3_c& BetaVec() const

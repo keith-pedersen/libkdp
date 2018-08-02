@@ -369,6 +369,9 @@ kdp::Vector4<real_t>::Vector4(real_t const w0, real_t const w1, real_t const w2,
 				// w1 -> eta
 				// w2 -> phi
 				// w3 -> mass
+				if(w3 > w0)
+					throw std::invalid_argument("Vector4 (from 4): mass is greater than energy.");
+				
 				real_t const momentum = (w3 == real_t(0)) ? w0 : std::sqrt(kdp::Diff2(w0, w3));
 				x() = Vector3<real_t>(momentum, w1, w2, Vec3from::LengthEtaPhi);
 			}
@@ -678,6 +681,11 @@ kdp::Rotate3<real_t>::Rotate3(vec3_t const& axis_in, real_t const psi):
 	oneMcos_psi(real_t(2)*kdp::Squared(std::sin(real_t(0.5)*psi))), // Better precision for 1 - cos(x)
 	sin_psi(std::sin(psi))
 {
+									GCC_IGNORE_PUSH(-Wfloat-equal)
+	if(axis.Mag2() == 0.)
+		throw std::invalid_argument("Rotate3: no rotation can be defined ... null axis.");
+									GCC_IGNORE_POP		
+		
 	axis.Normalize();
 }
 

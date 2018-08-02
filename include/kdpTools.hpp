@@ -119,6 +119,10 @@ namespace kdp
  * 
  *  As of July 2018, the Python library includes all the classes in 
  *  kdpVectors.hpp, but none of the other classes or functions.
+ *  
+ *  \warning If compiling to a python2 library, 
+ *  only "true" division is supported for vector classes.
+ *  To activate true division, one can launch "python -Qnew".
 */ 
 
 // Reminder: If there is a non-templated function or class we wish to include here, 
