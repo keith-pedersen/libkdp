@@ -458,6 +458,17 @@ class LorentzBoost
 		Vector4<real_t>& Backward(Vector4<real_t>& victim) const;
 		//! @brief Boost the \p victim by -Beta()
 		Vector4<real_t> Backward(Vector4<real_t> const& orig) const;
+		
+		//! @brief Boost a massless \p victim by Beta()
+		Vector3<real_t>& Forward(Vector3<real_t>& victim) const;
+		//! @brief Boost a massless \p victim by Beta()
+		Vector3<real_t> Forward(Vector3<real_t> const& orig) const;
+		
+		//! @brief Boost a massless \p victim by -Beta()
+		Vector3<real_t>& Backward(Vector3<real_t>& victim) const;
+		//! @brief Boost a massless \p victim by -Beta()
+		Vector3<real_t> Backward(Vector3<real_t> const& orig) const;
+		
 };
 
 typedef kdp::LorentzBoost<double> Boost;

@@ -894,5 +894,37 @@ kdp::Vector4<real_t> kdp::LorentzBoost<real_t>::Backward(Vector4<real_t> const& 
 	return this->Backward(victim);
 }
 
+template<typename real_t>
+kdp::Vector3<real_t>& kdp::LorentzBoost<real_t>::Forward(Vector3<real_t>& victim) const
+{
+	kdp::Vector4<real_t> p4(victim);
+	Forward(p4);
+	return (victim = p4.p());
+}
+
+template<typename real_t>
+kdp::Vector3<real_t>& kdp::LorentzBoost<real_t>::Backward(Vector3<real_t>& victim) const
+{
+	kdp::Vector4<real_t> p4(victim);
+	Backward(p4);
+	return (victim = p4.p());
+}
+
+template<typename real_t>
+kdp::Vector3<real_t> kdp::LorentzBoost<real_t>::Forward(Vector3<real_t> const& orig) const
+{
+	kdp::Vector4<real_t> p4(orig);
+	Forward(p4);
+	return p4.p();
+}
+
+template<typename real_t>
+kdp::Vector3<real_t> kdp::LorentzBoost<real_t>::Backward(Vector3<real_t> const& orig) const
+{
+	kdp::Vector4<real_t> p4(orig);
+	Backward(p4);
+	return p4.p();
+}
+
 template class kdp::LorentzBoost<float>;
 template class kdp::LorentzBoost<double>;
