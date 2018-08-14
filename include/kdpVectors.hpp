@@ -64,6 +64,9 @@ enum class Vec2from {LengthPhi}; // Add more options as needed
 template<typename real_t>
 struct Vector2
 {
+	// This check also covers all derived classes and Rotate3 and LorentzBoost
+	static_assert(std::is_floating_point<real_t>::value, "kdp::Vector: real_t must be a floating point type");
+	
    real_t x1;
    real_t x2;
 
