@@ -396,6 +396,25 @@ constexpr bool IsPowerOfTwo(uint_t const x)
 
 ////////////////////////////////////////////////////////////////////////
 
+/*! @brief The fastest remainder when the divisor is a power-of-two
+ * 
+ *  \warning This math only works for a power-of-two divisor, 
+ *  so to keep this operation safe, we statically verify the power-of-two.
+*/ 
+template<size_t powerOfTwo, typename uint_t>
+constexpr uint_t Remainder_PowerOfTwo(uint_t const x)
+{
+	static_assert(std::is_integral<uint_t>::value, "Remainder_PowerOfTwo: must be an integer type");
+	static_assert(not std::numeric_limits<uint_t>::is_signed, "Remainder_PowerOfTwo: must be an UN-signed integer type");
+	static_assert(kdp::IsPowerOfTwo(powerOfTwo), "Remainder_PowerOfTwo: divisor must be a power-of-two");
+	static_assert(powerOfTwo <= size_t(std::numeric_limits<uint_t>::max()), 
+		"Remainder_PowerOfTwo: powerOfTwo must fit in the unsigned integer type");
+	
+	return (x bitand (uint_t(powerOfTwo) - 1));
+}
+
+////////////////////////////////////////////////////////////////////////
+
 /*! @brief Binary accumulate a std::array with \p size = (exact power of 2).
  * 
  *  @warning The array (passed by ref) is accumulated in place (i.e. destructively altered).

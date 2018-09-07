@@ -10,6 +10,7 @@
 #include <limits>
 #include <iostream>
 #include <assert.h>
+#include <algorithm>
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	  ____                        
@@ -428,37 +429,54 @@ content& kdp::HistoVec<content>::FindBin(edge_t const val)
 
 		if(val >= binSpecs.range.min)
 		{
-			auto leftEdge = minEdge;
-
-			// For UNIFORM/LOG_UNIFORM bins, no need to search every edge
-			// However, there might be rounding error while calculating the bin. 
-			// Start with the calculated/expected bin and make sure we
-			// search past it. This will catch bin shifts to the left or right.
-
-			if(binSpecs.binType == BinType::UNIFORM)
+			if(binSpecs.binType == BinType::NON_UNIFORM)
 			{
-				leftEdge += size_t((val - binSpecs.range.min)/binSpecs.binWidth);
+				/* For non-uniform bins, use std::upper_bound 
+				 * (first edge > val, which finds the upper edge, so we have to subtract 1).
+				 * If no value compares greater, we will land on the overflow bin.
+				 * This assumes that upper_bound has the fastest search algorithm
+				 * (knowing exactly when to transition from binary to linear search).
+				 * Not only is this a good assumption, testing reveals that upper_bound
+				 * can be up to twice as fast as the linear search it replaced.
+				 */ 
+				bin += (size_t(std::upper_bound(binSpecs.edges.cbegin(), binSpecs.edges.cend(), val) 
+					- binSpecs.edges.cbegin()) - 1lu);
 			}
-			else if(binSpecs.binType == BinType::LOG_UNIFORM)
+			else
 			{
-				++bin; // minEdge skipped the zero bin
+				auto leftEdge = minEdge;
 
-				// This is actually slower, if there are less than about 100 bins
-				// But it has constant execution time, for larger number of bins
-				leftEdge += size_t(std::log(val/binSpecs.range.min)/binSpecs.binWidth);            
+				// For UNIFORM/LOG_UNIFORM bins, no need to search every edge
+				// However, there might be rounding error while calculating the bin. 
+				// Start with the calculated/expected bin (minus 1, to catch rounding left error) 
+				// and search past it. This will catch bin shifts to the left or right.
+
+				if(binSpecs.binType == BinType::UNIFORM)
+				{
+					leftEdge += (size_t((val - binSpecs.range.min)/binSpecs.binWidth) - 1);
+				}
+				else if(binSpecs.binType == BinType::LOG_UNIFORM)
+				{
+					++bin; // minEdge skipped the zero bin
+
+					// This is actually slower, if there are less than about 100 bins
+					// But it has constant execution time, for larger number of bins
+					leftEdge += (size_t(std::log(val/binSpecs.range.min)/binSpecs.binWidth) - 1);
+				}
+
+				// Keep moving the left edge until it is to our right
+				// Because +inf is the final value in the edge list,
+				// and we already checked for overflow,
+				// we do not need an extra check to prevent running off the list
+
+				while(val >= *leftEdge) ++leftEdge;
+				bin += size_t(leftEdge - minEdge);
 			}
-
-			// Keep moving the left edge until it is to our right
-			// Because +inf is the final value in the edge list,
-			// and we already checked for overflow,
-			// we do not need an extra check to prevent running off the list
-
-			while(val >= *leftEdge) ++leftEdge;
-			bin += size_t(leftEdge - minEdge);
 		}
 		else if((binSpecs.binType == BinType::LOG_UNIFORM) and (val >= 0.)) ++bin;
 		// For LOG_UNIFORM, use the zero bin [0, min)
 
+	assert(bin < this->end());
 	return *bin;
 	}
 }
