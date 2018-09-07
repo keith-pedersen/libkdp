@@ -246,8 +246,11 @@ struct WeightError
 	WeightError(weight_t const weight_in, weight_t const error2_in):
 		weight(weight_in), error2(error2_in) {}
 
-	// We can divide WeightError (mostly useful for efficiency plots)
+	// We can divide WeightError (e.g. for efficiency plots)
 	WeightError& operator/=(WeightError const& that);
+	
+	// We can add WeightError (e.g. for combining results from multiple threads)
+	WeightError& operator+=(WeightError const& that);
 };
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -433,7 +436,14 @@ class Histogram1 : public Histogram_base
 		// Minimal ctor (writeScale = 1., norm = PDF)
 		Histogram1(std::string const& name,
 			BinSpecs const& xBinSpecs,
-			Normalize const norm_in = Normalize::PDF);            
+			Normalize const norm_in = Normalize::PDF);
+		
+		// Unnamed, non-writing histogram
+		Histogram1(BinSpecs const& xBinSpecs,
+			Normalize const norm_in = Normalize::PDF);
+			
+		Histogram1(Histogram1&&) = default;
+		Histogram1& operator=(Histogram1&&) = default;
 
 		~Histogram1() {AutomaticWrite();}
 
@@ -444,6 +454,8 @@ class Histogram1 : public Histogram_base
 		//! @brief Divide this by that to create (and immediately write)
 		//! a histogram storing their ratio
 		void WriteRatio(Histogram1 const& that, std::string const& newName) const;
+		
+		Histogram1& operator += (Histogram1 const& that);
 		
 		void Write();         
 };

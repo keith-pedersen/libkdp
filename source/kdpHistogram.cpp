@@ -401,13 +401,27 @@ kdp::WeightError& kdp::WeightError::operator /= (WeightError const& that)
 	if(this->weight > 0.) 
 	{
 		// For * and /, *relative* errors add in quadrature
-		// distribute for dz^2:   dZ/z = sqrt((dx/x)^2 + (dy/y)^2)
-		// Note: a^2/b^2 is more accurate than (a/b)^2
+		//    dz/z = sqrt((dx/x)**2 + (dy/y)**2)    (x=this, y=that, z = x/y)
+		//    dz**2 = (x**2/y**2)*(dx**2/x**2 + dy**2/y**2)
+		//          = (dx**2/y**2 + dy**2*x**2/y**4)
+		//          = (dx**2 + dy**2*x**2/y**2)/y**2
+		// Note: a**2/b**2 is more accurate than (a/b)**2
 		this->error2 = 
 			std::fma(that.error2, kdp::Squared(this->weight)/kdp::Squared(that.weight), this->error2)/
 				kdp::Squared(that.weight);
 		this->weight = this->weight / that.weight;
 	}
+	return *this;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+kdp::WeightError& kdp::WeightError::operator += (WeightError const& that)
+{
+	// For + and -, *absolute* errors add in quadrature
+	//    dz**2 = dx**2 + dy**2
+	this->error2 += that.error2;
+	this->weight += that.weight;
 	return *this;
 }
 
@@ -544,17 +558,22 @@ fileName(fileName_in),
 totalWeight(totalWeight_in), writeScale(writeScale_in), norm(norm_in),
 written(false)
 {
-	// nameMutex resturns false in the 2nd position if the name has already been used
-	if(not (fileNameMutex.insert(fileName).second))
-		RTExcept("another KDPHistogram is already using this fileName");
+	// If fileName is blank, then this is a non-writing histogram
+	// (used only for reading or adding to other histograms)
+	if(fileName_in.size())
+	{
+		// nameMutex resturns false in the 2nd position if the name has already been used
+		if(not (fileNameMutex.insert(fileName).second))
+			RTExcept("another KDPHistogram is already using this fileName");
 
-	// Clear the file, if it already exists, and ensure we have write privileges
-	if(not(std::ofstream(fileName.c_str(), std::ios::out | std::ios::trunc)))
-		RTExcept("cannot open file (" + fileName  +") for writing");
-	// Now remove the empty file, in case the histogram isn't used
-	// (because then it won't be written, which will be easier to detect
-	// if there is no file there
-	std::remove(fileName.c_str());
+		// Clear the file, if it already exists, and ensure we have write privileges
+		if(not(std::ofstream(fileName.c_str(), std::ios::out | std::ios::trunc)))
+			RTExcept("cannot open file (" + fileName  +") for writing");
+		// Now remove the empty file, in case the histogram isn't used
+		// (because then it won't be written, which will be easier to detect
+		// if there is no file there
+		std::remove(fileName.c_str());
+	}
 }
 
 void kdp::Histogram_base::RTExcept(std::string const& info) const
@@ -587,8 +606,9 @@ void kdp::Histogram_base::AutomaticWrite()
 		// Don't erase fileName, so we don't screw ourselves within a single run
 			// fileNameMutex.erase(fileName);
 
-		// Write if no write was manual requested, and if weight has been binned
-		if((not written) and (totalWeight > 0.))
+		// Write if no write was manual requested, and if weight has been binned, 
+		// AND if we have been supplied a non-empty fileName
+		if((not written) and (totalWeight > 0.) and bool(fileName.size()))
 			this->Write(); // This should not throw an exception, but it might
 	}
 	catch(std::exception const& e)
@@ -667,6 +687,8 @@ kdp::Histogram1::Histogram1(std::string const& name,
   Normalize const norm_in):
 Histogram1(name, xBinSpecs, 1., norm_in) {}
 
+kdp::Histogram1::Histogram1(BinSpecs const& xBinSpecs, Normalize const norm_in):
+Histogram_base(std::string(), 0., 1., norm_in), hist(xBinSpecs) {}
 
 void kdp::Histogram1::Fill(edge_t const x, weight_t const weight,
 	weight_t const error)
@@ -679,6 +701,21 @@ void kdp::Histogram1::Fill(edge_t const x, weight_t const weight,
 	WeightError& bin = hist.FindBin(x);
 	bin.weight += weight;
 	bin.error2 += error*error;
+}
+
+kdp::Histogram1& kdp::Histogram1::operator += (Histogram1 const& that)
+{
+	// Cannot divide histograms unless they have identical BinSpecs
+	if(this->hist.binSpecs not_eq that.hist.binSpecs)
+		RTExcept("Cannot add (" + that.fileName + ") to (" +
+			this->fileName + ") ... incompatible bin specs.");
+			
+	for(size_t i = 0; i < hist.size(); ++i)
+		hist[i] += that.hist[i];
+		
+	totalWeight += that.totalWeight;
+	
+	return *this;
 }
 
 // Divide two histograms to create a new histogram with their ratio
@@ -702,6 +739,9 @@ void kdp::Histogram1::WriteRatio(Histogram1 const& that,
 
 void kdp::Histogram1::Write()
 {
+	if(fileName.empty())
+		RTExcept("No file path supplied; nowhere to write");
+	
 	// We already checked we could write to the file,
 	// there are no exceptions to generate, and we shouldn't encounter any
 	std::ofstream outFile;
