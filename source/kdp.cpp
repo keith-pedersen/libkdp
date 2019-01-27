@@ -9406,7 +9406,7 @@ static PyObject *__pyx_pf_3kdp_4Vec4_70DeltaR_pseudo(struct __pyx_obj_3kdp_Vec4 
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
 
@@ -9466,11 +9466,6 @@ static PyObject *__pyx_pw_3kdp_4Vec4_73SetLengthRelDiffThreshold(CYTHON_UNUSED P
 static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_newThreshold) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9479,47 +9474,22 @@ static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_
   /* "kdp.pyx":513
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)             # <<<<<<<<<<<<<<
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)             # <<<<<<<<<<<<<<
  * 
  * ########################################################################
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3kdp_Vec4), __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyFloat_FromDouble(__pyx_v_newThreshold); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = NULL;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
+  try {
+    kdp::Vec4::SetLengthRelDiffThreshold(__pyx_v_newThreshold);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GOTREF(__pyx_t_1);
-  } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_3);
-    __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 513; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "kdp.pyx":512
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
 
@@ -9527,11 +9497,6 @@ static PyObject *__pyx_pf_3kdp_4Vec4_72SetLengthRelDiffThreshold(double __pyx_v_
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("kdp.Vec4.SetLengthRelDiffThreshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -11700,7 +11665,7 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
   __pyx_tuple__5 = PyTuple_Pack(1, __pyx_n_s_newThreshold); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -11977,7 +11942,7 @@ PyMODINIT_FUNC PyInit_kdp(void)
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
   __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3kdp_4Vec4_73SetLengthRelDiffThreshold, NULL, __pyx_n_s_kdp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -11988,7 +11953,7 @@ PyMODINIT_FUNC PyInit_kdp(void)
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def SetLengthRelDiffThreshold(double newThreshold):
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  */
   __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
@@ -12006,7 +11971,7 @@ PyMODINIT_FUNC PyInit_kdp(void)
  * 
  * 	@staticmethod
  * 	def SetLengthRelDiffThreshold(double newThreshold):             # <<<<<<<<<<<<<<
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  * 
  */
   __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_3kdp_Vec4, __pyx_n_s_SetLengthRelDiffThreshold); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -12017,7 +11982,7 @@ PyMODINIT_FUNC PyInit_kdp(void)
  * 
  * 	@staticmethod             # <<<<<<<<<<<<<<
  * 	def SetLengthRelDiffThreshold(double newThreshold):
- * 		Vec4.SetLengthRelDiffThreshold(newThreshold)
+ * 		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
  */
   __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);

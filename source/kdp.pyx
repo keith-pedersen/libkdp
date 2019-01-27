@@ -510,7 +510,7 @@ cdef class Vec4:
 		
 	@staticmethod
 	def SetLengthRelDiffThreshold(double newThreshold):
-		Vec4.SetLengthRelDiffThreshold(newThreshold)
+		Vec4_c.SetLengthRelDiffThreshold(newThreshold)
 		
 ########################################################################
 		

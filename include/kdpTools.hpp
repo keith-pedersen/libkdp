@@ -372,7 +372,7 @@ uint_t LargestBit(uint_t x)
 	
 	// We can start with the smallest set bit and move on from there
 	uint_t largestBit = SmallestSetBit(x);
-	x /= (2 * largestBit);
+	x /= (2 * largestBit); // Clear the largest known bit from the number
 	
 	while(x)
 	{
